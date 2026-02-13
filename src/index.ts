@@ -32,7 +32,7 @@ async function main() {
   let processedCount = 0;
 
   for (const sec of securities) {
-    console.log("Processing", sec);
+    // console.log("Processing", sec);
     if (sec.isRetired) continue;
     if (!sec.isin) {
       console.log(`Skipping ${sec.name} (no ISIN).`);

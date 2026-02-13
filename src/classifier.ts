@@ -9,7 +9,7 @@ interface StockConfig {
   sourcePath?: string;
   isSingleValue?: boolean;
   value?: string | string[]; // For static values
-  mapping?: Record<string, string | string[]>;
+  mapping?: Record<string, string | string[]> | string;
 }
 
 interface TaxonomyConfig {
@@ -19,7 +19,7 @@ interface TaxonomyConfig {
   keyField: string;
   valueField: string;
   filter?: Record<string, any>;
-  mapping: Record<string, string | string[]>;
+  mapping: Record<string, string | string[]> | string;
   // Stock config
   stockConfig?: StockConfig;
 }
@@ -28,11 +28,27 @@ export class Classifier {
   private xmlHandler: XMLHandler;
   private api: MorningstarAPI;
   private taxonomiesConfig: Record<string, TaxonomyConfig>;
+  private globalMappings: Record<string, Record<string, string | string[]>>;
 
   constructor(xmlHandler: XMLHandler, api: MorningstarAPI) {
     this.xmlHandler = xmlHandler;
     this.api = api;
     this.taxonomiesConfig = config.get("taxonomies");
+    this.globalMappings = config.has("mappings") ? config.get("mappings") : {};
+  }
+
+  private getMapping(
+    mappingOrKey: Record<string, string | string[]> | string | undefined,
+  ): Record<string, string | string[]> {
+    if (!mappingOrKey) return {};
+    if (typeof mappingOrKey === "string") {
+      if (this.globalMappings[mappingOrKey]) {
+        return this.globalMappings[mappingOrKey];
+      }
+      console.warn(`    [Config] Mapping key '${mappingOrKey}' not found in global mappings.`);
+      return {};
+    }
+    return mappingOrKey;
   }
 
   public async classifySecurity(security: PPSecurity) {
@@ -89,16 +105,18 @@ export class Classifier {
       }
 
       // 3. Map and Assign
+      const mapping = this.getMapping(taxConfig.mapping);
       for (const item of itemsToProcess) {
         const key = item[taxConfig.keyField];
         const value = parseFloat(item[taxConfig.valueField]);
 
         if (key && value > 0) {
-          if (taxConfig.mapping[key]) {
-            const targetClass = taxConfig.mapping[key];
-            const path = Array.isArray(targetClass) ? targetClass : [targetClass];
-
-            this.xmlHandler.assignSecurityToTaxonomy(taxonomyName, path, security.uuid, value * 100);
+          if (key in mapping) {
+            const targetClass = mapping[key];
+            if (targetClass) {
+              const path = Array.isArray(targetClass) ? targetClass : [targetClass];
+              this.xmlHandler.assignSecurityToTaxonomy(taxonomyName, path, security.uuid, value * 100);
+            }
           } else {
             console.log(`    [${taxonomyName}] Unmapped key: '${key}' (Value: ${value})`);
           }
@@ -142,8 +160,9 @@ export class Classifier {
           key = get(data, stockConfig.sourcePath);
         }
 
-        if (key && stockConfig.mapping[key]) {
-          const targetClass = stockConfig.mapping[key];
+        const mapping = this.getMapping(stockConfig.mapping);
+        if (key && mapping[key]) {
+          const targetClass = mapping[key];
           const path = Array.isArray(targetClass) ? targetClass : [targetClass];
           this.xmlHandler.assignSecurityToTaxonomy(taxonomyName, path, security.uuid, 10000); // 100% weight
         } else if (key) {

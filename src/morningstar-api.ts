@@ -33,6 +33,7 @@ export class MorningstarAPI {
 
       if (match && match[1]) {
         this.bearerToken = match[1];
+        console.log("Got Bearer Token:", this.bearerToken);
         return this.bearerToken;
       } else {
         throw new Error("Token regex failed");
@@ -63,11 +64,12 @@ export class MorningstarAPI {
       const response = await axios.get(url, { params, headers });
       if (response.data && response.data.length > 0) {
         const securityInfo = response.data[0];
-        if (securityInfo.Type == "Stock") console.debug(securityInfo);
+        // if (securityInfo.Type == "Stock") console.debug(securityInfo);
+        if (isin == "US5949181045") console.debug("US5949181045", securityInfo);
         return {
           type: securityInfo.Type as "Fund" | "Stock",
           data: securityInfo,
-          secid: securityInfo.SecId || isin, // Fallback to ISIN if SecId is missing (SAL API often accepts ISIN)
+          secid: securityInfo.Id || isin, // Fallback to ISIN if SecId is missing (SAL API often accepts ISIN)
         };
       }
       // If response is empty (200 OK but no data), try fallback
