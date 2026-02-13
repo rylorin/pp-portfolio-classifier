@@ -48,10 +48,10 @@
         "15-ignored": "Developed Markets"
       },
       "stockConfig": {
-        "salEndpoint": "stock/companyProfile",
-        "sourcePath": "contact.country",
+        "sourcePath": "Country",
         "isSingleValue": true,
         "mapping": {
+          "USA": "United States",
           "UnitedStates": "United States",
           "Germany": "Europe Developed EMU",
           "Taiwan": "Asia Developed",
@@ -81,8 +81,7 @@
         "311": ["Technology"]
       },
       "stockConfig": {
-        "salEndpoint": "stock/equityOverview",
-        "sourcePath": "sector",
+        "sourcePath": "Sector.SectorName",
         "isSingleValue": true,
         "mapping": {
           "Basic Materials": ["Basic Materials"],
@@ -100,6 +99,7 @@
       }
     },
     "Country": {
+      "active": true,
       "url": "https://www.emea-api.morningstar.com/ecint/v1/securities/{isin}",
       "viewid": "ITsnapshot",
       "viewid-stocks": "snapshot",

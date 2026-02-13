@@ -198,6 +198,7 @@
       <wkn>909800</wkn>
       <feed>MANUAL</feed>
       <prices/>
+      <latestFeed>MANUAL</latestFeed>
       <latest t="2026-02-12" v="37626000000">
         <high>37924000000</high>
         <low>37429000000</low>
@@ -208,7 +209,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:45:19.627801Z</updatedAt>
+      <updatedAt>2026-02-13T12:09:38.578943Z</updatedAt>
     </security>
     <security>
       <uuid>eaaefc9f-9d52-48cd-84ac-0926db8aafa6</uuid>

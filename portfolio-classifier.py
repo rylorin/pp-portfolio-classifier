@@ -1586,7 +1586,6 @@ class SecurityHoldingReport:
               # use corresponding id (secid or isin)
               url = url.replace("{secid}", secid)			
               if taxonomy.get('component2'): params['component'] = taxonomy['component2']
-              print(url, params)
               resp = requests.get(url, params=params, headers=headers)
               if resp.status_code != 200:                
                   print(f"  Warning: Issues with retrieval of {secid} from sal-service [{resp.status_code}]")
