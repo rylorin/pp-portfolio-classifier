@@ -695,121 +695,6 @@
   <plans/>
   <taxonomies>
     <taxonomy>
-      <id>d6660fb4-50f6-4606-b366-85170ffb8f67</id>
-      <name>Stock Style</name>
-      <dimensions/>
-      <root>
-        <id>618e3366-21b8-4dbd-9ad3-b97490558edc</id>
-        <name>Stock Style</name>
-        <color>#89afee</color>
-        <children>
-          <classification>
-            <id>bd3f86b9-8895-4cb7-ae3d-fe1bbffb72d1</id>
-            <name>Large Value</name>
-            <color>#1a5fb4</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>0</rank>
-          </classification>
-          <classification>
-            <id>43238c98-7318-4587-95db-6e2ffc415900</id>
-            <name>Large Blend</name>
-            <color>#3584e4</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>1</rank>
-          </classification>
-          <classification>
-            <id>92c03b10-ed5c-483f-b6b4-a2467f0a1fb4</id>
-            <name>Large Growth</name>
-            <color>#99c1f1</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>3</rank>
-          </classification>
-          <classification>
-            <id>0ceac11f-b11f-453d-b6bc-9098c4eafbff</id>
-            <name>Mid-Cap Value</name>
-            <color>#26a269</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>5</rank>
-          </classification>
-          <classification>
-            <id>ce43c80b-2b0e-4f9d-a019-4fb3db7e0cc6</id>
-            <name>Mid-Cap Blend</name>
-            <color>#33d17a</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>6</rank>
-          </classification>
-          <classification>
-            <id>80c1ea35-5b26-492c-8a69-e51af08aa258</id>
-            <name>Mid-Cap Growth</name>
-            <color>#8ff0a4</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>7</rank>
-          </classification>
-          <classification>
-            <id>8d0a6b30-1767-46d2-a329-8ed29627e650</id>
-            <name>Small Value</name>
-            <color>#e66100</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>8</rank>
-          </classification>
-          <classification>
-            <id>659bee78-c16b-4ab7-8cf5-805d44bc5465</id>
-            <name>Small Blend</name>
-            <color>#ff7800</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>9</rank>
-          </classification>
-          <classification>
-            <id>74c8583d-b314-42d0-8b31-9ef591504192</id>
-            <name>Small Growth</name>
-            <color>#ffbe6f</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>10</rank>
-          </classification>
-          <classification>
-            <id>3c1f8211-c23a-4df2-94fc-bb65976ee965</id>
-            <name>NONSENSE</name>
-            <color>#ca8cfe</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>11</rank>
-          </classification>
-        </children>
-        <assignments/>
-        <weight>10000</weight>
-        <rank>0</rank>
-      </root>
-    </taxonomy>
-    <taxonomy>
       <id>c9a4b8d4-1eaa-4e1c-8c6e-e453b337ea22</id>
       <name>Sector</name>
       <dimensions/>
@@ -1567,6 +1452,121 @@
             <assignments/>
             <weight>0</weight>
             <rank>51</rank>
+          </classification>
+        </children>
+        <assignments/>
+        <weight>10000</weight>
+        <rank>0</rank>
+      </root>
+    </taxonomy>
+    <taxonomy>
+      <id>d6660fb4-50f6-4606-b366-85170ffb8f67</id>
+      <name>Stock Style</name>
+      <dimensions/>
+      <root>
+        <id>618e3366-21b8-4dbd-9ad3-b97490558edc</id>
+        <name>Stock Style</name>
+        <color>#89afee</color>
+        <children>
+          <classification>
+            <id>bd3f86b9-8895-4cb7-ae3d-fe1bbffb72d1</id>
+            <name>Large Value</name>
+            <color>#1a5fb4</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>0</rank>
+          </classification>
+          <classification>
+            <id>43238c98-7318-4587-95db-6e2ffc415900</id>
+            <name>Large Blend</name>
+            <color>#3584e4</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>1</rank>
+          </classification>
+          <classification>
+            <id>92c03b10-ed5c-483f-b6b4-a2467f0a1fb4</id>
+            <name>Large Growth</name>
+            <color>#99c1f1</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>3</rank>
+          </classification>
+          <classification>
+            <id>0ceac11f-b11f-453d-b6bc-9098c4eafbff</id>
+            <name>Mid-Cap Value</name>
+            <color>#26a269</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>5</rank>
+          </classification>
+          <classification>
+            <id>ce43c80b-2b0e-4f9d-a019-4fb3db7e0cc6</id>
+            <name>Mid-Cap Blend</name>
+            <color>#33d17a</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>6</rank>
+          </classification>
+          <classification>
+            <id>80c1ea35-5b26-492c-8a69-e51af08aa258</id>
+            <name>Mid-Cap Growth</name>
+            <color>#8ff0a4</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>7</rank>
+          </classification>
+          <classification>
+            <id>8d0a6b30-1767-46d2-a329-8ed29627e650</id>
+            <name>Small Value</name>
+            <color>#e66100</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>8</rank>
+          </classification>
+          <classification>
+            <id>659bee78-c16b-4ab7-8cf5-805d44bc5465</id>
+            <name>Small Blend</name>
+            <color>#ff7800</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>9</rank>
+          </classification>
+          <classification>
+            <id>74c8583d-b314-42d0-8b31-9ef591504192</id>
+            <name>Small Growth</name>
+            <color>#ffbe6f</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>10</rank>
+          </classification>
+          <classification>
+            <id>3c1f8211-c23a-4df2-94fc-bb65976ee965</id>
+            <name>NONSENSE</name>
+            <color>#ca8cfe</color>
+            <parent reference="../../.."/>
+            <children/>
+            <assignments/>
+            <weight>0</weight>
+            <rank>11</rank>
           </classification>
         </children>
         <assignments/>

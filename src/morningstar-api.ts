@@ -64,8 +64,6 @@ export class MorningstarAPI {
       const response = await axios.get(url, { params, headers });
       if (response.data && response.data.length > 0) {
         const securityInfo = response.data[0];
-        // if (securityInfo.Type == "Stock") console.debug(securityInfo);
-        if (isin == "US5949181045") console.debug("US5949181045", securityInfo);
         return {
           type: securityInfo.Type as "Fund" | "Stock",
           data: securityInfo,

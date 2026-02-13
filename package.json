@@ -1,23 +1,23 @@
 {
-  "name": "pp-portfolio-classifier-ts",
-  "version": "0.1.0",
+  "name": "pp-portfolio-classifier",
+  "version": "0.0.1",
   "description": "Classifier automatique pour Portfolio Performance via Morningstar API",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node src/index.ts",
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "start": "ts-node src/index.ts"
   },
   "dependencies": {
     "axios": "^1.6.0",
-    "config": "^3.3.9",
-    "fast-xml-parser": "^4.3.2",
+    "config": "^4.3.0",
+    "fast-xml-parser": "^5.3.5",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/config": "^3.3.3",
     "@types/lodash": "^4.14.200",
-    "@types/node": "^20.8.0",
+    "@types/node": "^22.19.11",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }
