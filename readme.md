@@ -50,7 +50,15 @@ This is ideal for adapting category names to your language or personal preferenc
       "8": "Autres",
       "99": "Autres"
     }
-  }
+  },
+  "taxonomies": {
+    "region": {
+      "active": true,
+      "name": "Région"
+    },
+    "sector": {
+      "active": false,
+    }
 }
 ```
 
@@ -59,7 +67,7 @@ This is ideal for adapting category names to your language or personal preferenc
 To run the classification on your portfolio file:
 
 ```bash
-npm start -- <path_to_your_portfolio.xml> [output_path.xml]
+yarn start -- <path_to_your_portfolio.xml> [output_path.xml]
 
 ```
 

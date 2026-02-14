@@ -4,3 +4,4 @@ pp_data_fetched.csv
 pp_classified*.xml
 node_modules/
 /test/multifaktortest.*.xml
+/config/local.json

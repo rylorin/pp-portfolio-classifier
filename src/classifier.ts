@@ -14,6 +14,7 @@ interface StockConfig {
 
 interface TaxonomyConfig {
   active: boolean;
+  name: string;
   // Fund config
   sourcePath: string;
   keyField: string;
@@ -70,17 +71,17 @@ export class Classifier {
   }
 
   private async classifyFund(security: PPSecurity, data: any) {
-    for (const [taxonomyName, taxConfig] of Object.entries(this.taxonomiesConfig)) {
+    for (const [taxonomyId, taxConfig] of Object.entries(this.taxonomiesConfig)) {
       if (!taxConfig.active) continue;
 
       // 1. Extract Data
       const sourceData = get(data, taxConfig.sourcePath);
       if (!sourceData) {
-        console.warn(`    [${taxonomyName}] No data found at path '${taxConfig.sourcePath}'`);
+        console.warn(`    [${taxonomyId}] No data found at path '${taxConfig.sourcePath}'`);
         continue;
       }
       if (!Array.isArray(sourceData)) {
-        console.warn(`    [${taxonomyName}] Data at '${taxConfig.sourcePath}' is not an array.`);
+        console.warn(`    [${taxonomyId}] Data at '${taxConfig.sourcePath}' is not an array.`);
         continue;
       }
 
@@ -91,7 +92,7 @@ export class Classifier {
       }
 
       if (filteredData.length === 0) {
-        console.log(`    [${taxonomyName}] No items match the filter.`);
+        console.log(`    [${taxonomyId}] No items match the filter.`);
         continue;
       }
 
@@ -115,10 +116,10 @@ export class Classifier {
             const targetClass = mapping[key];
             if (targetClass) {
               const path = Array.isArray(targetClass) ? targetClass : [targetClass];
-              this.xmlHandler.assignSecurityToTaxonomy(taxonomyName, path, security.uuid, value * 100);
+              this.xmlHandler.assignSecurityToTaxonomy(taxConfig.name || taxonomyId, path, security.uuid, value * 100);
             }
           } else {
-            console.log(`    [${taxonomyName}] Unmapped key: '${key}' (Value: ${value})`);
+            console.log(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${value})`);
           }
         }
       }
@@ -131,7 +132,7 @@ export class Classifier {
       return;
     }
 
-    for (const [taxonomyName, taxConfig] of Object.entries(this.taxonomiesConfig)) {
+    for (const [taxonomyId, taxConfig] of Object.entries(this.taxonomiesConfig)) {
       if (!taxConfig.active || !taxConfig.stockConfig) continue;
 
       const stockConfig = taxConfig.stockConfig;
@@ -139,19 +140,19 @@ export class Classifier {
       if (stockConfig.isSingleValue && stockConfig.value) {
         // Case 1: Static value (e.g., Asset Type is always 'Stocks')
         const path = Array.isArray(stockConfig.value) ? stockConfig.value : [stockConfig.value];
-        this.xmlHandler.assignSecurityToTaxonomy(taxonomyName, path, security.uuid, 10000);
+        this.xmlHandler.assignSecurityToTaxonomy(taxConfig.name || taxonomyId, path, security.uuid, 10000);
       } else if (stockConfig.sourcePath && stockConfig.mapping) {
         // Case 2: Value from Data (SAL or Initial)
         let key: any;
 
         if (stockConfig.salEndpoint) {
           if (!secid) {
-            console.warn(`    [${taxonomyName}] Cannot fetch SAL data without secid.`);
+            console.warn(`    [${taxonomyId}] Cannot fetch SAL data without secid.`);
             continue;
           }
           const salData = await this.api.getSalData(secid, stockConfig.salEndpoint);
           if (!salData) {
-            console.warn(`    [${taxonomyName}] No SAL data retrieved.`);
+            console.warn(`    [${taxonomyId}] No SAL data retrieved.`);
             continue;
           }
           key = get(salData, stockConfig.sourcePath);
@@ -164,9 +165,9 @@ export class Classifier {
         if (key && mapping[key]) {
           const targetClass = mapping[key];
           const path = Array.isArray(targetClass) ? targetClass : [targetClass];
-          this.xmlHandler.assignSecurityToTaxonomy(taxonomyName, path, security.uuid, 10000); // 100% weight
+          this.xmlHandler.assignSecurityToTaxonomy(taxConfig.name || taxonomyId, path, security.uuid, 10000); // 100% weight
         } else if (key) {
-          console.warn(`    [${taxonomyName}] Unmapped stock value '${key}'.`);
+          console.warn(`    [${taxonomyId}] Unmapped stock value '${key}'.`);
         }
       }
     }
