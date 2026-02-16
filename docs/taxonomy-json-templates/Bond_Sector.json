@@ -1,0 +1,38 @@
+{
+  "name": "Bond Sector",
+  "color": "#89afee",
+  "categories": [
+    {
+      "name": "Government Related",
+      "color": "#9fa04c"
+    },
+    {
+      "name": "Non-Agency Residential Mortgage Backed",
+      "color": "#60a04c"
+    },
+    {
+      "name": "Covered Bond",
+      "color": "#4ca076"
+    },
+    {
+      "name": "Government",
+      "color": "#4c8aa0"
+    },
+    {
+      "name": "Future/Forward",
+      "color": "#4c4ca0"
+    },
+    {
+      "name": "Corporate Bond",
+      "color": "#8b4ca0"
+    },
+    {
+      "name": "Preferred",
+      "color": "#a04c75"
+    },
+    {
+      "name": "Cash \u0026 Equivalents",
+      "color": "#a0614c"
+    }
+  ]
+}

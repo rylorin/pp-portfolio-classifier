@@ -1,0 +1,42 @@
+{
+  "name": "Stock Style",
+  "color": "#89afee",
+  "categories": [
+    {
+      "name": "Small Growth",
+      "color": "#84c98d"
+    },
+    {
+      "name": "Small Value",
+      "color": "#84c9bb"
+    },
+    {
+      "name": "Small Blend",
+      "color": "#84a9c9"
+    },
+    {
+      "name": "Mid Growth",
+      "color": "#8d84c9"
+    },
+    {
+      "name": "Mid Value",
+      "color": "#bb84c9"
+    },
+    {
+      "name": "Mid Blend",
+      "color": "#c984a9"
+    },
+    {
+      "name": "Large Value",
+      "color": "#c98d84"
+    },
+    {
+      "name": "Large Growth",
+      "color": "#c9bb84"
+    },
+    {
+      "name": "Large Blend",
+      "color": "#a9c984"
+    }
+  ]
+}

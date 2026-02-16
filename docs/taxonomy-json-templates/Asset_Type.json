@@ -1,0 +1,45 @@
+{
+  "name": "Asset Type",
+  "color": "#89afee",
+  "categories": [
+    {
+      "name": "Other",
+      "color": "#6bb773"
+    },
+    {
+      "name": "Cash",
+      "color": "#6bafb7"
+    },
+    {
+      "name": "Preferred",
+      "color": "#736bb7"
+    },
+    {
+      "name": "Bond",
+      "color": "#b76baf"
+    },
+    {
+      "name": "Equity",
+      "color": "#b7736b"
+    },
+    {
+      "name": "Stock",
+      "color": "#afb76b"
+    }
+  ],
+  "instruments": [
+    {
+      "identifiers": {
+        "name": "Deposit Account"
+      },
+      "categories": [
+        {
+          "path": [
+            "Cash"
+          ],
+          "weight": 100.0
+        }
+      ]
+    }
+  ]
+}

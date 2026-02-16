@@ -1,0 +1,45 @@
+<Request>
+    <Views>
+        <View viewKey="BenchmarkPerformance"></View>
+        <View viewKey="RiskScore"></View>
+        <View viewKey="QuantEquityReports"></View>
+        <View viewKey="Allholdings"></View>
+        <View viewKey="Top10"></View>
+        <View viewKey="Top25"></View>
+        <View viewKey="PreviousResearch"></View>
+        <View viewKey="Research"></View>
+        <View viewKey="EquityResearchRatings_Reports"></View>
+        <View viewKey="snapshot"></View>
+        <View viewKey="bond"></View>
+        <View viewKey="speedtest"></View>
+        <View viewKey="speedtest1"></View>
+        <View viewKey="FairValue"></View>
+        <View viewKey="FairValueAdditionalShareClass"></View>
+        <View viewKey="QuantitativeFairValue"></View>
+        <View viewKey="CompetitorQuantitativeFairValue"></View>
+        <View viewKey="investmentTypeLookup"></View>
+        <View viewKey="holdingTypeLookup"></View>
+        <View viewKey="ITsnapshot"></View>
+        <View viewKey="ComparePerformance"></View>
+        <View viewKey="CompareAdditional"></View>
+        <View viewKey="UKSDR"></View>
+        <View viewKey="ETFsnapshot"></View>
+        <View viewKey="MFsnapshot"></View>
+        <View viewKey="Mifid"></View>
+        <View viewKey="fundSnapshot"></View>
+        <View viewKey="pension"></View>
+        <View viewKey="PensionCompare"></View>
+        <View viewKey="sustainability"></View>
+        <View viewKey="LPsnapshot"></View>
+        <View viewKey="underlyingFundSnapshot"></View>
+        <View viewKey="ITShareDetails"></View>
+        <View viewKey="Documents"></View>
+        <View viewKey="SuppressionTestOn"></View>
+        <View viewKey="SuppressionTestOff"></View>
+        <View viewKey="SuppressionTestOffFullHoldings"></View>
+        <View viewKey="EETtest"></View>
+        <View viewKey="EquitySnapshot"></View>
+        <View viewKey="UKManagedPortfolios"></View>
+        <View viewKey="ESGTest"></View>
+    </Views>
+</Request>

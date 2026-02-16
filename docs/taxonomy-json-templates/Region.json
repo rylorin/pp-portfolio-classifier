@@ -1,0 +1,72 @@
+{
+  "name": "Region",
+  "color": "#89afee",
+  "categories": [
+    {
+      "name": "North America",
+      "color": "#968e25",
+      "children": [
+        {
+          "name": "United States",
+          "color": "#afa83d"
+        },
+        {
+          "name": "Canada",
+          "color": "#afa83d"
+        }
+      ]
+    },
+    {
+      "name": "Europe Developed",
+      "color": "#529625",
+      "children": [
+        {
+          "name": "United Kingdom",
+          "color": "#6baf3d"
+        },
+        {
+          "name": "EMU",
+          "color": "#6baf3d"
+        },
+        {
+          "name": "Ex-EMU",
+          "color": "#6baf3d"
+        }
+      ]
+    },
+    {
+      "name": "Asia Emerging",
+      "color": "#259643"
+    },
+    {
+      "name": "Central \u0026 Latin America",
+      "color": "#25968e"
+    },
+    {
+      "name": "Europe Emerging",
+      "color": "#255296"
+    },
+    {
+      "name": "Middle East",
+      "color": "#432596"
+    },
+    {
+      "name": "Asia Developed",
+      "color": "#8e2596",
+      "children": [
+        {
+          "name": "Japan",
+          "color": "#a83daf"
+        }
+      ]
+    },
+    {
+      "name": "Australasia",
+      "color": "#962552"
+    },
+    {
+      "name": "Africa",
+      "color": "#964325"
+    }
+  ]
+}

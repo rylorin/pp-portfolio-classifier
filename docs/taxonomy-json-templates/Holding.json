@@ -1,0 +1,302 @@
+{
+  "name": "Holding",
+  "color": "#89afee",
+  "categories": [
+    {
+      "name": "NVIDIA Corp",
+      "color": "#89afee"
+    },
+    {
+      "name": "Apple Inc",
+      "color": "#89afee"
+    },
+    {
+      "name": "Microsoft Corp",
+      "color": "#89afee"
+    },
+    {
+      "name": "Amazon.com Inc",
+      "color": "#89afee"
+    },
+    {
+      "name": "Alphabet Inc Class A",
+      "color": "#89afee"
+    },
+    {
+      "name": "Broadcom Inc",
+      "color": "#89afee"
+    },
+    {
+      "name": "Alphabet Inc Class C",
+      "color": "#89afee"
+    },
+    {
+      "name": "Meta Platforms Inc Class A",
+      "color": "#89afee"
+    },
+    {
+      "name": "Tesla Inc",
+      "color": "#89afee"
+    },
+    {
+      "name": "Berkshire Hathaway Inc Class B",
+      "color": "#89afee"
+    },
+    {
+      "name": "JPMorgan Chase \u0026 Co",
+      "color": "#89afee"
+    },
+    {
+      "name": "UniCredit SpA",
+      "color": "#89afee"
+    },
+    {
+      "name": "McKesson Corp",
+      "color": "#89afee"
+    },
+    {
+      "name": "Trane Technologies PLC Class A",
+      "color": "#89afee"
+    },
+    {
+      "name": "Manulife Financial Corp",
+      "color": "#89afee"
+    },
+    {
+      "name": "HDFC Bank Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Reliance Industries Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "ICICI Bank Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Bharti Airtel Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Infosys Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Mahindra \u0026 Mahindra Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Axis Bank Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Larsen \u0026 Toubro Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Bajaj Finance Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Tata Consultancy Services Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "ASML Holding NV",
+      "color": "#89afee"
+    },
+    {
+      "name": "Roche Holding AG",
+      "color": "#89afee"
+    },
+    {
+      "name": "AstraZeneca PLC",
+      "color": "#89afee"
+    },
+    {
+      "name": "Novartis AG Registered Shares",
+      "color": "#89afee"
+    },
+    {
+      "name": "HSBC Holdings PLC",
+      "color": "#89afee"
+    },
+    {
+      "name": "Nestle SA",
+      "color": "#89afee"
+    },
+    {
+      "name": "Siemens AG",
+      "color": "#89afee"
+    },
+    {
+      "name": "Shell PLC",
+      "color": "#89afee"
+    },
+    {
+      "name": "SAP SE",
+      "color": "#89afee"
+    },
+    {
+      "name": "Banco Santander SA",
+      "color": "#89afee"
+    },
+    {
+      "name": "Taiwan Semiconductor Manufacturing Co Ltd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Micron Technology Inc",
+      "color": "#89afee"
+    },
+    {
+      "name": "Deutsche Telekom AG",
+      "color": "#89afee"
+    },
+    {
+      "name": "Mastercard Inc Class A",
+      "color": "#89afee"
+    },
+    {
+      "name": "Visa Inc Class A",
+      "color": "#89afee"
+    },
+    {
+      "name": "Eli Lilly and Co",
+      "color": "#89afee"
+    },
+    {
+      "name": "Exxon Mobil Corp",
+      "color": "#89afee"
+    },
+    {
+      "name": "Verizon Communications Inc",
+      "color": "#89afee"
+    },
+    {
+      "name": "Pfizer Inc",
+      "color": "#89afee"
+    },
+    {
+      "name": "TotalEnergies SE",
+      "color": "#89afee"
+    },
+    {
+      "name": "PepsiCo Inc",
+      "color": "#89afee"
+    },
+    {
+      "name": "Allianz SE",
+      "color": "#89afee"
+    },
+    {
+      "name": "Novo Nordisk AS Class B",
+      "color": "#89afee"
+    },
+    {
+      "name": "Airbus SE",
+      "color": "#89afee"
+    },
+    {
+      "name": "Siemens Energy AG Ordinary Shares",
+      "color": "#89afee"
+    },
+    {
+      "name": "Munchener Ruckversicherungs-Gesellschaft AG",
+      "color": "#89afee"
+    },
+    {
+      "name": "Rheinmetall AG",
+      "color": "#89afee"
+    },
+    {
+      "name": "Deutsche Bank AG",
+      "color": "#89afee"
+    },
+    {
+      "name": "Infineon Technologies AG",
+      "color": "#89afee"
+    },
+    {
+      "name": "Taiwan Semiconductor Manufacturing Co Ltd ADR",
+      "color": "#89afee"
+    },
+    {
+      "name": "Barclays PLC 8%",
+      "color": "#89afee"
+    },
+    {
+      "name": "Banco Santander SA 8%",
+      "color": "#89afee"
+    },
+    {
+      "name": "Banco Santander SA 9.625%",
+      "color": "#89afee"
+    },
+    {
+      "name": "Barclays PLC 9.625%",
+      "color": "#89afee"
+    },
+    {
+      "name": "Lloyds Banking Group PLC 8%",
+      "color": "#89afee"
+    },
+    {
+      "name": "Deutsche Bank AG 8.13011%",
+      "color": "#89afee"
+    },
+    {
+      "name": "Credit Agricole S.A. 7.125%",
+      "color": "#89afee"
+    },
+    {
+      "name": "Sumitomo Mitsui Financial Group Inc. 6.45%",
+      "color": "#89afee"
+    },
+    {
+      "name": "Credit Agricole SA VAR 23/12/74",
+      "color": "#89afee"
+    },
+    {
+      "name": "JPMorgan Chase \u0026 Co 6% PRF PERPETUAL USD 25 - Dep rep 1/400 Ser EE",
+      "color": "#89afee"
+    },
+    {
+      "name": "JPMorgan Chase \u0026 Co Pfd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Wells Fargo \u0026 Co 4.75% PRF PERPETUAL USD 25 Series Z Class A",
+      "color": "#89afee"
+    },
+    {
+      "name": "JPMorgan Chase \u0026 Co PRF PERPETUAL USD - Ser MM 1/400th",
+      "color": "#89afee"
+    },
+    {
+      "name": "JPMorgan Chase \u0026 Co PRF PERPETUAL USD - Ser LL 1/400th Int",
+      "color": "#89afee"
+    },
+    {
+      "name": "Bank of America Corp 6% PRF PERPETUAL USD 25 - Ser GG 1/1000th int",
+      "color": "#89afee"
+    },
+    {
+      "name": "AT\u0026T Inc 4.75% PRF PERPETUAL USD 25 - 1/1000th Int Ser C",
+      "color": "#89afee"
+    },
+    {
+      "name": "Bank of America Corp Pfd",
+      "color": "#89afee"
+    },
+    {
+      "name": "Capital One Financial Corp Series I",
+      "color": "#89afee"
+    },
+    {
+      "name": "AT\u0026T Inc 5.35% NT REDEEM 01/11/2066 USD 25",
+      "color": "#89afee"
+    }
+  ]
+}
