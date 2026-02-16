@@ -1,4 +1,14 @@
+#!/usr/bin/env node
 import * as path from "path";
+
+// Load config
+const package_path = path.join(path.dirname(require.resolve("../package.json")), "config");
+const runtime_path = path.normalize(path.join(process.cwd(), "config"));
+process.env["NODE_CONFIG_DIR"] =
+  package_path != runtime_path ? package_path + path.delimiter + runtime_path : runtime_path;
+const _config = require("config");
+// console.log("Config dir:", package_path, runtime_path, process.env["NODE_CONFIG_DIR"], _config.util.getConfigSources());
+
 import { Classifier } from "./classifier";
 import { MorningstarAPI } from "./morningstar-api";
 import { XMLHandler } from "./xml-helper";

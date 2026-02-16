@@ -23,5 +23,8 @@
     "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "IDX.aI.enableInlineCompletion": true,
-  "IDX.aI.enableCodebaseIndexing": true
+  "IDX.aI.enableCodebaseIndexing": true,
+  "eslint.useFlatConfig": true,
+  "eslint.nodePath": "./node_modules",
+  "eslint.validate": ["javascript", "typescript"]
 }

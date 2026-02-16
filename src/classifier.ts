@@ -146,7 +146,7 @@ export class Classifier {
             if (targetClass) {
               const path = Array.isArray(targetClass) ? targetClass : [targetClass];
               assignments.push({ path, weight: value * 100 });
-              console.log(`    [${taxonomyId}] Mapped '${key}' to '${path.join(" > ")}' (${value.toFixed(2)}%)`);
+              // console.log(`    [${taxonomyId}] Mapping key '${key}' to '${path.join(" > ")}' (${value.toFixed(2)}%)`);
             }
           } else {
             console.log(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${value})`);

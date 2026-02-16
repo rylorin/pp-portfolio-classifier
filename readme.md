@@ -1,8 +1,13 @@
 # Portfolio Performance Classifier (TypeScript)
 
+![Version](https://img.shields.io/github/package-json/v/rylorin/pp-portfolio-classifier)
+[![Publish](https://github.com/rylorin/pp-portfolio-classifier/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/rylorin/pp-portfolio-classifier/actions/workflows/npm-publish.yml)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Downloads](https://img.shields.io/npm/dt/pp-portfolio-classifier.svg)
+
 This project is an automation tool for [Portfolio Performance](https://www.portfolio-performance.info/). It automatically classifies your securities (Funds, ETFs, Stocks) by retrieving data from Morningstar.
 
-It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier), offering better maintainability, strong typing, and configuration flexibility.
+It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier), offering strong typing, and more flexible configuration.
 
 ## Features
 
@@ -25,21 +30,30 @@ It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto1
 3. **Classification**: It maps the retrieved data to the taxonomies defined in your configuration.
 4. **Generation**: A new XML file is generated containing your original data plus the new classification categories and assignments.
 
-## Prerequisites
+## 📌 Prerequisites
 
+- [TypeScript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/) (v22 or higher recommended)
-- yarn or npm
 
-## Installation
+## 🚀 Installation & Usage
 
-1. `git clone` this repository.
-2. Install dependencies:
+### Installation
+
+No installation is required, `npx` will download and install on the fly the latest release of the package.
+
+### Usage
+
+To run the classification on your portfolio file:
 
 ```bash
-yarn
+npx pp-portfolio-classifier -- <path_to_your_portfolio.xml> [output_path.xml]
 ```
 
-## Configuration
+- **Input** - The path to your current Portfolio Performance `.xml` file.
+
+- **Output** (Optional): The path to save the modified file. Default: input file with suffix `.classified.xml`.
+
+## ⚙️ Configuration
 
 The project uses `node-config` for configuration management.
 
@@ -66,12 +80,13 @@ This is ideal for adapting category names to your language or personal preferenc
   },
   "taxonomies": {
     "asset_type": {
+      "active": true,
       "name": "Classes d’actifs",
       "stockConfig": {
         "value": ["Actions"]
       }
     },
-    "country_by_region": { "name": "Zones économiques" },
+    "country_by_region": { "active": true, "name": "Zones économiques" },
     "sector": { "active": true },
     "region": {
       "active": false
@@ -86,18 +101,16 @@ This is ideal for adapting category names to your language or personal preferenc
 }
 ```
 
-## Usage
+### Advanced Usage: Security Notes Flags
 
-To run the classification on your portfolio file:
+You can control the classification behavior for specific securities by adding special flags to the **Note** field in Portfolio Performance.
 
-```bash
-yarn start -- <path_to_your_portfolio.xml> [output_path.xml]
+- **Override ISIN**: Use a different ISIN for Morningstar lookup (useful if the security's main ISIN is not found or incorrect in Morningstar).
+  `#PPC:[ISIN2=US0000000000]`
 
-```
-
-- **Input** - The path to your current Portfolio Performance `.xml` file.
-
-- **Output** (Optional): The path to save the modified file. Default: input file with suffix `.classified.xml`.
+- **Ignore Classification**: Prevent the script from classifying a specific security.
+  - Ignore all taxonomies: `#PPC:[ignore]`
+  - Ignore specific taxonomies (comma separated): `#PPC:[ignore=asset_type,region]`
 
 ## Troubleshooting
 
@@ -113,20 +126,30 @@ Although this script takes care not to corrupt XML files, **always back up your 
 
 ### Autoclassified stock-style
 
-<img src="docs/img/autoclassified-stock-style.png" alt="Autoclassified Security types" width="600"/>
+![Autoclassified stock-style](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/autoclassified-stock-style.png)
 
 ### Autoclassified Regions
 
-<img src="docs/img/autoclassified-regions.png" alt="Autoclassified Regions" width="600"/>
+![Autoclassified Regions](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/autoclassified-regions.png)
 
 ### Autoclassified Sectors
 
-<img src="docs/img/autoclassified-sectors.png" alt="Autoclassified Sectors" width="600"/>
+![Autoclassified Sectors](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/autoclassified-sectors.png)
 
 ### List of stocks and holdings from Top 10 of each fund
 
-<img src="docs/img/top-10-holdings.png" alt="Holdings from Top 10" width="600"/>
+![List of stocks and holdings from Top 10 of each fund](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/top-10-holdings.png)
 
 ## Credits
 
-Based on the original work by Alfons1Qto12.
+Based on the original work by [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).
+
+## 📜 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## ✨ Contributions
+
+Contributions are welcome! Please submit a _pull request_ to
+[rylorin/pp-portfolio-classifier](https://github.com/rylorin/pp-portfolio-classifier)
+GitHub repository with your improvements.

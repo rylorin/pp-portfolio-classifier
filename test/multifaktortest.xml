@@ -3222,10 +3222,10 @@
     </taxonomy>
     <taxonomy>
       <id>ad371a09-edcd-494a-baf0-788750070092</id>
-      <name>Sector (Bond)</name>
+      <name>Bond Sector</name>
       <root>
         <id>bb874919-c306-4451-8767-f3ec345babaf</id>
-        <name>Sector (Bond)</name>
+        <name>Bond Sector</name>
         <color>#89afee</color>
         <children>
           <classification>
@@ -3316,10 +3316,10 @@
     </taxonomy>
     <taxonomy>
       <id>c9b8579d-cdf9-4582-8edc-de484f5d11df</id>
-      <name>Sector</name>
+      <name>Stock Sector</name>
       <root>
         <id>4f2ef77f-b347-4f6c-947a-1ed4d239e296</id>
-        <name>Sector</name>
+        <name>Stock Sector</name>
         <color>#89afee</color>
         <children>
           <classification>
