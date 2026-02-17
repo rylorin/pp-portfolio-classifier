@@ -9,3 +9,4 @@ node_modules/
 /dist/
 portfolio-classifier.py
 requirements.txt
+.DS_Store

@@ -32,7 +32,6 @@ It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto1
 
 ## 📌 Prerequisites
 
-- [TypeScript](https://www.typescriptlang.org/)
 - [Node.js](https://nodejs.org/) (v22 or higher recommended)
 
 ## 🚀 Installation & Usage
@@ -61,6 +60,18 @@ The project uses `node-config` for configuration management.
 
 You can customize the script's behavior (change the taxonomy language, modify the Morningstar domain, etc.) by creating a `config/local.json` file. This file will override the default values ​​defined in `config/default.json`.
 
+**Available Taxonomies:**
+
+- `asset_type`
+- `region`
+- `stock_sector`
+- `bond_sector`
+- `country`
+- `country_by_region`
+- `stock_style`
+- `bond_style`
+- `holding`
+
 This is ideal for adapting category names to your language or personal preferences.
 
 **Example of `config/local.json`:**
@@ -87,19 +98,20 @@ This is ideal for adapting category names to your language or personal preferenc
       }
     },
     "country_by_region": { "active": true, "name": "Zones économiques" },
-    "sector": { "active": true },
-    "region": {
-      "active": false
-    },
-    "country": {
-      "active": false
-    },
-    "holding": {
-      "active": false
-    }
+    "stock_sector": { "active": true },
+    "region": { "active": false },
+    "country": { "active": false },
+    "holding": { "active": false }
   }
 }
 ```
+
+### How Mappings Work
+
+The classification logic relies on mapping tables defined in the configuration files (config/default.json and config/local.json) to translate Morningstar data into your Portfolio Performance taxonomies.
+
+- Direct Value: For some taxonomies like holding, no mapping table is used. The script directly uses the value provided by Morningstar (e.g., the security name).
+- Mapped Value: For most taxonomies, a mapping table is used to convert a code or an ID from Morningstar into a human-readable category name. For instance, AssetTypeMap converts the code 1 to "Stock". If a code is mapped to `null`, that specific data point is ignored. This is crucial for avoiding inconsistencies. For example, the region breakdown from Morningstar includes both geographical regions (like "Europe", "Asia") and market types ("Developed Markets", "Emerging Markets"). Without ignoring the market types, the total allocation could exceed 100%. By mapping them to `null`, we ensure only the geographical regions are used for the classification.
 
 ### Advanced Usage: Security Notes Flags
 
@@ -111,6 +123,15 @@ You can control the classification behavior for specific securities by adding sp
 - **Ignore Classification**: Prevent the script from classifying a specific security.
   - Ignore all taxonomies: `#PPC:[ignore]`
   - Ignore specific taxonomies (comma separated): `#PPC:[ignore=asset_type,region]`
+
+## Known Limitations
+
+- **Multi-Asset Fund Breakdowns**
+  Currently, the tool may produce inconsistent classifications for funds holding multiple asset classes (e.g., 90% Stocks, 10% Bonds).
+  Morningstar reports a breakdown relative to a specific asset class (e.g., "100% of Bonds are Government Bonds"), therfore this percentage will apply to the **entire fund** instead of weighting it by the asset class portion (i.e., 100% of the 10%).
+  This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. This is how Morningstar reports data and is a known limitation of the current logic.
+- **Portfolio Performance file format**
+  The script only supports the unencrypted XML (without IDs) file format of Portfolio Performance.
 
 ## Troubleshooting
 

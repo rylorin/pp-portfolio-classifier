@@ -54,7 +54,7 @@ export class Classifier {
     return mappingOrKey;
   }
 
-  public async classifySecurity(security: PPSecurity) {
+  public async classifySecurity(security: PPSecurity): Promise<void> {
     if (!security.isin && !security.isinOverride) return;
     if (security.ignoreTaxonomies === true) return;
 
@@ -75,7 +75,7 @@ export class Classifier {
     }
   }
 
-  private async classifyFund(security: PPSecurity, data: any) {
+  private async classifyFund(security: PPSecurity, data: any): Promise<void> {
     for (const [taxonomyId, taxConfig] of Object.entries(this.taxonomiesConfig)) {
       if (!taxConfig.active) continue;
       if (
@@ -121,7 +121,7 @@ export class Classifier {
 
       // 2.1 Extract BreakdownValues (Flattening)
       // The data we want is usually nested in a 'BreakdownValues' array inside the filtered items
-      let itemsToProcess: any[] = [];
+      const itemsToProcess: any[] = [];
       for (const group of filteredData) {
         if (group.BreakdownValues && Array.isArray(group.BreakdownValues)) {
           itemsToProcess.push(...group.BreakdownValues);
@@ -136,20 +136,20 @@ export class Classifier {
       const mapping = this.getMapping(taxConfig.mapping);
       for (const item of itemsToProcess) {
         const key = item[taxConfig.keyField];
-        const value = parseFloat(item[taxConfig.valueField]);
+        const weight = Math.round(parseFloat(item[taxConfig.valueField]) * 100);
 
-        if (key && value >= 0.01) {
+        if (key && weight > 0) {
           if (!Object.keys(mapping).length) {
-            assignments.push({ path: [key], weight: value * 100 });
+            assignments.push({ path: [key], weight });
           } else if (key in mapping) {
             const targetClass = mapping[key];
             if (targetClass) {
               const path = Array.isArray(targetClass) ? targetClass : [targetClass];
-              assignments.push({ path, weight: value * 100 });
-              // console.log(`    [${taxonomyId}] Mapping key '${key}' to '${path.join(" > ")}' (${value.toFixed(2)}%)`);
+              assignments.push({ path, weight });
+              // console.log(`    [${taxonomyId}] Mapping key '${key}' to '${path.join(" > ")}' (${weight / 100}%)`);
             }
           } else {
-            console.log(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${value})`);
+            console.log(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${weight / 100})`);
           }
         }
       }
@@ -157,7 +157,7 @@ export class Classifier {
     }
   }
 
-  private async classifyStock(security: PPSecurity, secid: string | null, data: any) {
+  private async classifyStock(security: PPSecurity, secid: string | null, data: any): Promise<void> {
     if (!secid && !data) {
       console.warn(`  > Cannot classify stock ${security.name} without data.`);
       return;

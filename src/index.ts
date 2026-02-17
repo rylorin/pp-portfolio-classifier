@@ -1,19 +1,18 @@
 #!/usr/bin/env node
 import * as path from "path";
 
-// Load config
+// Define config paths
 const package_path = path.join(path.dirname(require.resolve("../package.json")), "config");
 const runtime_path = path.normalize(path.join(process.cwd(), "config"));
 process.env["NODE_CONFIG_DIR"] =
   package_path != runtime_path ? package_path + path.delimiter + runtime_path : runtime_path;
-const _config = require("config");
 // console.log("Config dir:", package_path, runtime_path, process.env["NODE_CONFIG_DIR"], _config.util.getConfigSources());
 
 import { Classifier } from "./classifier";
 import { MorningstarAPI } from "./morningstar-api";
 import { XMLHandler } from "./xml-helper";
 
-async function main() {
+async function main(): Promise<void> {
   const inputFile = process.argv[2];
 
   if (!inputFile) {
@@ -43,7 +42,7 @@ async function main() {
   console.log(`Found ${securities.length} securities.`);
 
   // 4. Process loop
-  let processedCount = 0;
+  let _processedCount = 0;
 
   for (const sec of securities) {
     // console.log("Processing", sec);
@@ -61,7 +60,7 @@ async function main() {
       console.error(`  Error processing ${sec.isin}:`, err);
     }
 
-    processedCount++;
+    _processedCount++;
     // Petit délai pour être gentil avec l'API
     await new Promise((resolve) => setTimeout(resolve, 500));
   }
@@ -71,4 +70,4 @@ async function main() {
   console.log("Done. Try opening the output file in Portfolio Performance.");
 }
 
-main();
+main().catch((error) => console.error(error));

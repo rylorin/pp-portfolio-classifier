@@ -34,9 +34,9 @@ export class MorningstarAPI {
     const url = `https://www.morningstar.${this.domain}/Common/funds/snapshot/PortfolioSAL.aspx`;
 
     try {
-      const response = await axios.get(url);
+      const response = await axios.get<string>(url).then((response) => response.data);
       const tokenRegex = /const maasToken \=\s\"(.+)\"/;
-      const match = response.data.match(tokenRegex);
+      const match = response.match(tokenRegex);
 
       if (match && match[1]) {
         this.bearerToken = match[1];
@@ -69,9 +69,9 @@ export class MorningstarAPI {
     const headers = { Authorization: `Bearer ${token}`, accept: "*/*" };
 
     try {
-      const response = await axios.get(url, { params, headers });
-      if (response.data && response.data.length > 0) {
-        const securityInfo = response.data[0];
+      const response = await axios.get(url, { params, headers }).then((response) => response.data);
+      if (response && response.length > 0) {
+        const securityInfo = response[0];
         // if (isin == "NL0011585146") console.debug(isin, securityInfo);
         return {
           type: securityInfo.Type as "Fund" | "Stock",
@@ -100,7 +100,7 @@ export class MorningstarAPI {
     const token = await this.getBearerToken();
 
     let url = `${this.salBaseUrl}/${endpoint}`;
-    let params: Record<string, string> = {
+    const params: Record<string, string> = {
       languageId: "en-UK",
       locale: "en",
     };
@@ -117,7 +117,7 @@ export class MorningstarAPI {
     try {
       const response = await axios.get(url, { params, headers });
       return response.data;
-    } catch (error) {
+    } catch (_error) {
       console.warn(`  Warning: Could not fetch SAL data for secid ${secid} from endpoint ${endpoint}.`);
       console.debug(url, params);
       return null;
@@ -147,7 +147,7 @@ export class MorningstarAPI {
         }
       }
       return null;
-    } catch (error) {
+    } catch (_error) {
       console.warn(`  Warning: Fallback search for ${isin} failed.`);
       return null;
     }

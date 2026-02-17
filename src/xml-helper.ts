@@ -9,7 +9,7 @@ const options = {
   format: true,
   indentBy: "  ",
   suppressEmptyNode: true,
-  isArray: (name: string, jpath: string, isLeafNode: boolean, isAttribute: boolean) => {
+  isArray: (name: string, jpath: string, isLeafNode: boolean, isAttribute: boolean): boolean => {
     // Force ces éléments à être des tableaux même s'il n'y en a qu'un seul
     const arrayTags = [
       "securities.security",
@@ -109,7 +109,7 @@ export class XMLHandler {
   /**
    * Assigns a security to a specific classification path within a taxonomy
    */
-  assignSecurityToTaxonomy(taxonomyName: string, path: string[], securityUuid: string, weight: number) {
+  assignSecurityToTaxonomy(taxonomyName: string, path: string[], securityUuid: string, weight: number): void {
     const tax = this.getTaxonomy(taxonomyName);
 
     // 1. Remove existing assignments for this security in this taxonomy to avoid duplicates
@@ -156,13 +156,13 @@ export class XMLHandler {
   /**
    * Removes all assignments for a specific security in a given taxonomy.
    */
-  removeSecurityFromTaxonomy(taxonomyName: string, securityUuid: string) {
+  removeSecurityFromTaxonomy(taxonomyName: string, securityUuid: string): void {
     const tax = this.getTaxonomy(taxonomyName);
     const securityIndex = this.getSecurityIndex(securityUuid);
 
     if (securityIndex === -1) return;
 
-    const removeRecursive = (node: any, depth: number) => {
+    const removeRecursive = (node: any, depth: number): void => {
       if (node.assignments && node.assignments.assignment) {
         const securityRef = this.getSecurityReference(securityIndex, depth);
         node.assignments.assignment = node.assignments.assignment.filter(
@@ -187,7 +187,7 @@ export class XMLHandler {
     taxonomyName: string,
     securityUuid: string,
     assignments: { path: string[]; weight: number }[],
-  ) {
+  ): void {
     if (!assignments || assignments.length === 0) return;
 
     this.removeSecurityFromTaxonomy(taxonomyName, securityUuid);

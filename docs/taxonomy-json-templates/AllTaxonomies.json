@@ -26,7 +26,9 @@
         },
         "categories": [
           {
-            "path": ["Americas"],
+            "path": [
+              "Americas"
+            ],
             "weight": 100.0
           }
         ]
@@ -40,15 +42,21 @@
         },
         "categories": [
           {
-            "path": ["Americas"],
+            "path": [
+              "Americas"
+            ],
             "weight": 76.57
           },
           {
-            "path": ["Greater Europe"],
+            "path": [
+              "Greater Europe"
+            ],
             "weight": 15.34
           },
           {
-            "path": ["Greater Asia"],
+            "path": [
+              "Greater Asia"
+            ],
             "weight": 7.72
           }
         ]
@@ -62,15 +70,21 @@
         },
         "categories": [
           {
-            "path": ["Americas"],
+            "path": [
+              "Americas"
+            ],
             "weight": 75.05
           },
           {
-            "path": ["Greater Europe"],
+            "path": [
+              "Greater Europe"
+            ],
             "weight": 13.52
           },
           {
-            "path": ["Greater Asia"],
+            "path": [
+              "Greater Asia"
+            ],
             "weight": 10.3
           }
         ]
@@ -84,15 +98,21 @@
         },
         "categories": [
           {
-            "path": ["Americas"],
+            "path": [
+              "Americas"
+            ],
             "weight": 54.21
           },
           {
-            "path": ["Greater Europe"],
+            "path": [
+              "Greater Europe"
+            ],
             "weight": 24.05
           },
           {
-            "path": ["Greater Asia"],
+            "path": [
+              "Greater Asia"
+            ],
             "weight": 21.47
           }
         ]
@@ -106,15 +126,21 @@
         },
         "categories": [
           {
-            "path": ["Americas"],
+            "path": [
+              "Americas"
+            ],
             "weight": 28.0
           },
           {
-            "path": ["Greater Europe"],
+            "path": [
+              "Greater Europe"
+            ],
             "weight": 59.09
           },
           {
-            "path": ["Greater Asia"],
+            "path": [
+              "Greater Asia"
+            ],
             "weight": 12.26
           }
         ]
@@ -128,7 +154,9 @@
         },
         "categories": [
           {
-            "path": ["Americas"],
+            "path": [
+              "Americas"
+            ],
             "weight": 100.0
           }
         ]
@@ -142,7 +170,9 @@
         },
         "categories": [
           {
-            "path": ["Greater Europe"],
+            "path": [
+              "Greater Europe"
+            ],
             "weight": 100.0
           }
         ]
@@ -156,7 +186,9 @@
         },
         "categories": [
           {
-            "path": ["Greater Europe"],
+            "path": [
+              "Greater Europe"
+            ],
             "weight": 100.0
           }
         ]
@@ -170,7 +202,9 @@
         },
         "categories": [
           {
-            "path": ["Greater Europe"],
+            "path": [
+              "Greater Europe"
+            ],
             "weight": 100.0
           }
         ]
@@ -184,7 +218,9 @@
         },
         "categories": [
           {
-            "path": ["Greater Europe"],
+            "path": [
+              "Greater Europe"
+            ],
             "weight": 100.0
           }
         ]
@@ -198,7 +234,9 @@
         },
         "categories": [
           {
-            "path": ["Greater Asia"],
+            "path": [
+              "Greater Asia"
+            ],
             "weight": 100.0
           }
         ]
@@ -212,7 +250,9 @@
         },
         "categories": [
           {
-            "path": ["Greater Asia"],
+            "path": [
+              "Greater Asia"
+            ],
             "weight": 100.0
           }
         ]
@@ -255,7 +295,9 @@
         },
         "categories": [
           {
-            "path": ["Cash"],
+            "path": [
+              "Cash"
+            ],
             "weight": 100.0
           }
         ]
@@ -1006,84 +1048,28 @@
         ]
       },
       {
-        "name": "Europe Developed",
+        "name": "Europe Developed Ex-EMU",
         "color": "#a55899",
         "children": [
           {
-            "name": "EMU",
-            "color": "#bf79b3",
-            "children": [
-              {
-                "name": "Germany",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "France",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Spain",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Netherlands",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Italy",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Belgium",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Finland",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Ireland",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Austria",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Portugal",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Luxembourg",
-                "color": "#d89fcf"
-              }
-            ]
+            "name": "United Kingdom",
+            "color": "#d89fcf"
           },
           {
-            "name": "Ex-EMU",
-            "color": "#bf79b3",
-            "children": [
-              {
-                "name": "United Kingdom",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Switzerland",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Danemark",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Sweden",
-                "color": "#d89fcf"
-              },
-              {
-                "name": "Norway",
-                "color": "#d89fcf"
-              }
-            ]
+            "name": "Switzerland",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Danemark",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Sweden",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Norway",
+            "color": "#d89fcf"
           }
         ]
       },
@@ -1098,6 +1084,56 @@
           {
             "name": "Canada",
             "color": "#bf7985"
+          }
+        ]
+      },
+      {
+        "name": "Eurozone",
+        "color": "#bf79b3",
+        "children": [
+          {
+            "name": "Germany",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "France",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Spain",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Netherlands",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Italy",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Belgium",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Finland",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Ireland",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Austria",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Portugal",
+            "color": "#d89fcf"
+          },
+          {
+            "name": "Luxembourg",
+            "color": "#d89fcf"
           }
         ]
       }

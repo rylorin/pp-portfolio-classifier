@@ -181,84 +181,28 @@
       ]
     },
     {
-      "name": "Europe Developed",
+      "name": "Europe Developed Ex-EMU",
       "color": "#a55899",
       "children": [
         {
-          "name": "EMU",
-          "color": "#bf79b3",
-          "children": [
-            {
-              "name": "Germany",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "France",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Spain",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Netherlands",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Italy",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Belgium",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Finland",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Ireland",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Austria",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Portugal",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Luxembourg",
-              "color": "#d89fcf"
-            }
-          ]
+          "name": "United Kingdom",
+          "color": "#d89fcf"
         },
         {
-          "name": "Ex-EMU",
-          "color": "#bf79b3",
-          "children": [
-            {
-              "name": "United Kingdom",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Switzerland",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Danemark",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Sweden",
-              "color": "#d89fcf"
-            },
-            {
-              "name": "Norway",
-              "color": "#d89fcf"
-            }
-          ]
+          "name": "Switzerland",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Danemark",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Sweden",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Norway",
+          "color": "#d89fcf"
         }
       ]
     },
@@ -275,6 +219,57 @@
           "color": "#bf7985"
         }
       ]
+    },
+    {
+      "name": "Eurozone",
+      "color": "#bf79b3",
+      "children": [
+        {
+          "name": "Germany",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "France",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Spain",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Netherlands",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Italy",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Belgium",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Finland",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Ireland",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Austria",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Portugal",
+          "color": "#d89fcf"
+        },
+        {
+          "name": "Luxembourg",
+          "color": "#d89fcf"
+        }
+      ]
     }
-  ]
+  ],
+  "instruments": []
 }
