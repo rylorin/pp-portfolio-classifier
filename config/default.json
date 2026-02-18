@@ -1021,29 +1021,6 @@
         "mapping": "CountryRegionMap"
       }
     },
-    "stock_sector": {
-      "active": true,
-      "name": "Stock Sector",
-      "sourcePath": "Portfolios[0].GlobalStockSectorBreakdown",
-      "keyField": "Type",
-      "valueField": "Value",
-      "filter": { "SalePosition": "N" },
-      "mapping": "SectorMap",
-      "stockConfig": {
-        "sourcePath": "Sector.SectorCode",
-        "isSingleValue": true,
-        "mapping": "SectorMap"
-      }
-    },
-    "bond_sector": {
-      "active": true,
-      "name": "Bond Sector",
-      "sourcePath": "Portfolios[0].GlobalBondSectorBreakdownLevel2",
-      "keyField": "Type",
-      "valueField": "Value",
-      "filter": { "SalePosition": "N" },
-      "mapping": "BondSectorL2Map"
-    },
     "country": {
       "active": true,
       "name": "Country",
@@ -1070,19 +1047,6 @@
         "mapping": "CountryRegionDetailedMap"
       }
     },
-    "industry": {
-      "active": false,
-      "name": "Industry",
-      "sourcePath": "Portfolios[0].IndustryGroupBreakdown",
-      "keyField": "Type",
-      "valueField": "Value",
-      "filter": { "SalePosition": "N" },
-      "mapping": "IndustryMap",
-      "stockConfig": {
-        "sourcePath": "Industry.IndustryName",
-        "mapping": "StockIndustryMap"
-      }
-    },
     "stock_style": {
       "active": true,
       "name": "Stock Style",
@@ -1097,8 +1061,22 @@
         "mapping": "StockStyleBoxMap"
       }
     },
-    "bond_style": {
+    "stock_sector": {
       "active": true,
+      "name": "Stock Sector",
+      "sourcePath": "Portfolios[0].GlobalStockSectorBreakdown",
+      "keyField": "Type",
+      "valueField": "Value",
+      "filter": { "SalePosition": "N" },
+      "mapping": "SectorMap",
+      "stockConfig": {
+        "sourcePath": "Sector.SectorCode",
+        "isSingleValue": true,
+        "mapping": "SectorMap"
+      }
+    },
+    "bond_style": {
+      "active": false,
       "name": "Bond Style",
       "viewid": "ETFsnapshot",
       "sourcePath": "Portfolios[0].BondStyleBoxBreakdown",
@@ -1107,12 +1085,37 @@
       "filter": { "SalePosition": "N" },
       "mapping": "BondStyleBoxMap"
     },
+    "bond_sector": {
+      "active": true,
+      "name": "Bond Sector",
+      "sourcePath": "Portfolios[0].GlobalBondSectorBreakdownLevel2",
+      "keyField": "Type",
+      "valueField": "Value",
+      "filter": { "SalePosition": "N" },
+      "mapping": "BondSectorL2Map",
+      "fixTotal": 10
+    },
+    "industry": {
+      "active": false,
+      "name": "Industry",
+      "sourcePath": "Portfolios[0].IndustryGroupBreakdown",
+      "keyField": "Type",
+      "valueField": "Value",
+      "filter": { "SalePosition": "N" },
+      "mapping": "IndustryMap",
+      "stockConfig": {
+        "sourcePath": "Industry.IndustryName",
+        "mapping": "StockIndustryMap"
+      }
+    },
     "holding": {
       "active": true,
       "name": "Holding",
       "sourcePath": "Portfolios[0].PortfolioHoldings",
+      "multigroup": true,
       "keyField": "SecurityName",
       "valueField": "Weighting",
+      "fixTotal": false,
       "stockConfig": {
         "sourcePath": "Name"
       }

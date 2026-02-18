@@ -5,6 +5,7 @@ import { PPSecurity } from "./types";
 import { XMLHandler } from "./xml-helper";
 
 interface StockConfig {
+  /** Morningstar SAL API endpoint */
   salEndpoint?: "stock/equityOverview" | "stock/companyProfile";
   viewId?: string;
   sourcePath?: string;
@@ -14,15 +15,32 @@ interface StockConfig {
 }
 
 interface TaxonomyConfig {
+  // General config
+
+  /** is taxonomy active? */
   active: boolean;
+  /** Display name */
   name: string;
+  /** Morningstar API viewId if not default */
   viewId?: string;
+
   // Fund config
+
+  /** Data container in JSON response */
   sourcePath: string;
-  keyField: string;
-  valueField: string;
+  /** Filter to apply to data, defaults to no filter */
   filter?: Record<string, any>;
+  /** Multi/single container, defaults to single */
+  multigroup?: boolean;
+  /** Category field name */
+  keyField: string;
+  /** Value field name */
+  valueField: string;
+  /** Key mapping dictionary */
   mapping: Record<string, string | string[]> | string;
+  /** Adjust total to 100% */
+  fixTotal?: false | number;
+
   // Stock config
   stockConfig?: StockConfig;
 }
@@ -113,11 +131,13 @@ export class Classifier {
       if (taxConfig.filter) {
         filteredData = _filter(sourceData, taxConfig.filter);
       }
-
       if (filteredData.length === 0) {
         console.log(`    [${taxonomyId}] No items match the filter.`);
         continue;
       }
+
+      if (!taxConfig.multigroup && filteredData.length > 1) filteredData = [filteredData[0]];
+      // console.debug(sourceData, filteredData);
 
       // 2.1 Extract BreakdownValues (Flattening)
       // The data we want is usually nested in a 'BreakdownValues' array inside the filtered items
@@ -130,29 +150,87 @@ export class Classifier {
         }
       }
 
+      let hasNegativeWeights = false;
+      let totalWeight = 0;
+
       // 3. Map and Assign
       // console.log(`    [${taxonomyId}] Assigning ${itemsToProcess.length} items...`);
       const assignments: { path: string[]; weight: number }[] = [];
       const mapping = this.getMapping(taxConfig.mapping);
       for (const item of itemsToProcess) {
         const key = item[taxConfig.keyField];
-        const weight = Math.round(parseFloat(item[taxConfig.valueField]) * 100);
+        const value = item[taxConfig.valueField];
+        const weight = Math.round(parseFloat(value) * 100);
 
         if (key && weight > 0) {
           if (!Object.keys(mapping).length) {
             assignments.push({ path: [key], weight });
+            totalWeight += weight;
           } else if (key in mapping) {
             const targetClass = mapping[key];
             if (targetClass) {
               const path = Array.isArray(targetClass) ? targetClass : [targetClass];
               assignments.push({ path, weight });
-              // console.log(`    [${taxonomyId}] Mapping key '${key}' to '${path.join(" > ")}' (${weight / 100}%)`);
+              totalWeight += weight;
+              // console.debug(`    [${taxonomyId}] Mapping key '${key}' -> '${path.join(" > ")}' (${value}% -> ${weight})`);
             }
           } else {
             console.log(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${weight / 100})`);
           }
+        } else if (weight < 0) {
+          hasNegativeWeights = true;
+          // console.log(`    [${taxonomyId}] Negative weight for key: '${key}' (Value: ${weight / 100})`);
         }
       }
+
+      /*
+      Disabled as the deviation comes from short positions data, for example:
+      Processing Invesco Preferred Shares UCITS ETF EUR Hedged Dist (IE00BDT8V027)...
+      > Data retrieved for Invesco Preferred Shares UCITS ETF EUR Hedged Dist. Type: Fund. Processing taxonomies...
+        > bond_sector
+        [bond_sector] Mapping key '3030' to 'Corporate Bond' (255 / 2.54658)
+        [bond_sector] Mapping key '3040' to 'Preferred' (9725 / 97.25188)
+        [bond_sector] Mapping key '5010' to 'Cash & Equivalents' (25 / 0.25239)
+        [bond_sector] Negative weight for key: '6020' (Value: -0.05)
+        [bond_sector] Total weight is 100.05%. Deviation of 5 is too large (max allowed: 10) or negative values exist. Skipping correction.
+
+      // 4. Adjust breakdown to ensure total is 100%
+      const deviation = totalWeight - 100_00;
+      if (taxConfig.fixTotal && deviation !== 0 && assignments.length > 0) {
+        // Condition: Deviation is within the acceptable range
+        const maxAllowedDeviation = taxConfig.fixTotal;
+
+        if (!hasNegativeWeights && Math.abs(deviation) <= maxAllowedDeviation) {
+          console.log(
+            `    [${taxonomyId}] Adjusting total weight from ${totalWeight / 100}% to 100%. Deviation: ${
+              deviation / 100
+            }% for a max of ${maxAllowedDeviation / 100}, applying ${deviation / 100}% correction`,
+          );
+
+          // Sort by weight descending to apply correction to largest items first
+          assignments.sort((a, b) => b.weight - a.weight);
+
+          let correctionToApply = -deviation; // We want to add this amount to reach 10000
+
+          // Distribute the correction (as units of 1, i.e., 0.01%)
+          for (let i = 0; i < Math.abs(correctionToApply); i++) {
+            const index = i % assignments.length;
+            assignments[index].weight += Math.sign(correctionToApply);
+          }
+        } else if (deviation !== 0) {
+          // Only log if there's a deviation we're not correcting
+          console.warn(
+            `    [${taxonomyId}] Total weight is ${
+              totalWeight / 100
+            }%. Deviation of ${deviation} is too large (max allowed: ${
+              maxAllowedDeviation
+            }) or negative values exist. Skipping correction.`,
+          );
+        }
+      }
+      */
+
+      // 5. Update the XML
       this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, assignments);
     }
   }

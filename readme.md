@@ -64,12 +64,11 @@ You can customize the script's behavior (change the taxonomy language, modify th
 
 - `asset_type`
 - `region`
-- `stock_sector`
-- `bond_sector`
 - `country`
 - `country_by_region`
 - `stock_style`
-- `bond_style`
+- `stock_sector`
+- `bond_sector`
 - `holding`
 
 This is ideal for adapting category names to your language or personal preferences.
@@ -161,16 +160,16 @@ Although this script takes care not to corrupt XML files, **always back up your 
 
 ![List of stocks and holdings from Top 10 of each fund](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/top-10-holdings.png)
 
-## Credits
-
-Based on the original work by [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).
-
-## 📜 License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
 ## ✨ Contributions
 
 Contributions are welcome! Please submit a _pull request_ to
 [rylorin/pp-portfolio-classifier](https://github.com/rylorin/pp-portfolio-classifier)
 GitHub repository with your improvements.
+
+## 📜 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## Credits & Contributors
+
+Based on the original work by [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).
