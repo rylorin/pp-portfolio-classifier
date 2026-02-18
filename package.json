@@ -1,6 +1,6 @@
 {
   "name": "pp-portfolio-classifier",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Automatic classification of Portfolio Performance securities using MorningStar Direct Web Services ",
   "keywords": [
     "portfolio-performance",
