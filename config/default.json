@@ -1002,6 +1002,7 @@
       "valueField": "Value",
       "filter": { "Type": "MorningStarDefault", "SalePosition": "N" },
       "mapping": "AssetTypeMap",
+      "fixTotal": true,
       "stockConfig": {
         "isSingleValue": true,
         "value": "Equity"
@@ -1015,6 +1016,7 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "RegionMap",
+      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Country",
         "isSingleValue": true,
@@ -1029,6 +1031,7 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "CountryMap",
+      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Country",
         "mapping": "CountryMap"
@@ -1042,6 +1045,7 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "CountryRegionDetailedMap",
+      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Country",
         "mapping": "CountryRegionDetailedMap"
@@ -1055,6 +1059,7 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "StockStyleBoxMap",
+      "fixTotal": true,
       "stockConfig": {
         "viewId": "snapshot",
         "sourcePath": "QuantitativeFairValue.InvestmentStyle",
@@ -1069,6 +1074,7 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "SectorMap",
+      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Sector.SectorCode",
         "isSingleValue": true,
@@ -1083,7 +1089,8 @@
       "keyField": "Type",
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
-      "mapping": "BondStyleBoxMap"
+      "mapping": "BondStyleBoxMap",
+      "fixTotal": true
     },
     "bond_sector": {
       "active": true,
@@ -1093,7 +1100,7 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "BondSectorL2Map",
-      "fixTotal": 10
+      "fixTotal": true
     },
     "industry": {
       "active": false,

@@ -1,4 +1,4 @@
-# Portfolio Performance Classifier (TypeScript)
+# 🤖 Portfolio Performance Classifier (TypeScript)
 
 ![Version](https://img.shields.io/github/package-json/v/rylorin/pp-portfolio-classifier)
 [![Publish](https://github.com/rylorin/pp-portfolio-classifier/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/rylorin/pp-portfolio-classifier/actions/workflows/npm-publish.yml)
@@ -9,7 +9,7 @@ This project is an automation tool for [Portfolio Performance](https://www.portf
 
 It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier), offering strong typing, and more flexible configuration.
 
-## Features
+## 🌟 Features
 
 - **Multi-Type Support**: Handles Funds/ETFs as well as Stocks (via Morningstar SAL API).
 - **Automatic Taxonomies**: Creates and updates classifications in your XML file:
@@ -20,7 +20,7 @@ It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto1
 - **Configurable**: Customize the script's behavior (language, taxonomies, etc.) via a configuration file.
 - **Multi-levels taxonomies**: Supports nested taxonomies (e.g., "Europe > Germany").
 
-## How it works
+## 🧠 How it works
 
 1. **Parsing**: The script reads your `.xml` file and extracts all securities with a valid ISIN.
 2. **Data Retrieval**: It queries Morningstar APIs to fetch:
@@ -123,7 +123,7 @@ You can control the classification behavior for specific securities by adding sp
   - Ignore all taxonomies: `#PPC:[ignore]`
   - Ignore specific taxonomies (comma separated): `#PPC:[ignore=asset_type,region]`
 
-## Known Limitations
+## ⚠️ Known Limitations
 
 - **Multi-Asset Fund Breakdowns**
   Currently, the tool may produce inconsistent classifications for funds holding multiple asset classes (e.g., 90% Stocks, 10% Bonds).
@@ -132,17 +132,13 @@ You can control the classification behavior for specific securities by adding sp
 - **Portfolio Performance file format**
   The script only supports the unencrypted XML (without IDs) file format of Portfolio Performance.
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 - **Missing Data**: If a security is not classified, it might be because Morningstar does not have data for that specific ISIN, or the ISIN is missing in your Portfolio Performance file.
 - **Rate Limiting**: If you have a very large portfolio, Morningstar might temporarily block requests. The script includes delays to mitigate this.
 - **Invalid XML**: Ensure your input file is a valid Portfolio Performance XML file (unencrypted).
 
-## Warning
-
-Although this script takes care not to corrupt XML files, **always back up your Portfolio Performance file** before using it.
-
-## Gallery
+## 🖼️ Gallery
 
 ### Autoclassified stock-style
 
@@ -170,6 +166,6 @@ GitHub repository with your improvements.
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-## Credits & Contributors
+## 🙏 Credits & Contributors
 
 Based on the original work by [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).

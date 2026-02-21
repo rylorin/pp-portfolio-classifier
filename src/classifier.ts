@@ -45,6 +45,8 @@ interface TaxonomyConfig {
   stockConfig?: StockConfig;
 }
 
+type Assignment = { path: string[]; weight: number };
+
 export class Classifier {
   private xmlHandler: XMLHandler;
   private api: MorningstarAPI;
@@ -150,51 +152,15 @@ export class Classifier {
         }
       }
 
-      let hasNegativeWeights = false;
-      let totalWeight = 0;
-
       // 3. Map and Assign
       // console.log(`    [${taxonomyId}] Assigning ${itemsToProcess.length} items...`);
-      const assignments: { path: string[]; weight: number }[] = [];
-      const mapping = this.getMapping(taxConfig.mapping);
-      for (const item of itemsToProcess) {
-        const key = item[taxConfig.keyField];
-        const value = item[taxConfig.valueField];
-        const weight = Math.round(parseFloat(value) * 100);
+      let assignments: Assignment[] = [];
+      assignments = this.assignItems(taxConfig, itemsToProcess, assignments, taxonomyId);
 
-        if (key && weight > 0) {
-          if (!Object.keys(mapping).length) {
-            assignments.push({ path: [key], weight });
-            totalWeight += weight;
-          } else if (key in mapping) {
-            const targetClass = mapping[key];
-            if (targetClass) {
-              const path = Array.isArray(targetClass) ? targetClass : [targetClass];
-              assignments.push({ path, weight });
-              totalWeight += weight;
-              // console.debug(`    [${taxonomyId}] Mapping key '${key}' -> '${path.join(" > ")}' (${value}% -> ${weight})`);
-            }
-          } else {
-            console.log(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${weight / 100})`);
-          }
-        } else if (weight < 0) {
-          hasNegativeWeights = true;
-          // console.log(`    [${taxonomyId}] Negative weight for key: '${key}' (Value: ${weight / 100})`);
-        }
-      }
+      // 4. Truncate breakdown to ensure total is not above 100%
+      if (taxConfig.fixTotal) assignments = this.fixTotalPercentage(assignments, taxonomyId);
 
       /*
-      Disabled as the deviation comes from short positions data, for example:
-      Processing Invesco Preferred Shares UCITS ETF EUR Hedged Dist (IE00BDT8V027)...
-      > Data retrieved for Invesco Preferred Shares UCITS ETF EUR Hedged Dist. Type: Fund. Processing taxonomies...
-        > bond_sector
-        [bond_sector] Mapping key '3030' to 'Corporate Bond' (255 / 2.54658)
-        [bond_sector] Mapping key '3040' to 'Preferred' (9725 / 97.25188)
-        [bond_sector] Mapping key '5010' to 'Cash & Equivalents' (25 / 0.25239)
-        [bond_sector] Negative weight for key: '6020' (Value: -0.05)
-        [bond_sector] Total weight is 100.05%. Deviation of 5 is too large (max allowed: 10) or negative values exist. Skipping correction.
-
-      // 4. Adjust breakdown to ensure total is 100%
       const deviation = totalWeight - 100_00;
       if (taxConfig.fixTotal && deviation !== 0 && assignments.length > 0) {
         // Condition: Deviation is within the acceptable range
@@ -228,11 +194,65 @@ export class Classifier {
           );
         }
       }
-      */
+        */
 
       // 5. Update the XML
       this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, assignments);
     }
+  }
+
+  private assignItems(taxConfig: TaxonomyConfig, itemsToProcess: any[], assignments: Assignment[], taxonomyId: string) {
+    const mapping = this.getMapping(taxConfig.mapping);
+    for (const item of itemsToProcess) {
+      const key = item[taxConfig.keyField];
+      const value = item[taxConfig.valueField];
+      const weight = Math.round(parseFloat(value) * 100);
+
+      if (key) {
+        if (!Object.keys(mapping).length) {
+          assignments.push({ path: [key], weight });
+        } else if (key in mapping) {
+          const targetClass = mapping[key];
+          if (targetClass) {
+            const path = Array.isArray(targetClass) ? targetClass : [targetClass];
+            if (weight > 0) {
+              assignments.push({ path, weight });
+              // console.debug(
+              //   `    [${taxonomyId}] Mapping key '${key}' to '${path.join(" > ")}' with value of ${weight} (${value}%)`,
+              // );
+            } else {
+              console.warn(
+                `    [${taxonomyId}] Negative or null weight for key: '${key}' ignored (Value: ${weight / 100})`,
+              );
+            }
+          }
+        } else {
+          console.warn(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${weight / 100})`);
+        }
+      } else {
+        console.error(`    [${taxonomyId}] No key!!! (Value: ${weight / 100})`);
+      }
+    }
+    return assignments;
+  }
+
+  private fixTotalPercentage(assignments: Assignment[], taxonomyId: string): Assignment[] {
+    const totalWeight = assignments.reduce((sum, assignment) => sum + assignment.weight, 0);
+    if (totalWeight > 10000) {
+      assignments.sort((a, b) => b.weight - a.weight);
+      let totalWeight = 0;
+      for (let i = 0; i < assignments.length; i++) {
+        if (totalWeight + assignments[i].weight > 10000) {
+          assignments[i].weight = 10000 - totalWeight;
+          console.log(
+            `    [${taxonomyId}] Truncating weight for '${assignments[i].path.join(" > ")}' to ${assignments[i].weight / 100}%`,
+          );
+          if (assignments[i].weight == 0) delete assignments[i];
+          totalWeight = 10000;
+        } else totalWeight += assignments[i].weight;
+      }
+    }
+    return assignments.filter((a) => a && a.weight > 0);
   }
 
   private async classifyStock(security: PPSecurity, secid: string | null, data: any): Promise<void> {
