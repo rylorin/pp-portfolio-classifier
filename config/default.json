@@ -1118,6 +1118,7 @@
     "holding": {
       "active": true,
       "name": "Holding",
+      "viewId": "Allholdings",
       "sourcePath": "Portfolios[0].PortfolioHoldings",
       "multigroup": true,
       "keyField": "SecurityName",

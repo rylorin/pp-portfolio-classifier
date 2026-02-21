@@ -162,8 +162,8 @@
         <map/>
       </attributes>
       <events/>
-      <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:44:04.811202Z</updatedAt>
+      <isRetired>true</isRetired>
+      <updatedAt>2026-02-21T18:35:54.690835Z</updatedAt>
     </security>
     <security>
       <uuid>d00dfe4d-dfbb-46e7-beea-f61b361570a6</uuid>
@@ -302,8 +302,8 @@
         <map/>
       </attributes>
       <events/>
-      <isRetired>true</isRetired>
-      <updatedAt>2026-02-12T15:44:32.289885Z</updatedAt>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-21T18:29:45.764579Z</updatedAt>
     </security>
     <security>
       <uuid>36212daa-4d06-49e8-92ee-464c5110698b</uuid>
@@ -326,8 +326,8 @@
         <map/>
       </attributes>
       <events/>
-      <isRetired>true</isRetired>
-      <updatedAt>2026-02-12T15:43:11.632807Z</updatedAt>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-21T18:29:31.445548Z</updatedAt>
     </security>
     <security>
       <uuid>476e2898-68b3-4665-9812-423b2db496b7</uuid>
@@ -358,6 +358,22 @@
       </attributes>
       <isRetired>false</isRetired>
       <updatedAt>2026-02-14T13:56:23.836271Z</updatedAt>
+    </security>
+    <security>
+      <uuid>207f0a46-abe4-46f7-85f2-27eedc036879</uuid>
+      <name>PKO BANK POLSKI SA</name>
+      <currencyCode>PLN</currencyCode>
+      <isin>PLPKO0000016</isin>
+      <tickerSymbol>PKO.WA</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices/>
+      <latestFeed>MANUAL</latestFeed>
+      <attributes>
+        <map/>
+      </attributes>
+      <events/>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-21T18:30:34.062796Z</updatedAt>
     </security>
   </securities>
   <watchlists/>

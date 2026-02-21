@@ -128,7 +128,6 @@ export class Classifier {
       }
 
       // 2. Filter Data
-      // console.log(`    [${taxonomyId}] Filtering ${sourceData.length} items...`);
       let filteredData = sourceData;
       if (taxConfig.filter) {
         filteredData = _filter(sourceData, taxConfig.filter);
@@ -137,9 +136,9 @@ export class Classifier {
         console.log(`    [${taxonomyId}] No items match the filter.`);
         continue;
       }
+      // console.debug(filteredData);
 
       if (!taxConfig.multigroup && filteredData.length > 1) filteredData = [filteredData[0]];
-      // console.debug(sourceData, filteredData);
 
       // 2.1 Extract BreakdownValues (Flattening)
       // The data we want is usually nested in a 'BreakdownValues' array inside the filtered items
@@ -160,42 +159,6 @@ export class Classifier {
       // 4. Truncate breakdown to ensure total is not above 100%
       if (taxConfig.fixTotal) assignments = this.fixTotalPercentage(assignments, taxonomyId);
 
-      /*
-      const deviation = totalWeight - 100_00;
-      if (taxConfig.fixTotal && deviation !== 0 && assignments.length > 0) {
-        // Condition: Deviation is within the acceptable range
-        const maxAllowedDeviation = taxConfig.fixTotal;
-
-        if (!hasNegativeWeights && Math.abs(deviation) <= maxAllowedDeviation) {
-          console.log(
-            `    [${taxonomyId}] Adjusting total weight from ${totalWeight / 100}% to 100%. Deviation: ${
-              deviation / 100
-            }% for a max of ${maxAllowedDeviation / 100}, applying ${deviation / 100}% correction`,
-          );
-
-          // Sort by weight descending to apply correction to largest items first
-          assignments.sort((a, b) => b.weight - a.weight);
-
-          let correctionToApply = -deviation; // We want to add this amount to reach 10000
-
-          // Distribute the correction (as units of 1, i.e., 0.01%)
-          for (let i = 0; i < Math.abs(correctionToApply); i++) {
-            const index = i % assignments.length;
-            assignments[index].weight += Math.sign(correctionToApply);
-          }
-        } else if (deviation !== 0) {
-          // Only log if there's a deviation we're not correcting
-          console.warn(
-            `    [${taxonomyId}] Total weight is ${
-              totalWeight / 100
-            }%. Deviation of ${deviation} is too large (max allowed: ${
-              maxAllowedDeviation
-            }) or negative values exist. Skipping correction.`,
-          );
-        }
-      }
-        */
-
       // 5. Update the XML
       this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, assignments);
     }
@@ -207,6 +170,10 @@ export class Classifier {
       const key = item[taxConfig.keyField];
       const value = item[taxConfig.valueField];
       const weight = Math.round(parseFloat(value) * 100);
+      if (Number.isNaN(weight)) {
+        console.warn(`    [${taxonomyId}] Invalid weight for key: '${key}' (Value: ${value})`);
+        continue;
+      }
 
       if (key) {
         if (!Object.keys(mapping).length) {
