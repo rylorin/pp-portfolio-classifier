@@ -26,3 +26,21 @@ export interface MorningstarData {
   type: "Fund" | "Stock" | "Unknown";
   data: any; // Le payload JSON complet de l'API
 }
+
+export interface EmbeddedTaxonomyConfig {
+  active: boolean;
+  parentTaxonomy: string;
+  parentCategory: string;
+  childTaxonomy: string;
+  targetTaxonomy: string;
+}
+
+export interface TaxonomyAssignment {
+  path: string[];
+  weight: number;
+}
+
+export interface TaxonomyResult {
+  taxonomyId: string;
+  assignments: TaxonomyAssignment[];
+}

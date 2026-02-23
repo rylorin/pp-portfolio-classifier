@@ -1,0 +1,173 @@
+{
+  "// EXEMPLE DE CONFIGURATION POUR TAXONOMIES IMBRIQUÉES": "",
+  "// Ce fichier montre comment configurer les taxonomies embedded": "",
+
+  "embeddedTaxonomies": {
+    "stock_style_in_asset": {
+      "active": true,
+      "parentTaxonomy": "asset_type",
+      "parentCategory": "Stock",
+      "childTaxonomy": "stock_style",
+      "targetTaxonomy": "asset_type",
+      "description": "Imbrique les styles d'actions (Large Growth, Small Value, etc.) dans la catégorie Stock de Asset Type"
+    },
+
+    "bond_sector_in_asset": {
+      "active": true,
+      "parentTaxonomy": "asset_type",
+      "parentCategory": "Bond",
+      "childTaxonomy": "bond_sector",
+      "targetTaxonomy": "asset_type",
+      "description": "Imbrique les secteurs obligataires (Government, Corporate, etc.) dans la catégorie Bond de Asset Type"
+    },
+
+    "stock_sector_in_asset": {
+      "active": false,
+      "parentTaxonomy": "asset_type",
+      "parentCategory": "Stock",
+      "childTaxonomy": "stock_sector",
+      "targetTaxonomy": "asset_type",
+      "description": "Imbrique les secteurs d'actions (Technology, Healthcare, etc.) dans la catégorie Stock de Asset Type"
+    }
+  },
+
+  "// EXEMPLE DE RÉSULTAT POUR UN FONDS": "",
+  "// Fonds : Vanguard LifeStrategy 80% Equity": "",
+  "// - Asset Type : 80% Stock, 20% Bond": "",
+  "// - Stock Style : 40% Large Growth, 30% Large Value, 20% Mid Blend, 10% Small Value": "",
+  "// - Bond Sector : 60% Government, 40% Corporate": "",
+
+  "exemple_resultat": {
+    "sans_embedded": {
+      "asset_type": [
+        { "path": ["Stock"], "weight": 8000 },
+        { "path": ["Bond"], "weight": 2000 }
+      ],
+      "stock_style": [
+        { "path": ["Large Growth"], "weight": 4000 },
+        { "path": ["Large Value"], "weight": 3000 },
+        { "path": ["Mid Blend"], "weight": 2000 },
+        { "path": ["Small Value"], "weight": 1000 }
+      ],
+      "bond_sector": [
+        { "path": ["Government"], "weight": 6000 },
+        { "path": ["Corporate"], "weight": 4000 }
+      ]
+    },
+
+    "avec_embedded": {
+      "asset_type": [
+        { "path": ["Stock", "Large Growth"], "weight": 3200, "calcul": "80% × 40% = 32%" },
+        { "path": ["Stock", "Large Value"], "weight": 2400, "calcul": "80% × 30% = 24%" },
+        { "path": ["Stock", "Mid Blend"], "weight": 1600, "calcul": "80% × 20% = 16%" },
+        { "path": ["Stock", "Small Value"], "weight": 800, "calcul": "80% × 10% = 8%" },
+        { "path": ["Bond", "Government"], "weight": 1200, "calcul": "20% × 60% = 12%" },
+        { "path": ["Bond", "Corporate"], "weight": 800, "calcul": "20% × 40% = 8%" }
+      ],
+      "stock_style": [
+        { "path": ["Large Growth"], "weight": 4000 },
+        { "path": ["Large Value"], "weight": 3000 },
+        { "path": ["Mid Blend"], "weight": 2000 },
+        { "path": ["Small Value"], "weight": 1000 }
+      ],
+      "bond_sector": [
+        { "path": ["Government"], "weight": 6000 },
+        { "path": ["Corporate"], "weight": 4000 }
+      ],
+      "total": 10000,
+      "verification": "32% + 24% + 16% + 8% + 12% + 8% = 100% ✓"
+    }
+  },
+
+  "// CAS PARTICULIERS": "",
+
+  "cas_fonds_100_actions": {
+    "description": "Fonds 100% actions - bond_sector ne s'applique pas",
+    "asset_type_source": [{ "path": ["Stock"], "weight": 10000 }],
+    "stock_style_source": [
+      { "path": ["Large Growth"], "weight": 7000 },
+      { "path": ["Small Value"], "weight": 3000 }
+    ],
+    "bond_sector_source": [],
+    "resultat_asset_type": [
+      { "path": ["Stock", "Large Growth"], "weight": 7000 },
+      { "path": ["Stock", "Small Value"], "weight": 3000 }
+    ]
+  },
+
+  "cas_fonds_sans_stock_style": {
+    "description": "Fonds avec actions mais sans données stock_style - garde l'original",
+    "asset_type_source": [
+      { "path": ["Stock"], "weight": 8000 },
+      { "path": ["Bond"], "weight": 2000 }
+    ],
+    "stock_style_source": [],
+    "resultat_asset_type": [
+      { "path": ["Stock"], "weight": 8000 },
+      { "path": ["Bond"], "weight": 2000 }
+    ]
+  },
+
+  "// CONFIGURATION POUR VOTRE CAS D'USAGE": "",
+
+  "votre_configuration_recommandee": {
+    "mappings": {
+      "AssetTypeMap": {
+        "1": "Stock",
+        "3": "Bond",
+        "7": "Cash",
+        "8": "Other"
+      },
+      "StockStyleBoxMap": {
+        "1": "Large Value",
+        "2": "Large Blend",
+        "3": "Large Growth",
+        "4": "Mid Value",
+        "5": "Mid Blend",
+        "6": "Mid Growth",
+        "7": "Small Value",
+        "8": "Small Blend",
+        "9": "Small Growth"
+      },
+      "BondSectorL2Map": {
+        "1010": "Government",
+        "1020": "Government Related",
+        "3030": "Corporate Bond",
+        "4010": "Agency Mortgage Backed",
+        "5010": "Cash & Equivalents"
+      }
+    },
+
+    "taxonomies": {
+      "asset_type": {
+        "active": true,
+        "name": "Asset Type"
+      },
+      "stock_style": {
+        "active": true,
+        "name": "Stock Style"
+      },
+      "bond_sector": {
+        "active": true,
+        "name": "Bond Sector"
+      }
+    },
+
+    "embeddedTaxonomies": {
+      "stock_style_in_asset": {
+        "active": true,
+        "parentTaxonomy": "asset_type",
+        "parentCategory": "Stock",
+        "childTaxonomy": "stock_style",
+        "targetTaxonomy": "asset_type"
+      },
+      "bond_sector_in_asset": {
+        "active": true,
+        "parentTaxonomy": "asset_type",
+        "parentCategory": "Bond",
+        "childTaxonomy": "bond_sector",
+        "targetTaxonomy": "asset_type"
+      }
+    }
+  }
+}

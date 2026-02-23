@@ -1,4 +1,4 @@
-# 🤖 Portfolio Performance Classifier (TypeScript)
+# 🤖 Portfolio Performance Classifier
 
 ![Version](https://img.shields.io/github/package-json/v/rylorin/pp-portfolio-classifier)
 [![Publish](https://github.com/rylorin/pp-portfolio-classifier/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/rylorin/pp-portfolio-classifier/actions/workflows/npm-publish.yml)
@@ -7,7 +7,11 @@
 
 This project is an automation tool for [Portfolio Performance](https://www.portfolio-performance.info/). It automatically classifies your securities (Funds, ETFs, Stocks) by retrieving data from Morningstar.
 
-It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier), offering more flexible configuration.
+It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier), with the following notable changes :
+
+- more flexible configuration
+- hierarchical taxonomies
+- embedded taxonomies
 
 ## 🌟 Features
 
@@ -68,10 +72,10 @@ This is ideal for adapting category names to your language or personal preferenc
 {
   "mappings": {
     "AssetTypeMap": {
-      "1": ["Actions"],
+      "1": "Actions",
       "3": "Obligations",
-      "5": ["Obligations", "Hybrides", "Préférentielles"],
-      "6": ["Obligations", "Hybrides", "Convertibles"],
+      "5": "Obligations",
+      "6": "Obligations",
       "7": "Liquidités & équivalents",
       "8": "Autres",
       "99": "Autres"
@@ -82,14 +86,26 @@ This is ideal for adapting category names to your language or personal preferenc
       "active": true,
       "name": "Classes d’actifs",
       "stockConfig": {
-        "value": ["Actions"]
+        "value": "Actions"
       }
     },
-    "country_by_region": { "active": true, "name": "Zones économiques" },
-    "stock_sector": { "active": true },
     "region": { "active": false },
     "country": { "active": false },
+    "country_by_region": { "active": true },
+    "stock_style": { "active": false },
+    "stock_sector": { "active": true },
+    "bond_sector": { "active": false },
     "holding": { "active": false }
+  },
+  "embeddedTaxonomies": {
+    "stock_style_in_asset": {
+      "active": true,
+      "parentCategory": "Actions"
+    },
+    "bond_sector_in_asset": {
+      "active": true,
+      "parentCategory": "Obligations"
+    }
   }
 }
 ```
@@ -103,7 +119,7 @@ This is ideal for adapting category names to your language or personal preferenc
 - `stock_style`
 - `stock_sector`
 - `bond_sector`
-- `holding`
+- `holding` **disabled by default** as the taxonomy may become huge and difficult to manage for PP.
 
 ### How Mappings Work
 
@@ -128,9 +144,83 @@ You can control the classification behavior for specific securities by adding sp
 - **Multi-Asset Fund Breakdowns**
   Currently, the tool may produce inconsistent classifications for funds holding multiple asset classes (e.g., 90% Stocks, 10% Bonds).
   Morningstar reports a breakdown relative to a specific asset class (e.g., "100% of Bonds are Government Bonds"), therfore this percentage will apply to the **entire fund** instead of weighting it by the asset class portion (i.e., 100% of the 10%).
-  This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. This is how Morningstar reports data and is a known limitation of the current logic.
+  This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. This is how Morningstar reports data and is a known limitation of the current logic. 📌 Embeded taxonomies are a good workaround to this issue.
 - **Portfolio Performance file format**
   The script only supports the unencrypted XML (without IDs) file format of Portfolio Performance.
+
+## 🔗 Embedded Taxonomies
+
+You can now nest taxonomies within specific categories of other taxonomies! This solves the multi-asset fund limitation mentioned above.
+
+### How it works
+
+Instead of having separate taxonomies, you can embed one taxonomy into a specific category of another taxonomy. The weights are automatically calculated in cascade.
+
+### Example
+
+**Without embedded taxonomies:**
+
+```
+Asset Type:          Stock Style:
+├── Stock: 80%       ├── Large Growth: 70%
+└── Bond: 20%        └── Small Value: 30%
+```
+
+**With embedded taxonomies:**
+
+```
+Asset Type:
+├── Stock (80%)
+│   ├── Large Growth: 56%  ← 80% × 70%
+│   └── Small Value: 24%  ← 80% × 30%
+└── Bond: 20%
+```
+
+### Configuration
+
+Add an `embeddedTaxonomies` section to your `config/local.json`:
+
+```json
+{
+  "embeddedTaxonomies": {
+    "stock_style_in_asset": {
+      "active": true,
+      "parentTaxonomy": "asset_type",
+      "parentCategory": "Stock",
+      "childTaxonomy": "stock_style",
+      "targetTaxonomy": "asset_type"
+    },
+    "bond_sector_in_asset": {
+      "active": true,
+      "parentTaxonomy": "asset_type",
+      "parentCategory": "Bond",
+      "childTaxonomy": "bond_sector",
+      "targetTaxonomy": "asset_type"
+    }
+  }
+}
+```
+
+**Configuration fields:**
+
+- `active`: Enable/disable this embedding
+- `parentTaxonomy`: The taxonomy containing the parent category
+- `parentCategory`: The category where to embed the child taxonomy
+- `childTaxonomy`: The taxonomy to embed
+- `targetTaxonomy`: The taxonomy where to create subcategories (usually same as parentTaxonomy)
+
+### Use Cases
+
+1. **Multi-asset funds**: Embed stock styles within stocks, bond sectors within bonds
+2. **Detailed breakdowns**: Get more granular classifications for specific asset classes
+3. **Better visualization**: See the complete hierarchy in a single taxonomy
+
+### Notes
+
+- Embedded taxonomies are **enabled by default** as they provide a more accurate classification.
+- The total always equals 100% (automatic adjustment if needed)
+- If a parent category doesn't exist (0%), the embedding is skipped
+- If a child taxonomy has no data, the parent category remains unchanged
 
 ## 🛠️ Troubleshooting
 

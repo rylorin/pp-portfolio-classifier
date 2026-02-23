@@ -1,7 +1,7 @@
 import config from "config";
 import { filter as _filter, get } from "lodash";
 import { MorningstarAPI } from "./morningstar-api";
-import { PPSecurity } from "./types";
+import { EmbeddedTaxonomyConfig, PPSecurity, TaxonomyResult } from "./types";
 import { XMLHandler } from "./xml-helper";
 
 interface StockConfig {
@@ -52,12 +52,14 @@ export class Classifier {
   private api: MorningstarAPI;
   private taxonomiesConfig: Record<string, TaxonomyConfig>;
   private globalMappings: Record<string, Record<string, string | string[]>>;
+  private embeddedTaxonomiesConfig: Record<string, EmbeddedTaxonomyConfig>;
 
   constructor(xmlHandler: XMLHandler, api: MorningstarAPI) {
     this.xmlHandler = xmlHandler;
     this.api = api;
     this.taxonomiesConfig = config.get("taxonomies");
     this.globalMappings = config.has("mappings") ? config.get("mappings") : {};
+    this.embeddedTaxonomiesConfig = config.has("embeddedTaxonomies") ? config.get("embeddedTaxonomies") : {};
   }
 
   private getMapping(
@@ -96,8 +98,16 @@ export class Classifier {
   }
 
   private async classifyFund(security: PPSecurity, data: any): Promise<void> {
+    const securityResults: Map<string, TaxonomyResult> = new Map();
+
     for (const [taxonomyId, taxConfig] of Object.entries(this.taxonomiesConfig)) {
-      if (!taxConfig.active) continue;
+      // Check if this taxonomy should be processed:
+      // 1. If it's explicitly active
+      // 2. OR if it's needed for an active embedded taxonomy
+      const isNeededForEmbedding = this.isTaxonomyNeededForEmbedding(taxonomyId);
+
+      if (!taxConfig.active && !isNeededForEmbedding) continue;
+      // Check if this taxonomy is ignored for this security (from the Note field)
       if (
         security.ignoreTaxonomies !== undefined &&
         (security.ignoreTaxonomies === true || (security.ignoreTaxonomies as string[]).includes(taxonomyId))
@@ -156,11 +166,23 @@ export class Classifier {
       let assignments: Assignment[] = [];
       assignments = this.assignItems(taxConfig, itemsToProcess, assignments, taxonomyId);
 
-      // 4. Truncate breakdown to ensure total is not above 100%
-      if (taxConfig.fixTotal) assignments = this.fixTotalPercentage(assignments, taxonomyId);
+      // Store results for embedded processing
+      securityResults.set(taxonomyId, { taxonomyId, assignments });
+    }
 
-      // 5. Update the XML
-      this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, assignments);
+    // Apply embedded taxonomies if configured
+    const embeddedResults = this.applyEmbeddedTaxonomies(securityResults);
+
+    // 5. Update the XML with final results
+    // Only create standalone taxonomy entries for active taxonomies
+    for (const [taxonomyId, result] of embeddedResults.entries()) {
+      const taxConfig = this.taxonomiesConfig[taxonomyId];
+      if (taxConfig && taxConfig.active) {
+        // Normalize breakdown
+        result.assignments = this.normalizeBreakdown(result.assignments, taxonomyId);
+        // Then update the XML
+        this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, result.assignments);
+      }
     }
   }
 
@@ -171,22 +193,31 @@ export class Classifier {
       const value = item[taxConfig.valueField];
 
       if (key && value) {
-        const weight = Math.round(value * 100);
+        const weight = value * 100;
         if (Number.isNaN(weight)) {
           console.warn(`    [${taxonomyId}] Invalid weight for key: '${key}' (Value: ${value})`);
           continue;
         }
         if (!Object.keys(mapping).length) {
-          assignments.push({ path: [key], weight });
+          // Check if an assignment with this path already exists and accumulate weights
+          const existingAssignment = assignments.find((a) => this.pathEquals(a.path, [key]));
+          if (existingAssignment) {
+            existingAssignment.weight += weight;
+          } else {
+            assignments.push({ path: [key], weight });
+          }
         } else if (key in mapping) {
           const targetClass = mapping[key];
           if (targetClass) {
             const path = Array.isArray(targetClass) ? targetClass : [targetClass];
             if (weight > 0) {
-              assignments.push({ path, weight });
-              // console.debug(
-              //   `    [${taxonomyId}] Mapping key '${key}' to '${path.join(" > ")}' with value of ${weight} (${value}%)`,
-              // );
+              // Check if an assignment with this path already exists and accumulate weights
+              const existingAssignment = assignments.find((a) => this.pathEquals(a.path, path));
+              if (existingAssignment) {
+                existingAssignment.weight += weight;
+              } else {
+                assignments.push({ path, weight });
+              }
             } else {
               console.warn(
                 `    [${taxonomyId}] Negative or null weight for key: '${key}' ignored (Value: ${weight / 100})`,
@@ -203,33 +234,121 @@ export class Classifier {
     return assignments;
   }
 
-  private fixTotalPercentage(assignments: Assignment[], taxonomyId: string): Assignment[] {
-    const totalWeight = assignments.reduce((sum, assignment) => sum + assignment.weight, 0);
-    if (totalWeight > 10000) {
-      assignments.sort((a, b) => b.weight - a.weight);
+  private normalizeBreakdown(assignments: Assignment[], taxonomyId: string): Assignment[] {
+    let result = assignments
+      .filter((a) => a && a.weight > 0)
+      .map((a) => ({ path: a.path, weight: Math.round(a.weight) }));
+    const totalWeight = result.reduce((sum, assignment) => sum + assignment.weight, 0);
+    if (totalWeight > 100_00) {
+      result.sort((a, b) => b.weight - a.weight);
       let totalWeight = 0;
-      for (let i = 0; i < assignments.length; i++) {
-        if (totalWeight + assignments[i].weight > 10000) {
-          assignments[i].weight = 10000 - totalWeight;
+      for (let i = 0; i < result.length; i++) {
+        if (totalWeight + result[i].weight > 10000) {
+          result[i].weight = 10000 - totalWeight;
           console.log(
-            `    [${taxonomyId}] Truncating weight for '${assignments[i].path.join(" > ")}' to ${assignments[i].weight / 100}%`,
+            `    [${taxonomyId}] Truncating weight for '${result[i].path.join(" > ")}' to ${result[i].weight / 100}%`,
           );
-          if (assignments[i].weight == 0) delete assignments[i];
-          totalWeight = 10000;
-        } else totalWeight += assignments[i].weight;
+          if (result[i].weight == 0) delete result[i];
+          totalWeight = 100_00;
+        } else totalWeight += result[i].weight;
       }
     }
-    return assignments.filter((a) => a && a.weight > 0);
+    return result.filter((a) => a && a.weight > 0);
+  }
+
+  private applyEmbeddedTaxonomies(securityResults: Map<string, TaxonomyResult>): Map<string, TaxonomyResult> {
+    // Clone the results to avoid modifying the original
+    const results = new Map<string, TaxonomyResult>();
+    for (const [key, value] of securityResults.entries()) {
+      results.set(key, {
+        taxonomyId: value.taxonomyId,
+        assignments: [...value.assignments],
+      });
+    }
+
+    for (const [configId, config] of Object.entries(this.embeddedTaxonomiesConfig)) {
+      if (!config.active) continue;
+
+      console.log(`    [Embedded] Processing ${configId}...`);
+
+      // 1. Get parent and child results
+      const parentResult = results.get(config.parentTaxonomy);
+      const childResult = results.get(config.childTaxonomy);
+      const targetResult = results.get(config.targetTaxonomy);
+
+      if (!parentResult || !childResult || !targetResult) {
+        console.log(`      [Embedded] Skipping ${configId}: missing taxonomy data`);
+        continue;
+      }
+
+      // 2. Find parent category weight
+      const parentWeight = this.findCategoryWeight(parentResult.assignments, config.parentCategory);
+
+      if (parentWeight === 0) {
+        console.log(
+          `      [Embedded] Skipping ${configId}: parent category '${config.parentCategory}' not found or has 0% weight`,
+        );
+        continue;
+      }
+
+      console.log(`      [Embedded] Parent '${config.parentCategory}' weight: ${Math.round(parentWeight) / 100}%`);
+
+      // 3. Create embedded assignments
+      const embeddedAssignments: Assignment[] = childResult.assignments.map((childAssignment) => ({
+        path: [config.parentCategory, ...childAssignment.path],
+        weight: Math.round((parentWeight * childAssignment.weight) / 10_000),
+      }));
+
+      console.log(`      [Embedded] Created ${embeddedAssignments.length} subcategories`);
+
+      // 4. Replace parent category with embedded assignments in target
+      targetResult.assignments = targetResult.assignments.filter(
+        (assignment) => !this.pathEquals(assignment.path, [config.parentCategory]),
+      );
+
+      targetResult.assignments.push(...embeddedAssignments);
+
+      // 5. Fix breakdown if needed
+      // targetResult.assignments = this.normalizeBreakdown(targetResult.assignments, config.targetTaxonomy);
+    }
+
+    return results;
+  }
+
+  private findCategoryWeight(assignments: Assignment[], category: string): number {
+    const assignment = assignments.find((a) => a.path.length === 1 && a.path[0] === category);
+    return assignment ? assignment.weight : 0;
+  }
+
+  private pathEquals(path1: string[], path2: string[]): boolean {
+    if (path1.length !== path2.length) return false;
+    return path1.every((segment, i) => segment === path2[i]);
+  }
+
+  private isTaxonomyNeededForEmbedding(taxonomyId: string): boolean {
+    for (const config of Object.values(this.embeddedTaxonomiesConfig)) {
+      if (config.active && (config.childTaxonomy === taxonomyId || config.parentTaxonomy === taxonomyId)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private async classifyStock(security: PPSecurity, secid: string | null, data: any): Promise<void> {
+    const securityResults: Map<string, TaxonomyResult> = new Map();
+
     if (!secid && !data) {
       console.warn(`  > Cannot classify stock ${security.name} without data.`);
       return;
     }
 
     for (const [taxonomyId, taxConfig] of Object.entries(this.taxonomiesConfig)) {
-      if (!taxConfig.active) continue;
+      // Check if this taxonomy should be processed:
+      // 1. If it's explicitly active
+      // 2. OR if it's needed for an active embedded taxonomy
+      const isNeededForEmbedding = this.isTaxonomyNeededForEmbedding(taxonomyId);
+
+      if (!taxConfig.active && !isNeededForEmbedding) continue;
       if (
         security.ignoreTaxonomies !== undefined &&
         (security.ignoreTaxonomies === true || (security.ignoreTaxonomies as string[]).includes(taxonomyId))
@@ -240,12 +359,12 @@ export class Classifier {
 
       const stockConfig = taxConfig.stockConfig;
 
+      let assignments: Assignment[] = [];
+
       if (stockConfig.isSingleValue && stockConfig.value) {
         // Case 1: Static value (e.g., Asset Type is always 'Stocks')
         const path = Array.isArray(stockConfig.value) ? stockConfig.value : [stockConfig.value];
-        this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, [
-          { path, weight: 10000 },
-        ]); // 100% weight
+        assignments.push({ path, weight: 10000 }); // 100% weight
       } else if (stockConfig.sourcePath) {
         // Case 2: Value from Data (SAL or Initial)
         let key: any;
@@ -286,21 +405,34 @@ export class Classifier {
         if (key) {
           // console.debug(security.name, key, mapping[key]);
           if (!Object.keys(mapping).length) {
-            this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, [
-              { path: [key], weight: 10000 },
-            ]); // 100% weight
+            assignments.push({ path: [key], weight: 10000 });
           } else if (key in mapping) {
             const targetClass = mapping[key];
             if (targetClass) {
               const path = Array.isArray(targetClass) ? targetClass : [targetClass];
-              this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, [
-                { path, weight: 10000 },
-              ]); // 100% weight
+              assignments.push({ path, weight: 10000 });
             }
           } else {
             console.warn(`    [${taxonomyId}] Unmapped stock value '${key}'.`);
           }
         }
+      }
+
+      // Store results for embedded processing
+      if (assignments.length > 0) {
+        securityResults.set(taxonomyId, { taxonomyId, assignments });
+      }
+    }
+
+    // Apply embedded taxonomies if configured
+    const embeddedResults = this.applyEmbeddedTaxonomies(securityResults);
+
+    // Update the XML with final results
+    // Only create standalone taxonomy entries for active taxonomies
+    for (const [taxonomyId, result] of embeddedResults.entries()) {
+      const taxConfig = this.taxonomiesConfig[taxonomyId];
+      if (taxConfig && taxConfig.active) {
+        this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, result.assignments);
       }
     }
   }

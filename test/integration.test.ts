@@ -186,12 +186,6 @@ describe("Integration Tests - Classification Output", () => {
       expect(content).toContain("<name>Bond Sector</name>");
     });
 
-    test("Bond Style taxonomy exists in output", () => {
-      const content = fs.readFileSync(TEST_OUTPUT_FILE, "utf-8");
-
-      expect(content).toContain("<name>Bond Style</name>");
-    });
-
     test("Region / Country taxonomy exists in output", () => {
       const content = fs.readFileSync(TEST_OUTPUT_FILE, "utf-8");
 

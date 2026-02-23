@@ -24,7 +24,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:42:58.904316Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717056Z</updatedAt>
     </security>
     <security>
       <uuid>042707ae-5eb9-4ea3-961e-4f1b96c61dcb</uuid>
@@ -47,14 +47,14 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:45:03.418080Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717062Z</updatedAt>
     </security>
     <security>
       <uuid>e2618731-433d-4559-9e98-16b063ec7d20</uuid>
       <onlineId>6d9441fcea654d4e9651fd8ff7ed61e0</onlineId>
       <name>iShares Edge MSCI World Multifactor UCITS ETF USD (Acc)</name>
       <currencyCode>EUR</currencyCode>
-      <note>Holdings deleted</note>
+      <note></note>
       <isin>IE00BZ0PKT83</isin>
       <tickerSymbol>IBCZ.DE</tickerSymbol>
       <wkn>A14YPA</wkn>
@@ -71,7 +71,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:44:51.340957Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717062Z</updatedAt>
     </security>
     <security>
       <uuid>92a6e022-3367-464b-aa9c-c1151cadcbc6</uuid>
@@ -94,7 +94,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:43:52.838498Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717056Z</updatedAt>
     </security>
     <security>
       <uuid>5aae6f7e-b56d-450b-815d-99718b10c9c7</uuid>
@@ -117,7 +117,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:44:15.753883Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717057Z</updatedAt>
     </security>
     <security>
       <uuid>ec59eb8a-93f3-48dd-8018-19209ac70a20</uuid>
@@ -140,7 +140,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:42:47.073211Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717062Z</updatedAt>
     </security>
     <security>
       <uuid>8ba17734-2bb7-4f2d-91e2-296bd5d33fc7</uuid>
@@ -162,15 +162,15 @@
         <map/>
       </attributes>
       <events/>
-      <isRetired>true</isRetired>
-      <updatedAt>2026-02-21T18:35:54.690835Z</updatedAt>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-23T14:31:00.717064Z</updatedAt>
     </security>
     <security>
       <uuid>d00dfe4d-dfbb-46e7-beea-f61b361570a6</uuid>
       <onlineId>42a15b17b43a49bc8af4d9ae9e857a9e</onlineId>
       <name>Xtrackers DAX UCITS ETF</name>
       <currencyCode>EUR</currencyCode>
-      <note>Country taxonomy deleted</note>
+      <note></note>
       <isin>LU1349386927</isin>
       <tickerSymbol>XDDA.DE</tickerSymbol>
       <wkn>DBX0QB</wkn>
@@ -187,7 +187,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:43:30.510149Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717064Z</updatedAt>
     </security>
     <security>
       <uuid>763646a4-5c3f-4050-9b41-c20dfc1c02a4</uuid>
@@ -209,7 +209,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-13T12:09:38.578943Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717063Z</updatedAt>
     </security>
     <security>
       <uuid>eaaefc9f-9d52-48cd-84ac-0926db8aafa6</uuid>
@@ -232,7 +232,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:45:49.711295Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717063Z</updatedAt>
     </security>
     <security>
       <uuid>8f2615af-943c-41d9-bb1e-038413b707b6</uuid>
@@ -255,14 +255,14 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:45:36.389011Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717063Z</updatedAt>
     </security>
     <security>
       <uuid>3202b124-8573-4a18-861f-ff7ef7c87ccc</uuid>
       <onlineId>70f8cb6aa42b4a6bac2c6c1fcb5767d9</onlineId>
       <name>Stock: NOVO-NORDISK AS B</name>
       <currencyCode>EUR</currencyCode>
-      <note>Region taxonomy deleted</note>
+      <note></note>
       <isin>DK0062498333</isin>
       <tickerSymbol>NOV.DE</tickerSymbol>
       <wkn>A3EU6F</wkn>
@@ -279,14 +279,14 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-12T15:43:42.348376Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717063Z</updatedAt>
     </security>
     <security>
       <uuid>f60f2afd-4c7b-40ad-97e9-a671df16fb31</uuid>
       <onlineId>dd6ee75d413643ebbf509f5d3c8dbde6</onlineId>
       <name>Stock: Tesla Inc.</name>
       <currencyCode>EUR</currencyCode>
-      <note>inactive</note>
+      <note></note>
       <isin>US88160R1014</isin>
       <tickerSymbol>TL0.DE</tickerSymbol>
       <wkn>A1CX3T</wkn>
@@ -303,14 +303,14 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-21T18:29:45.764579Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717063Z</updatedAt>
     </security>
     <security>
       <uuid>36212daa-4d06-49e8-92ee-464c5110698b</uuid>
       <onlineId>2355a1570434402a9c3380c2a730bd41</onlineId>
       <name>Xtrackers MSCI China A UCITS ETF</name>
       <currencyCode>EUR</currencyCode>
-      <note>inactive</note>
+      <note></note>
       <isin>LU0292109856</isin>
       <tickerSymbol>DBX9.DE</tickerSymbol>
       <wkn>DBX1FX</wkn>
@@ -327,7 +327,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-21T18:29:31.445548Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717064Z</updatedAt>
     </security>
     <security>
       <uuid>476e2898-68b3-4665-9812-423b2db496b7</uuid>
@@ -342,7 +342,7 @@
         <map/>
       </attributes>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-14T13:55:25.738848Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717062Z</updatedAt>
     </security>
     <security>
       <uuid>a0cbe464-7897-41ca-93aa-d5aea765ade6</uuid>
@@ -357,7 +357,7 @@
         <map/>
       </attributes>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-14T13:56:23.836271Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717062Z</updatedAt>
     </security>
     <security>
       <uuid>207f0a46-abe4-46f7-85f2-27eedc036879</uuid>
@@ -373,7 +373,43 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-21T18:30:34.062796Z</updatedAt>
+      <updatedAt>2026-02-23T14:31:00.717062Z</updatedAt>
+    </security>
+    <security>
+      <uuid>293bf131-71e7-477b-8eb5-4e42afdcd09b</uuid>
+      <name>INDEPENDANCE AM EUROPE SMALL A (C)</name>
+      <currencyCode>EUR</currencyCode>
+      <isin>LU1832174962</isin>
+      <tickerSymbol>0P0001DKPM.F</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices/>
+      <latestFeed>MANUAL</latestFeed>
+      <latest t="2026-02-19" v="24323000000">
+        <high>-1</high>
+        <low>-1</low>
+        <volume>-1</volume>
+      </latest>
+      <attributes>
+        <map/>
+      </attributes>
+      <events/>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-23T14:31:00.717057Z</updatedAt>
+    </security>
+    <security>
+      <uuid>85fb5b67-e137-42fd-aa42-abaabbe04bec</uuid>
+      <name>Allianz Epargne Flexible</name>
+      <currencyCode>EUR</currencyCode>
+      <note>inactive</note>
+      <isin>FR0011964774</isin>
+      <tickerSymbol>0P0001KJZ8.F</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices/>
+      <attributes>
+        <map/>
+      </attributes>
+      <isRetired>true</isRetired>
+      <updatedAt>2026-02-23T13:55:27.652742Z</updatedAt>
     </security>
   </securities>
   <watchlists/>
@@ -977,16 +1013,6 @@
             <rank>1</rank>
           </classification>
           <classification>
-            <id>a10a353f-d749-4e4b-bfa7-edd0830ca958</id>
-            <name>Preferred</name>
-            <color>#736bb7</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>2</rank>
-          </classification>
-          <classification>
             <id>9b186a1e-a68a-4db4-856f-abdbe2ea4809</id>
             <name>Bond</name>
             <color>#b76baf</color>
@@ -997,16 +1023,6 @@
             <rank>3</rank>
           </classification>
           <classification>
-            <id>d2a6b741-b359-4615-b240-2b48de6bbdef</id>
-            <name>Equity</name>
-            <color>#b7736b</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>4</rank>
-          </classification>
-          <classification>
             <id>8ae38ccd-f24b-4b6e-8a3e-dd6e3e1233a6</id>
             <name>Stock</name>
             <color>#afb76b</color>
@@ -1015,110 +1031,6 @@
             <assignments/>
             <weight>0</weight>
             <rank>5</rank>
-          </classification>
-        </children>
-        <assignments/>
-        <weight>10000</weight>
-        <rank>0</rank>
-      </root>
-    </taxonomy>
-    <taxonomy>
-      <id>f78fde67-4bf7-4bda-a77f-351b6f205ea3</id>
-      <name>Bond Style</name>
-      <root>
-        <id>3f7a7344-25c9-4c07-a92d-98dc27830ef5</id>
-        <name>Bond Style</name>
-        <color>#89afee</color>
-        <children>
-          <classification>
-            <id>d0d271fe-b95f-47e2-859b-9c6c81f2cbd9</id>
-            <name>High Quality - Short Term</name>
-            <color>#8ff0a4</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>0</rank>
-          </classification>
-          <classification>
-            <id>e4567646-6d1b-4bb1-9127-e29af5260001</id>
-            <name>High Quality - Intermediate Term</name>
-            <color>#33d17a</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>1</rank>
-          </classification>
-          <classification>
-            <id>aefce759-8644-40ab-82ab-7269798ef28f</id>
-            <name>High Quality - Long Term</name>
-            <color>#26a269</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>2</rank>
-          </classification>
-          <classification>
-            <id>d6e226d9-686f-4400-96d5-75e735d4bf4d</id>
-            <name>Medium Quality - Short Term</name>
-            <color>#99c1f1</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>3</rank>
-          </classification>
-          <classification>
-            <id>e1f283e6-bf5e-4bd8-ae2f-55689999fbe4</id>
-            <name>Medium Quality - Intermediate Term</name>
-            <color>#3584e4</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>4</rank>
-          </classification>
-          <classification>
-            <id>d324c1cf-fb83-4352-99ab-954ea09ccd95</id>
-            <name>Medium Quality - Long Term</name>
-            <color>#1a5fb4</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>5</rank>
-          </classification>
-          <classification>
-            <id>7086ebdc-645a-44a7-bd7e-40b655b71010</id>
-            <name>Low Quality - Short Term</name>
-            <color>#ffbe6f</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>6</rank>
-          </classification>
-          <classification>
-            <id>a66915e8-5f6a-4483-ba16-1de9842df284</id>
-            <name>Low Quality - Intermediate Term</name>
-            <color>#ff7800</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>7</rank>
-          </classification>
-          <classification>
-            <id>7041437f-ec62-4140-9565-bb4a17bfe4f4</id>
-            <name>Low Quality - Long Term</name>
-            <color>#c64600</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>8</rank>
           </classification>
         </children>
         <assignments/>
@@ -1653,760 +1565,6 @@
             <assignments/>
             <weight>0</weight>
             <rank>51</rank>
-          </classification>
-        </children>
-        <assignments/>
-        <weight>10000</weight>
-        <rank>0</rank>
-      </root>
-    </taxonomy>
-    <taxonomy>
-      <id>293c0d4f-da95-45b9-bda6-702e924184e8</id>
-      <name>Holding</name>
-      <root>
-        <id>c3e942d4-e890-4cec-ba5b-169a950f03e4</id>
-        <name>Holding</name>
-        <color>#89afee</color>
-        <children>
-          <classification>
-            <id>3346db7c-5918-4e75-9947-c08bf8531f94</id>
-            <name>NVIDIA Corp</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>0</rank>
-          </classification>
-          <classification>
-            <id>2e042f0a-623b-4bb6-be77-6b893bd5938e</id>
-            <name>Apple Inc</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>1</rank>
-          </classification>
-          <classification>
-            <id>eca3abdf-9649-4582-af38-cccb7e0dcc8c</id>
-            <name>Microsoft Corp</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>2</rank>
-          </classification>
-          <classification>
-            <id>39e1e3a4-e9ed-4a18-8e7f-39d79a41fff7</id>
-            <name>Amazon.com Inc</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>3</rank>
-          </classification>
-          <classification>
-            <id>dc058114-c073-4837-a60f-65ccb495aa6c</id>
-            <name>Alphabet Inc Class A</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>4</rank>
-          </classification>
-          <classification>
-            <id>21579cc0-3667-44ce-9b41-f1022e27b124</id>
-            <name>Broadcom Inc</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>5</rank>
-          </classification>
-          <classification>
-            <id>5a182dde-fdcb-490d-9218-3eba5f0c0212</id>
-            <name>Alphabet Inc Class C</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>6</rank>
-          </classification>
-          <classification>
-            <id>76a70873-f118-4cde-b2c5-d4997d0e9d27</id>
-            <name>Meta Platforms Inc Class A</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>7</rank>
-          </classification>
-          <classification>
-            <id>2f49728b-65dd-4ed2-bc9f-ebaac70c1ff4</id>
-            <name>Tesla Inc</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>8</rank>
-          </classification>
-          <classification>
-            <id>edf3f0e0-0343-49fb-9edc-ce67d21875af</id>
-            <name>Berkshire Hathaway Inc Class B</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>9</rank>
-          </classification>
-          <classification>
-            <id>72cefdb3-f086-4f6d-9290-106fde503a50</id>
-            <name>JPMorgan Chase &amp; Co</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>10</rank>
-          </classification>
-          <classification>
-            <id>67e33f38-e05a-42fb-b4fa-a8a72470d43e</id>
-            <name>UniCredit SpA</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>11</rank>
-          </classification>
-          <classification>
-            <id>f5f39afc-d340-43a1-b3f2-5673a7c0653d</id>
-            <name>McKesson Corp</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>12</rank>
-          </classification>
-          <classification>
-            <id>5c48ff48-0f0e-4fc4-ab97-c6adf01af40a</id>
-            <name>Trane Technologies PLC Class A</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>13</rank>
-          </classification>
-          <classification>
-            <id>d9a69655-e5d6-44d0-8619-47ce3554408d</id>
-            <name>Manulife Financial Corp</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>14</rank>
-          </classification>
-          <classification>
-            <id>2c6c73a4-b92c-44b7-93fb-26ecf26e76b2</id>
-            <name>HDFC Bank Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>15</rank>
-          </classification>
-          <classification>
-            <id>0c859428-92d8-4d38-829d-dc57f3408e3f</id>
-            <name>Reliance Industries Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>16</rank>
-          </classification>
-          <classification>
-            <id>28525954-e41f-4f18-96d7-158f3f49dcd2</id>
-            <name>ICICI Bank Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>17</rank>
-          </classification>
-          <classification>
-            <id>9756d9c8-f411-4203-a436-f4d0da836923</id>
-            <name>Bharti Airtel Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>18</rank>
-          </classification>
-          <classification>
-            <id>74331048-69b3-435c-8949-4ac2176f77cf</id>
-            <name>Infosys Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>19</rank>
-          </classification>
-          <classification>
-            <id>c9491d95-d24b-46a8-8408-add64daf047e</id>
-            <name>Mahindra &amp; Mahindra Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>20</rank>
-          </classification>
-          <classification>
-            <id>8744b91e-f175-497c-a292-a85c60ab010f</id>
-            <name>Axis Bank Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>21</rank>
-          </classification>
-          <classification>
-            <id>04697584-60b0-4a88-bf2a-8fde6cfacfeb</id>
-            <name>Larsen &amp; Toubro Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>22</rank>
-          </classification>
-          <classification>
-            <id>4540cb44-08c4-4ac4-942f-77126b06ac8a</id>
-            <name>Bajaj Finance Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>23</rank>
-          </classification>
-          <classification>
-            <id>21a0a0a0-8e67-4c56-86ee-f1d9f6e07710</id>
-            <name>Tata Consultancy Services Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>24</rank>
-          </classification>
-          <classification>
-            <id>8c30503a-04cf-4d51-968e-ea2fdc375731</id>
-            <name>ASML Holding NV</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>25</rank>
-          </classification>
-          <classification>
-            <id>0d4026dc-74c7-422c-b3d5-472cc9a91f12</id>
-            <name>Roche Holding AG</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>26</rank>
-          </classification>
-          <classification>
-            <id>a2022f22-6672-4fed-9a3f-d6ba7288f31a</id>
-            <name>AstraZeneca PLC</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>27</rank>
-          </classification>
-          <classification>
-            <id>d4e62745-141b-4ef0-9088-6580ce5ca005</id>
-            <name>Novartis AG Registered Shares</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>28</rank>
-          </classification>
-          <classification>
-            <id>b26fde58-20c5-46b7-a426-e17340bc111e</id>
-            <name>HSBC Holdings PLC</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>29</rank>
-          </classification>
-          <classification>
-            <id>13ab3f11-53b3-4696-9a87-b067ffbf28de</id>
-            <name>Nestle SA</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>30</rank>
-          </classification>
-          <classification>
-            <id>c26fb747-8e26-4960-a0f8-e7a79f84880c</id>
-            <name>Siemens AG</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>31</rank>
-          </classification>
-          <classification>
-            <id>483eb71c-8782-4011-9bbd-78d43663c561</id>
-            <name>Shell PLC</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>32</rank>
-          </classification>
-          <classification>
-            <id>2ec3fafe-f3a8-4c5c-b5a5-4782adf83550</id>
-            <name>SAP SE</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>33</rank>
-          </classification>
-          <classification>
-            <id>6271cab8-c691-461b-bd0c-9643d977d0ec</id>
-            <name>Banco Santander SA</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>34</rank>
-          </classification>
-          <classification>
-            <id>9a46da97-93b1-4f75-a4f9-88389076cec2</id>
-            <name>Taiwan Semiconductor Manufacturing Co Ltd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>35</rank>
-          </classification>
-          <classification>
-            <id>e3e284d9-8655-4572-a169-ad7d749efd7f</id>
-            <name>Micron Technology Inc</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>36</rank>
-          </classification>
-          <classification>
-            <id>7bc3a016-1092-4564-bbca-eda048d6b58b</id>
-            <name>Deutsche Telekom AG</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>37</rank>
-          </classification>
-          <classification>
-            <id>81ee196c-a5af-429f-b843-0360c88610ed</id>
-            <name>Mastercard Inc Class A</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>38</rank>
-          </classification>
-          <classification>
-            <id>4bf3da4c-9464-4d02-9764-3230dc16be33</id>
-            <name>Visa Inc Class A</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>39</rank>
-          </classification>
-          <classification>
-            <id>b57ec03e-244e-492c-be06-652b0177ba06</id>
-            <name>Eli Lilly and Co</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>40</rank>
-          </classification>
-          <classification>
-            <id>06f18577-78bf-4363-b207-c5413c575b8c</id>
-            <name>Exxon Mobil Corp</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>41</rank>
-          </classification>
-          <classification>
-            <id>d1f189c4-974c-422f-8d0b-4cc371ddcc20</id>
-            <name>Verizon Communications Inc</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>42</rank>
-          </classification>
-          <classification>
-            <id>1da6025a-9e2e-4313-bcdc-ebcf4ccc314c</id>
-            <name>Pfizer Inc</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>43</rank>
-          </classification>
-          <classification>
-            <id>e107f8b0-0ec1-4e19-9800-07c1d2e092b5</id>
-            <name>TotalEnergies SE</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>44</rank>
-          </classification>
-          <classification>
-            <id>e41f07d5-1b51-4bd1-9129-0ae72899bdce</id>
-            <name>PepsiCo Inc</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>45</rank>
-          </classification>
-          <classification>
-            <id>d88335b4-c737-4552-b5af-6eacfe9c9066</id>
-            <name>Allianz SE</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>46</rank>
-          </classification>
-          <classification>
-            <id>ab52c09a-002b-4661-ad57-c73d7f033a50</id>
-            <name>Novo Nordisk AS Class B</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>47</rank>
-          </classification>
-          <classification>
-            <id>37a2709b-1a7a-4db7-908c-24d47a5c3ccd</id>
-            <name>Airbus SE</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>48</rank>
-          </classification>
-          <classification>
-            <id>9d0d97e3-fde8-4551-8a56-b2304d2ef9f6</id>
-            <name>Siemens Energy AG Ordinary Shares</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>49</rank>
-          </classification>
-          <classification>
-            <id>abf4cfcd-09f9-4222-b8f9-01341489fc7c</id>
-            <name>Munchener Ruckversicherungs-Gesellschaft AG</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>50</rank>
-          </classification>
-          <classification>
-            <id>83ecd2c6-d211-494e-a0a1-dc14f6eebc12</id>
-            <name>Rheinmetall AG</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>51</rank>
-          </classification>
-          <classification>
-            <id>a1d1cd14-1d4a-4d2a-990c-d0a0cdb37ff8</id>
-            <name>Deutsche Bank AG</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>52</rank>
-          </classification>
-          <classification>
-            <id>26b1dd6b-9c36-46e7-882d-95849f3bd811</id>
-            <name>Infineon Technologies AG</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>53</rank>
-          </classification>
-          <classification>
-            <id>a34d44f2-0a0b-4e63-8655-99a531f15a23</id>
-            <name>Taiwan Semiconductor Manufacturing Co Ltd ADR</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>54</rank>
-          </classification>
-          <classification>
-            <id>9fd6d5c9-a648-474f-96ef-cad8ebfb27b3</id>
-            <name>Barclays PLC 8%</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>55</rank>
-          </classification>
-          <classification>
-            <id>856ede62-799d-4385-b748-7c24497f1b1f</id>
-            <name>Banco Santander SA 8%</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>56</rank>
-          </classification>
-          <classification>
-            <id>7e341d69-7363-481a-96b3-3c5172eb2b42</id>
-            <name>Banco Santander SA 9.625%</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>57</rank>
-          </classification>
-          <classification>
-            <id>4927e483-c9b7-463e-a522-075c09260c0a</id>
-            <name>Barclays PLC 9.625%</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>58</rank>
-          </classification>
-          <classification>
-            <id>456fa48b-4205-433b-bf37-a24c0ff13f71</id>
-            <name>Lloyds Banking Group PLC 8%</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>59</rank>
-          </classification>
-          <classification>
-            <id>825308bd-959c-4318-b2fd-9f55632b1149</id>
-            <name>Deutsche Bank AG 8.13011%</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>60</rank>
-          </classification>
-          <classification>
-            <id>4dd39a14-14fd-4a71-b567-34414193e40d</id>
-            <name>Credit Agricole S.A. 7.125%</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>61</rank>
-          </classification>
-          <classification>
-            <id>d7877899-5adc-404f-8fbf-0f58fbb3a691</id>
-            <name>Sumitomo Mitsui Financial Group Inc. 6.45%</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>62</rank>
-          </classification>
-          <classification>
-            <id>0a27962a-a94e-4dfc-9cef-e7d1da119509</id>
-            <name>Credit Agricole SA VAR 23/12/74</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>63</rank>
-          </classification>
-          <classification>
-            <id>6b23a1d8-d29e-488a-81ef-e538bf3b4161</id>
-            <name>JPMorgan Chase &amp; Co 6% PRF PERPETUAL USD 25 - Dep rep 1/400 Ser EE</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>64</rank>
-          </classification>
-          <classification>
-            <id>569edc17-6706-4c4d-94f1-6838c9d3c650</id>
-            <name>JPMorgan Chase &amp; Co Pfd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>65</rank>
-          </classification>
-          <classification>
-            <id>58c74081-bf34-4f35-ba45-b45a23f2da65</id>
-            <name>Wells Fargo &amp; Co 4.75% PRF PERPETUAL USD 25 Series Z Class A</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>66</rank>
-          </classification>
-          <classification>
-            <id>b2b05303-7934-43fc-9f3f-a0a59ee76837</id>
-            <name>JPMorgan Chase &amp; Co PRF PERPETUAL USD - Ser MM 1/400th</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>67</rank>
-          </classification>
-          <classification>
-            <id>fe637683-b0d5-43b6-bef4-4d8b156ce676</id>
-            <name>JPMorgan Chase &amp; Co PRF PERPETUAL USD - Ser LL 1/400th Int</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>68</rank>
-          </classification>
-          <classification>
-            <id>0bd605b2-be70-499d-a9cb-1fb14c9a8a3e</id>
-            <name>Bank of America Corp 6% PRF PERPETUAL USD 25 - Ser GG 1/1000th int</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>69</rank>
-          </classification>
-          <classification>
-            <id>4304737b-a672-4502-9d7c-9ad2c108169c</id>
-            <name>AT&amp;T Inc 4.75% PRF PERPETUAL USD 25 - 1/1000th Int Ser C</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>70</rank>
-          </classification>
-          <classification>
-            <id>8dc5c983-bb38-4e18-b480-8a8c34d374bd</id>
-            <name>Bank of America Corp Pfd</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>71</rank>
-          </classification>
-          <classification>
-            <id>a340fe68-2075-4351-bbc9-a6a7c9b77d99</id>
-            <name>Capital One Financial Corp Series I</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>72</rank>
-          </classification>
-          <classification>
-            <id>350a8d69-3c5b-4d57-a2e8-b5a257cd1158</id>
-            <name>AT&amp;T Inc 5.35% NT REDEEM 01/11/2066 USD 25</name>
-            <color>#89afee</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>73</rank>
           </classification>
         </children>
         <assignments/>
@@ -3302,16 +2460,6 @@
             <assignments/>
             <weight>0</weight>
             <rank>6</rank>
-          </classification>
-          <classification>
-            <id>32b2b269-f48b-4e6b-b71c-82ebf24063b2</id>
-            <name>Cash &amp; Equivalents</name>
-            <color>#a0614c</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>7</rank>
           </classification>
         </children>
         <assignments/>

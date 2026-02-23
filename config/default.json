@@ -10,8 +10,10 @@
     "AssetTypeMap": {
       "1": "Stock",
       "3": "Bond",
-      "5": "Preferred",
-      "6": "Convertible",
+      "5-original": "Preferred",
+      "5": "Bond",
+      "6-original": "Convertible",
+      "6": "Bond",
       "7": "Cash",
       "8": "Other",
       "99-ignored": "Not classified",
@@ -851,7 +853,8 @@
       "4030": "Commercial Mortgage Backed",
       "4040": "Covered Bond",
       "4050": "Asset Backed",
-      "5010": "Cash & Equivalents",
+      "5010-disabled": "Cash & Equivalents",
+      "5010": null,
       "6010": "Swap",
       "6020": "Future/Forward",
       "6030": "Option/Warrant"
@@ -1005,7 +1008,7 @@
       "fixTotal": true,
       "stockConfig": {
         "isSingleValue": true,
-        "value": "Equity"
+        "value": "Stock"
       }
     },
     "region": {
@@ -1116,17 +1119,33 @@
       }
     },
     "holding": {
-      "active": true,
+      "active": false,
       "name": "Holding",
       "viewId": "Allholdings",
       "sourcePath": "Portfolios[0].PortfolioHoldings",
       "multigroup": true,
       "keyField": "SecurityName",
       "valueField": "Weighting",
-      "fixTotal": false,
+      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Name"
       }
+    }
+  },
+  "embeddedTaxonomies": {
+    "stock_style_in_asset": {
+      "active": true,
+      "parentTaxonomy": "asset_type",
+      "parentCategory": "Stock",
+      "childTaxonomy": "stock_style",
+      "targetTaxonomy": "asset_type"
+    },
+    "bond_sector_in_asset": {
+      "active": true,
+      "parentTaxonomy": "asset_type",
+      "parentCategory": "Bond",
+      "childTaxonomy": "bond_sector",
+      "targetTaxonomy": "asset_type"
     }
   }
 }
