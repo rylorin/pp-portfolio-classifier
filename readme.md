@@ -7,15 +7,11 @@
 
 This project is an automation tool for [Portfolio Performance](https://www.portfolio-performance.info/). It automatically classifies your securities (Funds, ETFs, Stocks) by retrieving data from Morningstar.
 
-It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier), with the following notable changes :
-
-- more flexible configuration
-- hierarchical taxonomies
-- embedded taxonomies
+It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).
 
 ## 🌟 Features
 
-- **Multi-Type Support**: Handles Funds/ETFs as well as Stocks (via Morningstar SAL API).
+- **Multi-Type Support**: Handles Funds/ETFs as well as Stocks.
 - **Automatic Taxonomies**: Creates and updates classifications in your XML file:
   - Asset Allocation (Equity, Bond, Cash, etc.)
   - Regions (Americas, Europe, Asia, etc.)
@@ -23,6 +19,7 @@ It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto1
 - **Non-destructive**: Generates a new XML file by default to avoid overwriting your data without verification.
 - **Configurable**: Customize the script's behavior (language, taxonomies, etc.) via a configuration file.
 - **Multi-levels taxonomies**: Supports hierarchical taxonomies (e.g., "Europe > Germany").
+- **Embeded taxonomies**: Allows to embed a taxonomy into a specific category of another taxonomy.
 
 ## 🧠 How it works
 
@@ -64,7 +61,7 @@ The project uses `node-config` for configuration management.
 
 You can customize the script's behavior (change the taxonomy language, modify the Morningstar domain, etc.) by creating a `config/local.json` file. This file will override the default values ​​defined in `config/default.json`.
 
-This is ideal for adapting category names to your language or personal preferences.
+This is ideal for adapting category names to your language or customize taxonomies to your personal preferences.
 
 **Example of `config/local.json`:**
 
@@ -126,7 +123,7 @@ This is ideal for adapting category names to your language or personal preferenc
 The classification logic relies on mapping tables defined in the configuration files (config/default.json and config/local.json) to translate Morningstar data into your Portfolio Performance taxonomies.
 
 - Direct Value: For some taxonomies like holding, no mapping table is used. The script directly uses the value provided by Morningstar (e.g., the security name).
-- Mapped Value: For most taxonomies, a mapping table is used to convert a code or an ID from Morningstar into a human-readable category name. For instance, AssetTypeMap converts the code 1 to "Stock". If a code is mapped to `null`, that specific data point is ignored. This is crucial for avoiding inconsistencies. For example, the region breakdown from Morningstar includes both geographical regions (like "Europe", "Asia") and market types ("Developed Markets", "Emerging Markets"). Without ignoring the market types, the total allocation could exceed 100%. By mapping them to `null`, we ensure only the geographical regions are used for the classification.
+- Mapped Value: For most taxonomies, a mapping table is used to convert a code or an ID from Morningstar into a human-readable category name. For instance, AssetTypeMap converts the code 1 to "Stock". If a code is mapped to `null`, that specific data point is ignored. This is crucial for avoiding inconsistencies. For example, the region breakdown from Morningstar includes both geographical regions (like "Europe", "Asia") and market types ("Developed Markets", "Emerging Markets"). Without ignoring the market types, the total allocation would exceed 100%. By mapping them to `null`, we ensure only the geographical regions are used for the classification.
 
 ### Advanced Usage: Security Notes Flags
 
@@ -144,7 +141,7 @@ You can control the classification behavior for specific securities by adding sp
 - **Multi-Asset Fund Breakdowns**
   Currently, the tool may produce inconsistent classifications for funds holding multiple asset classes (e.g., 90% Stocks, 10% Bonds).
   Morningstar reports a breakdown relative to a specific asset class (e.g., "100% of Bonds are Government Bonds"), therfore this percentage will apply to the **entire fund** instead of weighting it by the asset class portion (i.e., 100% of the 10%).
-  This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. This is how Morningstar reports data and is a known limitation of the current logic. 📌 Embeded taxonomies are a good workaround to this issue.
+  This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. This is how Morningstar reports data and is a known limitation of the current logic. 📌 Embeded taxonomies are a nice workaround to this issue.
 - **Portfolio Performance file format**
   The script only supports the unencrypted XML (without IDs) file format of Portfolio Performance.
 
@@ -201,6 +198,8 @@ Add an `embeddedTaxonomies` section to your `config/local.json`:
 }
 ```
 
+> The above example is already included in the default configuration but is provided here for reference/documentation.
+
 **Configuration fields:**
 
 - `active`: Enable/disable this embedding
@@ -230,6 +229,10 @@ Add an `embeddedTaxonomies` section to your `config/local.json`:
 
 ## 🖼️ Gallery
 
+### Asset Type with embeded taxonomies
+
+![Asset Type with embeded taxonomies](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/embeded-taxonomies.png)
+
 ### Autoclassified stock-style
 
 ![Autoclassified stock-style](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/autoclassified-stock-style.png)
@@ -242,7 +245,7 @@ Add an `embeddedTaxonomies` section to your `config/local.json`:
 
 ![Autoclassified Sectors](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/autoclassified-sectors.png)
 
-### List of stocks and holdings from Top 10 of each fund
+### List of stocks and holdings
 
 ![List of stocks and holdings from Top 10 of each fund](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/top-10-holdings.png)
 
@@ -258,4 +261,6 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## 🙏 Credits & Contributors
 
-Based on the original work by [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).
+- Based on the original work by [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).
+- [Google Gemini](https://gemini.google.com/)
+- [Kilo Code](https://kilo.ai)
