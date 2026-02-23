@@ -32,11 +32,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Test
-        run: yarn test
-
       - name: Build project
         run: yarn build
+
+      - name: Test
+        run: yarn test
 
       # Automated Version Bump
       - name: "Automated Version Bump"
