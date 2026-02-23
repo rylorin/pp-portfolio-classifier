@@ -7,7 +7,7 @@
 
 This project is an automation tool for [Portfolio Performance](https://www.portfolio-performance.info/). It automatically classifies your securities (Funds, ETFs, Stocks) by retrieving data from Morningstar.
 
-It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier), offering strong typing, and more flexible configuration.
+It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier), offering more flexible configuration.
 
 ## 🌟 Features
 
@@ -18,7 +18,7 @@ It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto1
   - Sectors (Technology, Healthcare, Finance, etc.)
 - **Non-destructive**: Generates a new XML file by default to avoid overwriting your data without verification.
 - **Configurable**: Customize the script's behavior (language, taxonomies, etc.) via a configuration file.
-- **Multi-levels taxonomies**: Supports nested taxonomies (e.g., "Europe > Germany").
+- **Multi-levels taxonomies**: Supports hierarchical taxonomies (e.g., "Europe > Germany").
 
 ## 🧠 How it works
 
@@ -60,17 +60,6 @@ The project uses `node-config` for configuration management.
 
 You can customize the script's behavior (change the taxonomy language, modify the Morningstar domain, etc.) by creating a `config/local.json` file. This file will override the default values ​​defined in `config/default.json`.
 
-**Available Taxonomies:**
-
-- `asset_type`
-- `region`
-- `country`
-- `country_by_region`
-- `stock_style`
-- `stock_sector`
-- `bond_sector`
-- `holding`
-
 This is ideal for adapting category names to your language or personal preferences.
 
 **Example of `config/local.json`:**
@@ -104,6 +93,17 @@ This is ideal for adapting category names to your language or personal preferenc
   }
 }
 ```
+
+**Available Taxonomies:**
+
+- `asset_type`
+- `region`
+- `country`
+- `country_by_region`
+- `stock_style`
+- `stock_sector`
+- `bond_sector`
+- `holding`
 
 ### How Mappings Work
 

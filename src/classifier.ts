@@ -169,13 +169,13 @@ export class Classifier {
     for (const item of itemsToProcess) {
       const key = item[taxConfig.keyField];
       const value = item[taxConfig.valueField];
-      const weight = Math.round(parseFloat(value) * 100);
-      if (Number.isNaN(weight)) {
-        console.warn(`    [${taxonomyId}] Invalid weight for key: '${key}' (Value: ${value})`);
-        continue;
-      }
 
-      if (key) {
+      if (key && value) {
+        const weight = Math.round(value * 100);
+        if (Number.isNaN(weight)) {
+          console.warn(`    [${taxonomyId}] Invalid weight for key: '${key}' (Value: ${value})`);
+          continue;
+        }
         if (!Object.keys(mapping).length) {
           assignments.push({ path: [key], weight });
         } else if (key in mapping) {
@@ -197,7 +197,7 @@ export class Classifier {
           console.warn(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${weight / 100})`);
         }
       } else {
-        console.error(`    [${taxonomyId}] No key!!! (Value: ${weight / 100})`);
+        // console.warn(`    [${taxonomyId}] No key ${key} or value ${value} for item`);
       }
     }
     return assignments;
