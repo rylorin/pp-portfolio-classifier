@@ -157,7 +157,7 @@ Instead of having separate taxonomies, you can embed one taxonomy into a specifi
 
 **Without embedded taxonomies:**
 
-```
+```text
 Asset Type:          Stock Style:
 ├── Stock: 80%       ├── Large Growth: 70%
 └── Bond: 20%        └── Small Value: 30%
@@ -165,7 +165,7 @@ Asset Type:          Stock Style:
 
 **With embedded taxonomies:**
 
-```
+```text
 Asset Type:
 ├── Stock (80%)
 │   ├── Large Growth: 56%  ← 80% × 70%
