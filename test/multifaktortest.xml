@@ -411,6 +411,62 @@
       <isRetired>true</isRetired>
       <updatedAt>2026-02-23T13:55:27.652742Z</updatedAt>
     </security>
+    <security>
+      <uuid>963629ee-ebe2-4db2-b7bb-e769eb25c4a5</uuid>
+      <name>AM PEA MSCI EM ESG TRN ETF-E</name>
+      <currencyCode>EUR</currencyCode>
+      <isin>FR0013412020</isin>
+      <tickerSymbol>PAEEM.PA</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices/>
+      <attributes>
+        <map/>
+      </attributes>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-24T10:09:11.865716Z</updatedAt>
+    </security>
+    <security>
+      <uuid>d035ff44-3d45-41e9-bc07-b86bb3983758</uuid>
+      <name>AXA Court Terme AC</name>
+      <currencyCode>EUR</currencyCode>
+      <isin>FR0000288946</isin>
+      <tickerSymbol>0P00000QCE.F</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices/>
+      <attributes>
+        <map/>
+      </attributes>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-24T10:19:28.462608Z</updatedAt>
+    </security>
+    <security>
+      <uuid>d0cf00e0-4d5c-4147-a482-8c030046dfe0</uuid>
+      <name>LMdG Opportunities Monde 50 EUR R</name>
+      <currencyCode>EUR</currencyCode>
+      <isin>FR0010172437</isin>
+      <tickerSymbol>0P000019HU.F</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices/>
+      <attributes>
+        <map/>
+      </attributes>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-24T10:19:05.894818Z</updatedAt>
+    </security>
+    <security>
+      <uuid>c015385e-6355-419c-82b0-66d1dec855b7</uuid>
+      <name>GemEquity R</name>
+      <currencyCode>EUR</currencyCode>
+      <isin>FR0011268705</isin>
+      <tickerSymbol>0P0000WHLW.F</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices/>
+      <attributes>
+        <map/>
+      </attributes>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-02-24T10:20:24.272221Z</updatedAt>
+    </security>
   </securities>
   <watchlists/>
   <accounts>
@@ -1054,7 +1110,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>0</rank>
+            <rank>4</rank>
           </classification>
           <classification>
             <id>6ac5fe56-5f01-4c3a-9ece-0bed93564400</id>
@@ -1064,7 +1120,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>1</rank>
+            <rank>29</rank>
           </classification>
           <classification>
             <id>9ad8180b-dea4-4a62-96ed-c06b234bdded</id>
@@ -1074,7 +1130,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>2</rank>
+            <rank>11</rank>
           </classification>
           <classification>
             <id>c8a0ca65-e0f2-4faf-aff1-0b2fa7ebaf26</id>
@@ -1084,7 +1140,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>3</rank>
+            <rank>27</rank>
           </classification>
           <classification>
             <id>54bd9796-fde6-43d5-82c8-07ee9a6de8ac</id>
@@ -1094,7 +1150,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>4</rank>
+            <rank>16</rank>
           </classification>
           <classification>
             <id>92f4d5f6-b825-4ad9-8fec-4105953b9dfc</id>
@@ -1104,7 +1160,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>5</rank>
+            <rank>37</rank>
           </classification>
           <classification>
             <id>fb1e3618-a9a6-44f2-9cbf-427790078bc7</id>
@@ -1114,7 +1170,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>6</rank>
+            <rank>8</rank>
           </classification>
           <classification>
             <id>796ae0e0-3388-47fc-91b8-4c0fe34b84c8</id>
@@ -1124,7 +1180,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>7</rank>
+            <rank>9</rank>
           </classification>
           <classification>
             <id>ec426ff0-89b6-426f-8d2e-5ee7bcf69b04</id>
@@ -1134,7 +1190,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>8</rank>
+            <rank>18</rank>
           </classification>
           <classification>
             <id>a96597f5-983c-4874-a1e0-947cc3cc2e5a</id>
@@ -1144,7 +1200,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>9</rank>
+            <rank>26</rank>
           </classification>
           <classification>
             <id>5cd0f7c4-49e2-408a-9fde-1c4a52313446</id>
@@ -1154,7 +1210,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>10</rank>
+            <rank>34</rank>
           </classification>
           <classification>
             <id>f43a1a28-c20e-435b-a0a8-e959012f8db5</id>
@@ -1164,7 +1220,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>11</rank>
+            <rank>32</rank>
           </classification>
           <classification>
             <id>5cb5ec56-3726-4bdb-8f53-d8b5cd298f28</id>
@@ -1174,7 +1230,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>12</rank>
+            <rank>36</rank>
           </classification>
           <classification>
             <id>410f081f-2dc9-49a3-8ed5-fd662f21ddc5</id>
@@ -1184,7 +1240,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>13</rank>
+            <rank>48</rank>
           </classification>
           <classification>
             <id>3e01dbfe-33d8-4f5d-8253-d5f7b2b40b06</id>
@@ -1194,7 +1250,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>14</rank>
+            <rank>15</rank>
           </classification>
           <classification>
             <id>11104427-60d3-4968-8d3c-e027f3f7d03d</id>
@@ -1204,7 +1260,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>15</rank>
+            <rank>38</rank>
           </classification>
           <classification>
             <id>6c4dbaa8-107e-4717-9f52-4b208cf95570</id>
@@ -1214,7 +1270,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>16</rank>
+            <rank>25</rank>
           </classification>
           <classification>
             <id>1e7fa9f3-6443-44ca-890f-a1ffdb22ef72</id>
@@ -1224,7 +1280,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>17</rank>
+            <rank>6</rank>
           </classification>
           <classification>
             <id>08c9789a-5fbc-45f0-ae72-cfa7a35c88e3</id>
@@ -1234,7 +1290,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>18</rank>
+            <rank>20</rank>
           </classification>
           <classification>
             <id>dfcd05b3-912e-406f-acb0-dba7f09b8555</id>
@@ -1244,7 +1300,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>19</rank>
+            <rank>28</rank>
           </classification>
           <classification>
             <id>85f4e721-83ae-497f-9485-75ed27c4f918</id>
@@ -1254,7 +1310,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>20</rank>
+            <rank>1</rank>
           </classification>
           <classification>
             <id>b0ebd575-6fe5-4c97-a8ac-5a7e405b4aea</id>
@@ -1264,7 +1320,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>21</rank>
+            <rank>47</rank>
           </classification>
           <classification>
             <id>53d9d676-61c4-4a42-8a16-2c367f31377e</id>
@@ -1274,7 +1330,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>22</rank>
+            <rank>35</rank>
           </classification>
           <classification>
             <id>1e202f5a-1561-45bf-95ef-7b285d6d2fe3</id>
@@ -1284,7 +1340,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>23</rank>
+            <rank>21</rank>
           </classification>
           <classification>
             <id>80eacad8-efb7-456c-8646-bb811964563b</id>
@@ -1294,7 +1350,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>24</rank>
+            <rank>33</rank>
           </classification>
           <classification>
             <id>4f821e9d-94a0-464e-948d-6fe05d80691e</id>
@@ -1304,7 +1360,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>25</rank>
+            <rank>49</rank>
           </classification>
           <classification>
             <id>4c129dc6-0c05-4fd4-90e8-f05099c3e11c</id>
@@ -1314,7 +1370,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>26</rank>
+            <rank>30</rank>
           </classification>
           <classification>
             <id>9ac06d56-c5d0-4098-864e-c64bb2b6d2a6</id>
@@ -1324,7 +1380,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>27</rank>
+            <rank>39</rank>
           </classification>
           <classification>
             <id>31d0792c-da46-413a-94af-827ff971aba9</id>
@@ -1334,7 +1390,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>28</rank>
+            <rank>12</rank>
           </classification>
           <classification>
             <id>524f4e92-9d91-498a-945d-ed16928451a1</id>
@@ -1344,7 +1400,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>29</rank>
+            <rank>41</rank>
           </classification>
           <classification>
             <id>3a1e823e-7a7b-4d36-b6ab-7493bd85461b</id>
@@ -1354,7 +1410,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>30</rank>
+            <rank>2</rank>
           </classification>
           <classification>
             <id>c1b3afbf-e69d-4191-861c-52b0979bf1b4</id>
@@ -1364,7 +1420,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>31</rank>
+            <rank>22</rank>
           </classification>
           <classification>
             <id>20f16f9a-9759-4e78-9a3f-1f4617871d18</id>
@@ -1374,7 +1430,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>32</rank>
+            <rank>17</rank>
           </classification>
           <classification>
             <id>f5f513dc-cc3c-4814-abb3-aaf1cd2b2014</id>
@@ -1384,7 +1440,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>33</rank>
+            <rank>3</rank>
           </classification>
           <classification>
             <id>7faac921-c609-4232-938a-2f5154211d0b</id>
@@ -1394,7 +1450,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>34</rank>
+            <rank>40</rank>
           </classification>
           <classification>
             <id>10799dcd-48a6-486d-b3a3-776612c2c654</id>
@@ -1404,7 +1460,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>35</rank>
+            <rank>44</rank>
           </classification>
           <classification>
             <id>0efaf934-bdf3-4567-81e0-72a71293cfd1</id>
@@ -1414,7 +1470,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>36</rank>
+            <rank>23</rank>
           </classification>
           <classification>
             <id>28e59565-4952-4eb1-8931-3b8d6a876f11</id>
@@ -1424,7 +1480,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>37</rank>
+            <rank>42</rank>
           </classification>
           <classification>
             <id>e68915c7-3876-4d67-9915-b03dc681d0f4</id>
@@ -1434,7 +1490,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>38</rank>
+            <rank>31</rank>
           </classification>
           <classification>
             <id>4635118a-c0b2-4426-b212-5e4f026a0f86</id>
@@ -1444,7 +1500,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>39</rank>
+            <rank>43</rank>
           </classification>
           <classification>
             <id>e22043f9-da55-484b-8245-210062ff1039</id>
@@ -1454,7 +1510,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>40</rank>
+            <rank>10</rank>
           </classification>
           <classification>
             <id>e7eeaff7-737f-4fe1-b310-8b3c6aa1469b</id>
@@ -1464,7 +1520,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>41</rank>
+            <rank>0</rank>
           </classification>
           <classification>
             <id>c2f44f37-6b12-4e08-be2a-51696f7ffe65</id>
@@ -1474,7 +1530,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>42</rank>
+            <rank>45</rank>
           </classification>
           <classification>
             <id>0cb8a8bf-d381-4fbd-9c99-e4069b4af129</id>
@@ -1484,7 +1540,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>43</rank>
+            <rank>5</rank>
           </classification>
           <classification>
             <id>17a4ee3b-5316-4322-85d3-c25b8feb0676</id>
@@ -1494,7 +1550,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>44</rank>
+            <rank>7</rank>
           </classification>
           <classification>
             <id>eaf1dd08-42d1-418f-ac8a-0d2f170e30ad</id>
@@ -1504,7 +1560,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>45</rank>
+            <rank>13</rank>
           </classification>
           <classification>
             <id>a5359877-8473-4667-b357-ec687cd23d71</id>
@@ -1514,7 +1570,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>46</rank>
+            <rank>50</rank>
           </classification>
           <classification>
             <id>eb2a68f0-4638-47ad-b412-299d6be33960</id>
@@ -1524,7 +1580,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>47</rank>
+            <rank>24</rank>
           </classification>
           <classification>
             <id>2f88a850-b110-401a-bdd2-392af48c833e</id>
@@ -1534,7 +1590,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>48</rank>
+            <rank>46</rank>
           </classification>
           <classification>
             <id>0c9ea1c7-2ca9-4180-98a6-bc71d0c040a0</id>
@@ -1542,9 +1598,15 @@
             <color>#ac763b</color>
             <parent reference="../../.."/>
             <children/>
-            <assignments/>
+            <assignments>
+              <assignment>
+                <investmentVehicle class="account" reference="../../../../../../../../accounts/account"/>
+                <weight>10000</weight>
+                <rank>0</rank>
+              </assignment>
+            </assignments>
             <weight>0</weight>
-            <rank>49</rank>
+            <rank>14</rank>
           </classification>
           <classification>
             <id>38c3f593-db54-4ce4-abac-a9b938e1a718</id>
@@ -1554,7 +1616,7 @@
             <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>50</rank>
+            <rank>19</rank>
           </classification>
           <classification>
             <id>30a35460-2f65-476c-8871-d16150a0e006</id>
@@ -2101,7 +2163,13 @@
                 <color>#d89fcf</color>
                 <parent reference="../../.."/>
                 <children/>
-                <assignments/>
+                <assignments>
+                  <assignment>
+                    <investmentVehicle class="account" reference="../../../../../../../../../../accounts/account"/>
+                    <weight>10000</weight>
+                    <rank>0</rank>
+                  </assignment>
+                </assignments>
                 <weight>0</weight>
                 <rank>0</rank>
               </classification>
@@ -2277,7 +2345,13 @@
                 <color>#6baf3d</color>
                 <parent reference="../../.."/>
                 <children/>
-                <assignments/>
+                <assignments>
+                  <assignment>
+                    <investmentVehicle class="account" reference="../../../../../../../../../../accounts/account"/>
+                    <weight>10000</weight>
+                    <rank>0</rank>
+                  </assignment>
+                </assignments>
                 <weight>0</weight>
                 <rank>1</rank>
               </classification>
@@ -2376,90 +2450,6 @@
             <assignments/>
             <weight>0</weight>
             <rank>8</rank>
-          </classification>
-        </children>
-        <assignments/>
-        <weight>10000</weight>
-        <rank>0</rank>
-      </root>
-    </taxonomy>
-    <taxonomy>
-      <id>ad371a09-edcd-494a-baf0-788750070092</id>
-      <name>Bond Sector</name>
-      <root>
-        <id>bb874919-c306-4451-8767-f3ec345babaf</id>
-        <name>Bond Sector</name>
-        <color>#89afee</color>
-        <children>
-          <classification>
-            <id>73132a58-480b-4d32-b835-1c6d9bb6ff03</id>
-            <name>Government Related</name>
-            <color>#9fa04c</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>0</rank>
-          </classification>
-          <classification>
-            <id>014cf24f-8697-4085-a3b7-41063885d39e</id>
-            <name>Non-Agency Residential Mortgage Backed</name>
-            <color>#60a04c</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>1</rank>
-          </classification>
-          <classification>
-            <id>e435345c-e6d4-4f25-86a5-38c274a319fe</id>
-            <name>Covered Bond</name>
-            <color>#4ca076</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>2</rank>
-          </classification>
-          <classification>
-            <id>26cc77ee-e988-49a9-b715-e5dd0c65ca6f</id>
-            <name>Government</name>
-            <color>#4c8aa0</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>3</rank>
-          </classification>
-          <classification>
-            <id>37685c9b-ce4d-487c-8229-602bf553f2d2</id>
-            <name>Future/Forward</name>
-            <color>#4c4ca0</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>4</rank>
-          </classification>
-          <classification>
-            <id>f67b9e72-744a-43d5-8a2d-2441745efd66</id>
-            <name>Corporate Bond</name>
-            <color>#8b4ca0</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>5</rank>
-          </classification>
-          <classification>
-            <id>bf1541f0-00d9-4926-b6ef-82d0885e2068</id>
-            <name>Preferred</name>
-            <color>#a04c75</color>
-            <parent reference="../../.."/>
-            <children/>
-            <assignments/>
-            <weight>0</weight>
-            <rank>6</rank>
           </classification>
         </children>
         <assignments/>

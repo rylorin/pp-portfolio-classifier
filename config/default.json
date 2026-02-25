@@ -1,4 +1,5 @@
 {
+  "version": "0.0.1",
   "morningstar": {
     "domain": "de",
     "baseUrl": "https://www.emea-api.morningstar.com/ecint/v1",
@@ -1012,7 +1013,7 @@
       }
     },
     "region": {
-      "active": true,
+      "active": "auto",
       "name": "Region",
       "sourcePath": "Portfolios[0].RegionalExposure",
       "keyField": "Type",
@@ -1027,7 +1028,7 @@
       }
     },
     "country": {
-      "active": true,
+      "active": "auto",
       "name": "Country",
       "sourcePath": "Portfolios[0].CountryExposure",
       "keyField": "Type",
@@ -1055,7 +1056,7 @@
       }
     },
     "stock_style": {
-      "active": true,
+      "active": "auto",
       "name": "Stock Style",
       "sourcePath": "Portfolios[0].StyleBoxBreakdown",
       "keyField": "Type",
@@ -1096,7 +1097,7 @@
       "fixTotal": true
     },
     "bond_sector": {
-      "active": true,
+      "active": "auto",
       "name": "Bond Sector",
       "sourcePath": "Portfolios[0].GlobalBondSectorBreakdownLevel2",
       "keyField": "Type",

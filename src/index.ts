@@ -1,22 +1,10 @@
 #!/usr/bin/env node
+
+// should be at the very beginning to initialize node-config paths before loading
+import initConfig from "./config";
+initConfig();
+
 import * as path from "path";
-
-// Define config paths
-const package_path = path.join(path.dirname(require.resolve("../package.json")), "config");
-const runtime_path = path.normalize(path.join(process.cwd(), "config"));
-process.env["NODE_CONFIG_DIR"] =
-  package_path != runtime_path ? package_path + path.delimiter + runtime_path : runtime_path;
-// console.log(
-//   "Config dir:",
-//   process.env["NODE_ENV"],
-//   package_path,
-//   runtime_path,
-//   process.env["NODE_CONFIG_DIR"],
-//   config.util.getConfigSources().map((config) => config.name),
-//   config.get("taxonomies.holding.active"),
-//   config.get("taxonomies.holding.viewid"),
-// );
-
 import { Classifier } from "./classifier";
 import { MorningstarAPI } from "./morningstar-api";
 import { XMLHandler } from "./xml-helper";

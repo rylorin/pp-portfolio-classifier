@@ -180,11 +180,11 @@ describe("Integration Tests - Classification Output", () => {
       expect(content).toContain("<name>Stock Style</name>");
     });
 
-    test("Bond Sector taxonomy exists in output", () => {
-      const content = fs.readFileSync(TEST_OUTPUT_FILE, "utf-8");
+    // test("Bond Sector taxonomy exists in output", () => {
+    //   const content = fs.readFileSync(TEST_OUTPUT_FILE, "utf-8");
 
-      expect(content).toContain("<name>Bond Sector</name>");
-    });
+    //   expect(content).toContain("<name>Bond Sector</name>");
+    // });
 
     test("Region / Country taxonomy exists in output", () => {
       const content = fs.readFileSync(TEST_OUTPUT_FILE, "utf-8");

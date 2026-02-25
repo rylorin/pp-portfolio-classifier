@@ -19,7 +19,7 @@ It is a **TypeScript** adaptation and rewrite of the Python project [Alfons1Qto1
 - **Non-destructive**: Generates a new XML file by default to avoid overwriting your data without verification.
 - **Configurable**: Customize the script's behavior (language, taxonomies, etc.) via a configuration file.
 - **Multi-levels taxonomies**: Supports hierarchical taxonomies (e.g., "Europe > Germany").
-- **Embeded taxonomies**: Allows to embed a taxonomy into a specific category of another taxonomy.
+- **Nested taxonomies**: Allows to embed a taxonomy into a specific category of another taxonomy.
 
 ## 🧠 How it works
 
@@ -43,7 +43,7 @@ No installation is required, `npx` will download and install on the fly the late
 
 ### Usage
 
-To run the classification on your portfolio file:
+To run the classification on your portfolio file from the command line prompt, use the following command:
 
 ```bash
 npx pp-portfolio-classifier -- <path_to_your_portfolio.xml> [output_path.xml]
@@ -59,7 +59,7 @@ The project uses `node-config` for configuration management.
 
 ### Customization (Language and Taxonomies)
 
-You can customize the script's behavior (change the taxonomy language, modify the Morningstar domain, etc.) by creating a `config/local.json` file. This file will override the default values ​​defined in `config/default.json`.
+You can customize the script's behavior (change the taxonomy language, modify the Morningstar domain, etc.) by creating a `config/local.json` file. This file will override the default values ​​defined in `config/default.json`. The custom config file (`config/local.json`) can be located in the same directory as your portfolio file or in the current working directory.
 
 This is ideal for adapting category names to your language or customize taxonomies to your personal preferences.
 
@@ -109,14 +109,21 @@ This is ideal for adapting category names to your language or customize taxonomi
 
 **Available Taxonomies:**
 
-- `asset_type`
-- `region`
-- `country`
-- `country_by_region`
-- `stock_style`
-- `stock_sector`
-- `bond_sector`
+- `asset_type` **enabled by default**
+- `region` **enabled if the taxonomy already exists in your portfolio file**
+- `country` **enabled if the taxonomy already exists in your portfolio file**
+- `country_by_region` **enabled by default**
+- `stock_style` **enabled if the taxonomy already exists in your portfolio file**
+- `stock_sector` **enabled by default**
+- `bond_sector` **enabled if the taxonomy already exists in your portfolio file**
 - `holding` **disabled by default** as the taxonomy may become huge and difficult to manage for PP.
+
+**Configuration fields:**
+
+- `active`: Enable/disable this taxonomy. Set to `true` to enable, `false` to disable, or `"auto"` to enable it only if the taxonomy already exists in your portfolio file.
+- `name`: The name of the taxonomy as it will appear in Portfolio Performance.
+- `mapping`: The key of the mapping table to use for this taxonomy.
+- `stockConfig`: Specific configuration for stocks.
 
 ### How Mappings Work
 
@@ -141,7 +148,7 @@ You can control the classification behavior for specific securities by adding sp
 - **Multi-Asset Fund Breakdowns**
   Currently, the tool may produce inconsistent classifications for funds holding multiple asset classes (e.g., 90% Stocks, 10% Bonds).
   Morningstar reports a breakdown relative to a specific asset class (e.g., "100% of Bonds are Government Bonds"), therfore this percentage will apply to the **entire fund** instead of weighting it by the asset class portion (i.e., 100% of the 10%).
-  This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. This is how Morningstar reports data and is a known limitation of the current logic. 📌 Embeded taxonomies are a nice workaround to this issue.
+  This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. This is how Morningstar reports data and is a known limitation of the current logic. 📌 Nested taxonomies are a nice workaround to this issue.
 - **Portfolio Performance file format**
   The script only supports the unencrypted XML (without IDs) file format of Portfolio Performance.
 
@@ -229,17 +236,17 @@ Add an `embeddedTaxonomies` section to your `config/local.json`:
 
 ## 🖼️ Gallery
 
-### Asset Type with embeded taxonomies
+### Asset Type (nested taxonomies)
 
-![Asset Type with embeded taxonomies](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/embeded-taxonomies.png)
+![Asset Type with nested taxonomies](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/embeded-taxonomies.png)
+
+### Regions (hierachical taxonomy)
+
+![Autoclassified Regions](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/autoclassified-regions.png)
 
 ### Autoclassified stock-style
 
 ![Autoclassified stock-style](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/autoclassified-stock-style.png)
-
-### Autoclassified Regions
-
-![Autoclassified Regions](https://raw.githubusercontent.com/rylorin/pp-portfolio-classifier/refs/heads/main/docs/img/autoclassified-regions.png)
 
 ### Autoclassified Sectors
 

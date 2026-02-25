@@ -217,7 +217,7 @@ describe("Integration Tests - Classification Output", () => {
       "Region",
       "Country",
       "Asset Type",
-      "Bond Sector",
+      // "Bond Sector",
       "Stock Sector",
       "Stock Style",
       "Region / Country",

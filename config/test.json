@@ -1,4 +1,5 @@
 {
+  "version": "test",
   "taxonomies": {
     "holding": { "active": true, "viewid": "Top10" }
   },

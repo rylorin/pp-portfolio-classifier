@@ -18,7 +18,7 @@ interface TaxonomyConfig {
   // General config
 
   /** is taxonomy active? */
-  active: boolean;
+  active: boolean | "auto";
   /** Display name */
   name: string;
   /** Morningstar API viewId if not default */
@@ -60,6 +60,10 @@ export class Classifier {
     this.taxonomiesConfig = config.get("taxonomies");
     this.globalMappings = config.has("mappings") ? config.get("mappings") : {};
     this.embeddedTaxonomiesConfig = config.has("embeddedTaxonomies") ? config.get("embeddedTaxonomies") : {};
+  }
+
+  private isExplicitlyActive(taxConfig: TaxonomyConfig) {
+    return taxConfig.active === true || (taxConfig.active === "auto" && this.xmlHandler.taxonomyExists(taxConfig.name));
   }
 
   private getMapping(
@@ -105,8 +109,11 @@ export class Classifier {
       // 1. If it's explicitly active
       // 2. OR if it's needed for an active embedded taxonomy
       const isNeededForEmbedding = this.isTaxonomyNeededForEmbedding(taxonomyId);
+      const isExplicitlyActive = this.isExplicitlyActive(taxConfig);
 
-      if (!taxConfig.active && !isNeededForEmbedding) continue;
+      if (!isExplicitlyActive && !isNeededForEmbedding) {
+        continue;
+      }
       // Check if this taxonomy is ignored for this security (from the Note field)
       if (
         security.ignoreTaxonomies !== undefined &&
@@ -177,11 +184,15 @@ export class Classifier {
     // Only create standalone taxonomy entries for active taxonomies
     for (const [taxonomyId, result] of embeddedResults.entries()) {
       const taxConfig = this.taxonomiesConfig[taxonomyId];
-      if (taxConfig && taxConfig.active) {
-        // Normalize breakdown
-        result.assignments = this.normalizeBreakdown(result.assignments, taxonomyId);
-        // Then update the XML
-        this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, result.assignments);
+      if (taxConfig) {
+        const isExplicitlyActive = this.isExplicitlyActive(taxConfig);
+
+        if (isExplicitlyActive) {
+          // Normalize breakdown
+          result.assignments = this.normalizeBreakdown(result.assignments, taxonomyId);
+          // Then update the XML
+          this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, result.assignments);
+        }
       }
     }
   }
@@ -347,8 +358,11 @@ export class Classifier {
       // 1. If it's explicitly active
       // 2. OR if it's needed for an active embedded taxonomy
       const isNeededForEmbedding = this.isTaxonomyNeededForEmbedding(taxonomyId);
+      const isExplicitlyActive = this.isExplicitlyActive(taxConfig);
 
-      if (!taxConfig.active && !isNeededForEmbedding) continue;
+      if (!isExplicitlyActive && !isNeededForEmbedding) {
+        continue;
+      }
       if (
         security.ignoreTaxonomies !== undefined &&
         (security.ignoreTaxonomies === true || (security.ignoreTaxonomies as string[]).includes(taxonomyId))
@@ -431,8 +445,12 @@ export class Classifier {
     // Only create standalone taxonomy entries for active taxonomies
     for (const [taxonomyId, result] of embeddedResults.entries()) {
       const taxConfig = this.taxonomiesConfig[taxonomyId];
-      if (taxConfig && taxConfig.active) {
-        this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, result.assignments);
+      if (taxConfig) {
+        const isExplicitlyActive = this.isExplicitlyActive(taxConfig);
+
+        if (isExplicitlyActive) {
+          this.xmlHandler.updateSecurityAssignments(taxConfig.name || taxonomyId, security.uuid, result.assignments);
+        }
       }
     }
   }

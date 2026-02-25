@@ -80,6 +80,16 @@ export class XMLHandler {
   }
 
   /**
+   * Vérifie si une taxonomie existe par son nom.
+   */
+  taxonomyExists(name: string): boolean {
+    if (!this.xmlData?.client?.taxonomies?.taxonomy) {
+      return false;
+    }
+    return this.xmlData.client.taxonomies.taxonomy.some((t: any) => t.name === name);
+  }
+
+  /**
    * Finds or creates a taxonomy by name
    */
   getTaxonomy(name: string): any {
