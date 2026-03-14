@@ -9,7 +9,12 @@ const options = {
   format: true,
   indentBy: "  ",
   suppressEmptyNode: true,
-  isArray: (name: string, jpath: string, isLeafNode: boolean, isAttribute: boolean): boolean => {
+  isArray: (
+    name: string,
+    jPathOrMatcher: unknown,
+    isLeafNode: boolean,
+    isAttribute: boolean
+  ): boolean => {
     // Force ces éléments à être des tableaux même s'il n'y en a qu'un seul
     const arrayTags = [
       "securities.security",
@@ -17,7 +22,9 @@ const options = {
       "assignments.assignment",
       "children.classification",
     ];
-    if (arrayTags.some((tag) => jpath.endsWith(tag))) return true;
+    if (typeof jPathOrMatcher === "string") {
+      if (arrayTags.some((tag) => jPathOrMatcher.endsWith(tag))) return true;
+    }
     return false;
   },
 };
