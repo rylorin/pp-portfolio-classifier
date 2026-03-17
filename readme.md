@@ -123,6 +123,9 @@ This is ideal for adapting category names to your language or customize taxonomi
 - `active`: Enable/disable this taxonomy. Set to `true` to enable, `false` to disable, or `"auto"` to enable it only if the taxonomy already exists in your portfolio file.
 - `name`: The name of the taxonomy as it will appear in Portfolio Performance.
 - `mapping`: The key of the mapping table to use for this taxonomy.
+- `filter`: 
+- `multigroup`: If `true`, containers with multiple groups will be included in the taxonomy. If `false`, only the first group in the container will be included. Default is `false`.
+- `inclNotClassified`: In multi-asset fund breakdowns, Morningstar reports the weights as a percentage of the classified fraction of the fund. Set this to `true`to rescale the weights to the percentage of the total fund composition by multiplying the weights with `(1 - NotClassified/100)`. Default is `false` to keep behaviour consistent with pre-existing json configuration files.
 - `stockConfig`: Specific configuration for stocks.
 
 ### How Mappings Work
@@ -145,12 +148,106 @@ You can control the classification behavior for specific securities by adding sp
 
 ## ⚠️ Known Limitations
 
-- **Multi-Asset Fund Breakdowns**
-  Currently, the tool may produce inconsistent classifications for funds holding multiple asset classes (e.g., 90% Stocks, 10% Bonds).
-  Morningstar reports a breakdown relative to a specific asset class (e.g., "100% of Bonds are Government Bonds"), therfore this percentage will apply to the **entire fund** instead of weighting it by the asset class portion (i.e., 100% of the 10%).
-  This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. This is how Morningstar reports data and is a known limitation of the current logic. 📌 Nested taxonomies are a nice workaround to this issue.
 - **Portfolio Performance file format**
   The script only supports the unencrypted XML (without IDs) file format of Portfolio Performance.
+
+## Multi-Asset Fund Breakdowns
+Unless configured correctly, the tool may produce inconsistent classifications for funds holding multiple asset classes (e.g., 90% Stocks, 10% Bonds).
+Morningstar reports a breakdown relative to a specific asset class (e.g., "100% of Bonds are Government Bonds"), therefore this percentage will apply to the **entire fund** instead of weighting it by the asset class portion (i.e., 100% of the 10%).
+This means a fund with only 10% bonds could be classified as 100% Government Bonds in that specific taxonomy. 📌This issue can be addressed either with configuration options or by using nested taxonomies.
+
+## Configuration for Multi-Asset Funds
+
+### Examples
+As an example, the Country Exposure response for a fund containing 65% stocks (of which 80% USA and 20% Germany) and 35 % bonds (of which 70% France and 30% USA) might look like this (here, only the net sales positions are shown, not the long and short positions):
+``` json
+[
+  {
+    "Portfolios": [
+      {
+        "CountryExposure": [
+          {
+            "NotClassified": 35,
+            "SalePosition": "N",
+            "Type": "Equity",
+            "BreakdownValues": [
+              {
+                "Value": 20,
+                "Type": "DEU"
+              },
+              {
+                "Value": 80,
+                "Type": "USA"
+              }
+            ]
+          },
+          {
+            "NotClassified": 65,
+            "SalePosition": "N",
+            "Type": "Bond",
+            "BreakdownValues": [
+              {
+                "Value": 70,
+                "Type": "FRA"
+              },
+              {
+                "Value": 30,
+                "Type": "USA"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+Let's look at the results with different configurations:
+
+**Report bond breakdown as percentage of bonds**
+Config:
+``` json
+"filter": { "SalePosition": "N", "Type": "Bond"},
+"multigroup": false,
+"inclNotClassified": false
+```
+
+Result:
+```text
+Country:
+├── FRA 70
+└── USA 30
+```
+**Report equity breakdown as percentage of total fund**
+Config:
+``` json
+"filter": { "SalePosition": "N", "Type": "Equity"},
+"multigroup": false,
+"inclNotClassified": true
+```
+
+Result:
+```text
+Country:
+├── DEU 13 ← 20 * (1 - 35/100)
+└── USA 52 ← 80 * (1 - 35/100)
+```
+**Report total breakdown as percentage of total fund**
+Config:
+``` json
+"filter": { "SalePosition": "N"},
+"multigroup": true,
+"inclNotClassified": true
+```
+
+Result:
+```text
+Country:
+├── DEU 13 ← 20 * (1 - 35/100)
+└── USA 62.5 ← 80 * (1 - 35/100) + 30 * (1 - 65/100)
+└── FRA 24.5 ← 70 * (1 - 65/100)
+```
+Note that in the last example the Type filter was removed and multigroup was set to `true` to process both stocks and bonds, each with their respective weighting of `(1 - NotClassified/100)`.
 
 ## 🔗 Nested Taxonomies
 
