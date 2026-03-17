@@ -205,6 +205,7 @@ As an example, the Country Exposure response for a fund containing 65% stocks (o
 Let's look at the results with different configurations:
 
 **Report bond breakdown as percentage of bonds**
+
 Config:
 ``` json
 "filter": { "SalePosition": "N", "Type": "Bond"},
@@ -219,6 +220,7 @@ Country:
 └── USA 30
 ```
 **Report equity breakdown as percentage of total fund**
+
 Config:
 ``` json
 "filter": { "SalePosition": "N", "Type": "Equity"},
@@ -233,6 +235,7 @@ Country:
 └── USA 52 ← 80 * (1 - 35/100)
 ```
 **Report total breakdown as percentage of total fund**
+
 Config:
 ``` json
 "filter": { "SalePosition": "N"},
