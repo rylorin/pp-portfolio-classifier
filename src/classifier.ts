@@ -62,7 +62,7 @@ export class Classifier {
     this.embeddedTaxonomiesConfig = config.has("embeddedTaxonomies") ? config.get("embeddedTaxonomies") : {};
   }
 
-  private isExplicitlyActive(taxConfig: TaxonomyConfig) {
+  private isExplicitlyActive(taxConfig: TaxonomyConfig): boolean {
     return taxConfig.active === true || (taxConfig.active === "auto" && this.xmlHandler.taxonomyExists(taxConfig.name));
   }
 
@@ -93,7 +93,7 @@ export class Classifier {
     console.log(`  > Data retrieved for ${security.name}. Type: ${securityInfo.type}. Processing taxonomies...`);
 
     if (securityInfo.type === "Stock") {
-      await this.classifyStock(security, securityInfo.secid, securityInfo.data);
+      await this.classifyStock(security, securityInfo.secid as string, securityInfo.data);
     } else if (securityInfo.type === "Fund") {
       await this.classifyFund(security, securityInfo.data);
     } else {
@@ -102,7 +102,7 @@ export class Classifier {
   }
 
   private async classifyFund(security: PPSecurity, data: any): Promise<void> {
-    const securityResults: Map<string, TaxonomyResult> = new Map();
+    const securityResults: Map<string, TaxonomyResult> = new Map<string, TaxonomyResult>();
 
     for (const [taxonomyId, taxConfig] of Object.entries(this.taxonomiesConfig)) {
       // Check if this taxonomy should be processed:
@@ -162,7 +162,7 @@ export class Classifier {
       const itemsToProcess: any[] = [];
       for (const group of filteredData) {
         if (group.BreakdownValues && Array.isArray(group.BreakdownValues)) {
-          itemsToProcess.push(...group.BreakdownValues);
+          itemsToProcess.push(...group.BreakdownValues); // eslint-disable-line @typescript-eslint/no-unsafe-argument
         } else {
           itemsToProcess.push(group);
         }
@@ -197,7 +197,12 @@ export class Classifier {
     }
   }
 
-  private assignItems(taxConfig: TaxonomyConfig, itemsToProcess: any[], assignments: Assignment[], taxonomyId: string) {
+  private assignItems(
+    taxConfig: TaxonomyConfig,
+    itemsToProcess: any[],
+    assignments: Assignment[],
+    taxonomyId: string,
+  ): Assignment[] {
     const mapping = this.getMapping(taxConfig.mapping);
     for (const item of itemsToProcess) {
       const key = item[taxConfig.keyField];
@@ -211,7 +216,7 @@ export class Classifier {
         }
         if (!Object.keys(mapping).length) {
           // Check if an assignment with this path already exists and accumulate weights
-          const existingAssignment = assignments.find((a) => this.pathEquals(a.path, [key]));
+          const existingAssignment = assignments.find((a) => this.pathEquals(a.path, [key as string]));
           if (existingAssignment) {
             existingAssignment.weight += weight;
           } else {
@@ -246,7 +251,7 @@ export class Classifier {
   }
 
   private normalizeBreakdown(assignments: Assignment[], taxonomyId: string): Assignment[] {
-    let result = assignments
+    const result = assignments
       .filter((a) => a && a.weight > 0)
       .map((a) => ({ path: a.path, weight: Math.round(a.weight) }));
     const totalWeight = result.reduce((sum, assignment) => sum + assignment.weight, 0);
@@ -254,12 +259,12 @@ export class Classifier {
       result.sort((a, b) => b.weight - a.weight);
       let totalWeight = 0;
       for (let i = 0; i < result.length; i++) {
-        if (totalWeight + result[i].weight > 10000) {
-          result[i].weight = 10000 - totalWeight;
+        if (totalWeight + result[i].weight > 100_00) {
+          result[i].weight = 100_00 - totalWeight;
           console.log(
             `    [${taxonomyId}] Truncating weight for '${result[i].path.join(" > ")}' to ${result[i].weight / 100}%`,
           );
-          if (result[i].weight == 0) delete result[i];
+          if (result[i].weight == 0) delete result[i]; // eslint-disable-line @typescript-eslint/no-dynamic-delete
           totalWeight = 100_00;
         } else totalWeight += result[i].weight;
       }
@@ -346,7 +351,7 @@ export class Classifier {
   }
 
   private async classifyStock(security: PPSecurity, secid: string | null, data: any): Promise<void> {
-    const securityResults: Map<string, TaxonomyResult> = new Map();
+    const securityResults: Map<string, TaxonomyResult> = new Map<string, TaxonomyResult>();
 
     if (!secid && !data) {
       console.warn(`  > Cannot classify stock ${security.name} without data.`);
@@ -373,7 +378,7 @@ export class Classifier {
 
       const stockConfig = taxConfig.stockConfig;
 
-      let assignments: Assignment[] = [];
+      const assignments: Assignment[] = [];
 
       if (stockConfig.isSingleValue && stockConfig.value) {
         // Case 1: Static value (e.g., Asset Type is always 'Stocks')

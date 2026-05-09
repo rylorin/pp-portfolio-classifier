@@ -43,7 +43,7 @@ No installation is required, `npx` will download and install on the fly the late
 
 ### Usage
 
-To run the classification on your portfolio file from the command line prompt, use the following command:
+To run the classification on your portfolio file from the **system command line prompt**, use the following command:
 
 ```bash
 npx pp-portfolio-classifier <path_to_your_portfolio.xml> [output_path.xml]

@@ -51,6 +51,9 @@ export default tseslint.config(
       "@typescript-eslint/restrict-template-expressions": "error",
       "@typescript-eslint/unbound-method": "error",
       "@typescript-eslint/promise-function-async": "error",
+      "@typescript-eslint/no-inferrable-types": "warn",
+      "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
+      "no-useless-escape": "warn",
 
       // "rxjs/no-async-subscribe": "warn",
       // "rxjs/no-ignored-observable": "warn",

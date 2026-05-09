@@ -1,11 +1,11 @@
 import * as path from "path";
 
-function addConfigPath(allPaths: string[], configPath: string) {
+function addConfigPath(allPaths: string[], configPath: string): void {
   //   console.debug(configPath);
   if (allPaths.indexOf(configPath) < 0) allPaths.push(configPath);
 }
 
-export function initConfig() {
+export function initConfig(): void {
   const allPaths: string[] = [];
 
   // Define config paths
@@ -19,7 +19,7 @@ export function initConfig() {
   // Set NODE_CONFIG_DIR
   process.env["NODE_CONFIG_DIR"] = allPaths.join(path.delimiter);
 
-  const _config = require("config");
+  const _config = require("config"); // eslint-disable-line @typescript-eslint/no-require-imports
   //   console.log(
   //     "Config dir:",
   //     process.env["NODE_ENV"],

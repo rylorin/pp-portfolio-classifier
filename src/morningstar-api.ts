@@ -69,6 +69,7 @@ export class MorningstarAPI {
     const headers = { Authorization: `Bearer ${token}`, accept: "*/*" };
 
     try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       const response = await axios.get(url, { params, headers }).then((response) => response.data);
       if (response && response.length > 0) {
         const securityInfo = response[0];

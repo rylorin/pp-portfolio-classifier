@@ -19,25 +19,25 @@
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
-    "axios": "^1.6.0",
-    "config": "^4.4.0",
-    "fast-xml-parser": "^5.3.7",
-    "lodash": "^4.17.23"
+    "axios": "^1.16.0",
+    "config": "^4.4.1",
+    "fast-xml-parser": "^5.7.3",
+    "lodash": "^4.18.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@types/config": "^3.3.3",
+    "@types/config": "^4.4.0",
     "@types/jest": "^30.0.0",
     "@types/lodash": "^4.17.24",
-    "@types/node": "^22.19.11",
-    "eslint": "^9.39.1",
+    "@types/node": "^22.19.18",
+    "eslint": "^10.3.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
-    "jest": "^30.2.0",
-    "prettier": "^3.6.2",
-    "ts-jest": "^29.4.6",
+    "jest": "^30.4.2",
+    "prettier": "^3.8.3",
+    "ts-jest": "^29.4.9",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2",
-    "typescript-eslint": "^8.56.1"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.59.2"
   }
 }

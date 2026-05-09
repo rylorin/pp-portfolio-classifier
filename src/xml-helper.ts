@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return,@typescript-eslint/no-unsafe-call */
+
 import { randomUUID } from "crypto";
-import { XMLBuilder, XMLParser } from "fast-xml-parser";
+import { JPathOrMatcher, XMLBuilder, XMLParser } from "fast-xml-parser";
 import * as fs from "fs";
 import { PPSecurity } from "./types";
 
@@ -9,7 +11,7 @@ const options = {
   format: true,
   indentBy: "  ",
   suppressEmptyNode: true,
-  isArray: (name: string, jpath: string, isLeafNode: boolean, isAttribute: boolean): boolean => {
+  isArray: (tagName: string, jPathOrMatcher: JPathOrMatcher, _isLeafNode: boolean, _isAttribute: boolean): boolean => {
     // Force ces éléments à être des tableaux même s'il n'y en a qu'un seul
     const arrayTags = [
       "securities.security",
@@ -17,7 +19,7 @@ const options = {
       "assignments.assignment",
       "children.classification",
     ];
-    if (arrayTags.some((tag) => jpath.endsWith(tag))) return true;
+    if (arrayTags.some((tag) => (jPathOrMatcher as string).endsWith(tag))) return true;
     return false;
   },
 };
