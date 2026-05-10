@@ -92,7 +92,7 @@ This is ideal for adapting category names to your language or customize taxonomi
     "stock_style": { "active": false },
     "stock_sector": { "active": true },
     "bond_sector": { "active": false },
-    "holding": { "active": false, "maxItems": 100 }
+    "holding": { "active": false, "maxItems": 10 }
   },
   "embeddedTaxonomies": {
     "stock_style_in_asset": {
@@ -163,7 +163,7 @@ Instead of having separate taxonomies, you can embed one taxonomy into a specifi
 
 ### Example
 
-**Without embedded taxonomies:**
+**Without nested taxonomies:**
 
 ```text
 Asset Type:          Stock Style:
@@ -171,7 +171,7 @@ Asset Type:          Stock Style:
 └── Bond: 20%        └── Small Value: 30%
 ```
 
-**With embedded taxonomies:**
+**With nested taxonomies:**
 
 ```text
 Asset Type:
@@ -224,7 +224,7 @@ Add an `embeddedTaxonomies` section to your `config/local.json`:
 
 ### Notes
 
-- Embedded taxonomies are **enabled by default** as they provide a more accurate classification.
+- Nested taxonomies are **enabled by default** as they provide a more accurate classification.
 - The total always equals 100% (automatic adjustment if needed)
 - If a parent category doesn't exist (0%), the embedding is skipped
 - If a child taxonomy has no data, the parent category remains unchanged
@@ -272,3 +272,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 - Based on the original work by [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).
 - [Google Gemini](https://gemini.google.com/)
 - [Kilo Code](https://kilo.ai)
+- Benjamin BERTELLE for `maxItems` config option

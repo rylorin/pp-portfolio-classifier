@@ -1,7 +1,7 @@
 {
   "version": "test",
   "taxonomies": {
-    "holding": { "active": true, "viewid": "Top10" }
+    "holding": { "active": true, "viewid": "Top10", "maxItems": 6 }
   },
   "embeddedTaxonomies": {
     "stock_style_in_asset": {

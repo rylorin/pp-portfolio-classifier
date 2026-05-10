@@ -112,7 +112,7 @@ export class Classifier {
     for (const [taxonomyId, taxConfig] of Object.entries(this.taxonomiesConfig)) {
       // Check if this taxonomy should be processed:
       // 1. If it's explicitly active
-      // 2. OR if it's needed for an active embedded taxonomy
+      // 2. OR if it's needed for an active nested taxonomy
       const isNeededForEmbedding = this.isTaxonomyNeededForEmbedding(taxonomyId);
       const isExplicitlyActive = this.isExplicitlyActive(taxConfig);
 
@@ -184,11 +184,11 @@ export class Classifier {
       let assignments: Assignment[] = [];
       assignments = this.assignItems(taxConfig, itemsToProcess, assignments, taxonomyId);
 
-      // Store results for embedded processing
+      // Store results for nested processing
       securityResults.set(taxonomyId, { taxonomyId, assignments });
     }
 
-    // Apply embedded taxonomies if configured
+    // Apply nested taxonomies if configured
     const embeddedResults = this.applyEmbeddedTaxonomies(securityResults);
 
     // 5. Update the XML with final results
@@ -296,7 +296,7 @@ export class Classifier {
     for (const [configId, config] of Object.entries(this.embeddedTaxonomiesConfig)) {
       if (!config.active) continue;
 
-      console.log(`    [Embedded] Processing ${configId}...`);
+      console.log(`    [Nested] Processing ${configId}...`);
 
       // 1. Get parent and child results
       const parentResult = results.get(config.parentTaxonomy);
@@ -304,7 +304,7 @@ export class Classifier {
       const targetResult = results.get(config.targetTaxonomy);
 
       if (!parentResult || !childResult || !targetResult) {
-        console.log(`      [Embedded] Skipping ${configId}: missing taxonomy data`);
+        console.log(`      [Nested] Skipping ${configId}: missing taxonomy data`);
         continue;
       }
 
@@ -313,22 +313,22 @@ export class Classifier {
 
       if (parentWeight === 0) {
         console.log(
-          `      [Embedded] Skipping ${configId}: parent category '${config.parentCategory}' not found or has 0% weight`,
+          `      [Nested] Skipping ${configId}: parent category '${config.parentCategory}' not found or has 0% weight`,
         );
         continue;
       }
 
-      console.log(`      [Embedded] Parent '${config.parentCategory}' weight: ${Math.round(parentWeight) / 100}%`);
+      console.log(`      [Nested] Parent '${config.parentCategory}' weight: ${Math.round(parentWeight) / 100}%`);
 
-      // 3. Create embedded assignments
+      // 3. Create nested assignments
       const embeddedAssignments: Assignment[] = childResult.assignments.map((childAssignment) => ({
         path: [config.parentCategory, ...childAssignment.path],
         weight: Math.round((parentWeight * childAssignment.weight) / 10_000),
       }));
 
-      console.log(`      [Embedded] Created ${embeddedAssignments.length} subcategories`);
+      console.log(`      [Nested] Created ${embeddedAssignments.length} subcategories`);
 
-      // 4. Replace parent category with embedded assignments in target
+      // 4. Replace parent category with nested assignments in target
       targetResult.assignments = targetResult.assignments.filter(
         (assignment) => !this.pathEquals(assignment.path, [config.parentCategory]),
       );
@@ -372,7 +372,7 @@ export class Classifier {
     for (const [taxonomyId, taxConfig] of Object.entries(this.taxonomiesConfig)) {
       // Check if this taxonomy should be processed:
       // 1. If it's explicitly active
-      // 2. OR if it's needed for an active embedded taxonomy
+      // 2. OR if it's needed for an active nested taxonomy
       const isNeededForEmbedding = this.isTaxonomyNeededForEmbedding(taxonomyId);
       const isExplicitlyActive = this.isExplicitlyActive(taxConfig);
 
@@ -448,13 +448,13 @@ export class Classifier {
         }
       }
 
-      // Store results for embedded processing
+      // Store results for nested processing
       if (assignments.length > 0) {
         securityResults.set(taxonomyId, { taxonomyId, assignments });
       }
     }
 
-    // Apply embedded taxonomies if configured
+    // Apply nested taxonomies if configured
     const embeddedResults = this.applyEmbeddedTaxonomies(securityResults);
 
     // Update the XML with final results

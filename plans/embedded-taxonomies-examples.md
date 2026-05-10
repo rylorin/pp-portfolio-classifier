@@ -174,8 +174,7 @@ Les taxonomies "Stock Style" et "Bond Sector" restent inchangées.
       "keyField": "Type",
       "valueField": "Value",
       "filter": { "Type": "MorningStarDefault", "SalePosition": "N" },
-      "mapping": "AssetTypeMap",
-      "fixTotal": true
+      "mapping": "AssetTypeMap"
     },
 
     "stock_style": {
@@ -185,8 +184,7 @@ Les taxonomies "Stock Style" et "Bond Sector" restent inchangées.
       "keyField": "Type",
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
-      "mapping": "StockStyleBoxMap",
-      "fixTotal": true
+      "mapping": "StockStyleBoxMap"
     },
 
     "bond_sector": {
@@ -196,8 +194,7 @@ Les taxonomies "Stock Style" et "Bond Sector" restent inchangées.
       "keyField": "Type",
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
-      "mapping": "BondSectorL2Map",
-      "fixTotal": true
+      "mapping": "BondSectorL2Map"
     }
   },
 

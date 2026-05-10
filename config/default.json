@@ -1007,7 +1007,6 @@
       "valueField": "Value",
       "filter": { "Type": "MorningStarDefault", "SalePosition": "N" },
       "mapping": "AssetTypeMap",
-      "fixTotal": true,
       "stockConfig": {
         "isSingleValue": true,
         "value": "Stock"
@@ -1021,7 +1020,6 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "RegionMap",
-      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Country",
         "isSingleValue": true,
@@ -1036,7 +1034,6 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "CountryMap",
-      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Country",
         "mapping": "CountryMap"
@@ -1050,7 +1047,6 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "CountryRegionDetailedMap",
-      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Country",
         "mapping": "CountryRegionDetailedMap"
@@ -1064,7 +1060,6 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "StockStyleBoxMap",
-      "fixTotal": true,
       "stockConfig": {
         "viewId": "snapshot",
         "sourcePath": "QuantitativeFairValue.InvestmentStyle",
@@ -1079,7 +1074,6 @@
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
       "mapping": "SectorMap",
-      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Sector.SectorCode",
         "isSingleValue": true,
@@ -1094,8 +1088,7 @@
       "keyField": "Type",
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
-      "mapping": "BondStyleBoxMap",
-      "fixTotal": true
+      "mapping": "BondStyleBoxMap"
     },
     "bond_sector": {
       "active": "auto",
@@ -1104,8 +1097,7 @@
       "keyField": "Type",
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
-      "mapping": "BondSectorL2Map",
-      "fixTotal": true
+      "mapping": "BondSectorL2Map"
     },
     "industry": {
       "active": false,
@@ -1128,7 +1120,6 @@
       "multigroup": true,
       "keyField": "SecurityName",
       "valueField": "Weighting",
-      "fixTotal": true,
       "stockConfig": {
         "sourcePath": "Name"
       }
