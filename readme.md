@@ -92,7 +92,7 @@ This is ideal for adapting category names to your language or customize taxonomi
     "stock_style": { "active": false },
     "stock_sector": { "active": true },
     "bond_sector": { "active": false },
-    "holding": { "active": false }
+    "holding": { "active": false, "maxItems": 100 }
   },
   "embeddedTaxonomies": {
     "stock_style_in_asset": {
@@ -124,6 +124,7 @@ This is ideal for adapting category names to your language or customize taxonomi
 - `name`: The name of the taxonomy as it will appear in Portfolio Performance.
 - `mapping`: The key of the mapping table to use for this taxonomy.
 - `stockConfig`: Specific configuration for stocks.
+- `maxItems`: Limit the number of MorningStar entries used to build the taxonomy. Useful for large taxonomies like `holding`.
 
 ### How Mappings Work
 

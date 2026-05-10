@@ -38,8 +38,13 @@ interface TaxonomyConfig {
   valueField: string;
   /** Key mapping dictionary */
   mapping: Record<string, string | string[]> | string;
-  /** Adjust total to 100% */
-  fixTotal?: false | number;
+  /**
+   * Limit the number of items processed after flattening.
+   * Useful with viewId "AllHoldings" to emulate a "Top100" behaviour:
+   * set viewId to "AllHoldings" and maxItems to 100.
+   * Items are taken in the order returned by the API (already sorted by weight desc).
+   */
+  maxItems?: number;
 
   // Stock config
   stockConfig?: StockConfig;
@@ -159,13 +164,19 @@ export class Classifier {
 
       // 2.1 Extract BreakdownValues (Flattening)
       // The data we want is usually nested in a 'BreakdownValues' array inside the filtered items
-      const itemsToProcess: any[] = [];
+      let itemsToProcess: any[] = [];
       for (const group of filteredData) {
         if (group.BreakdownValues && Array.isArray(group.BreakdownValues)) {
           itemsToProcess.push(...group.BreakdownValues); // eslint-disable-line @typescript-eslint/no-unsafe-argument
         } else {
           itemsToProcess.push(group);
         }
+      }
+
+      // 2.2 Limit items if maxItems is configured (e.g. "Top100" via AllHoldings)
+      if (taxConfig.maxItems && taxConfig.maxItems > 0 && itemsToProcess.length > taxConfig.maxItems) {
+        console.log(`    [${taxonomyId}] Limiting to ${taxConfig.maxItems} items (got ${itemsToProcess.length}).`);
+        itemsToProcess = itemsToProcess.slice(0, taxConfig.maxItems);
       }
 
       // 3. Map and Assign
