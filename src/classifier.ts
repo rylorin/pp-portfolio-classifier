@@ -273,7 +273,7 @@ export class Classifier {
         if (totalWeight + result[i].weight > 100_00) {
           result[i].weight = 100_00 - totalWeight;
           console.log(
-            `    [${taxonomyId}] Truncating weight for '${result[i].path.join(" > ")}' to ${result[i].weight / 100}%`,
+            `    [${taxonomyId}] Ceiling weight for '${result[i].path.join(" > ")}' to ${result[i].weight / 100}%`,
           );
           if (result[i].weight == 0) delete result[i]; // eslint-disable-line @typescript-eslint/no-dynamic-delete
           totalWeight = 100_00;

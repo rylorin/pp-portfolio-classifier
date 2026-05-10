@@ -240,7 +240,7 @@
       <onlineId>19b5f23c6a9844b39668940e31f18ebd</onlineId>
       <name>Stock: Microsoft Corp.</name>
       <currencyCode>EUR</currencyCode>
-      <note>true</note>
+      <note></note>
       <isin>US5949181045</isin>
       <tickerSymbol>MSF.DE</tickerSymbol>
       <wkn>870747</wkn>
@@ -257,7 +257,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-05-10T06:22:37.710948Z</updatedAt>
+      <updatedAt>2026-05-10T12:13:19.430742Z</updatedAt>
     </security>
     <security>
       <uuid>3202b124-8573-4a18-861f-ff7ef7c87ccc</uuid>
