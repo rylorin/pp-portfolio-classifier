@@ -1,5 +1,5 @@
 <client>
-  <version>68</version>
+  <version>69</version>
   <baseCurrency>EUR</baseCurrency>
   <securities>
     <security>
@@ -124,6 +124,7 @@
       <onlineId>56bfe4bf63ae41949e70bba1d69744b1</onlineId>
       <name>L&amp;G Gerd Kommer Multifactor Equity UCITS ETF</name>
       <currencyCode>EUR</currencyCode>
+      <note>1</note>
       <isin>IE0001UQQ933</isin>
       <tickerSymbol>GERD.DE</tickerSymbol>
       <wkn>WELT0A</wkn>
@@ -140,7 +141,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-23T14:31:00.717062Z</updatedAt>
+      <updatedAt>2026-05-10T06:22:33.246387Z</updatedAt>
     </security>
     <security>
       <uuid>8ba17734-2bb7-4f2d-91e2-296bd5d33fc7</uuid>
@@ -239,6 +240,7 @@
       <onlineId>19b5f23c6a9844b39668940e31f18ebd</onlineId>
       <name>Stock: Microsoft Corp.</name>
       <currencyCode>EUR</currencyCode>
+      <note>true</note>
       <isin>US5949181045</isin>
       <tickerSymbol>MSF.DE</tickerSymbol>
       <wkn>870747</wkn>
@@ -255,7 +257,7 @@
       </attributes>
       <events/>
       <isRetired>false</isRetired>
-      <updatedAt>2026-02-23T14:31:00.717063Z</updatedAt>
+      <updatedAt>2026-05-10T06:22:37.710948Z</updatedAt>
     </security>
     <security>
       <uuid>3202b124-8573-4a18-861f-ff7ef7c87ccc</uuid>

@@ -62,7 +62,7 @@ export class XMLHandler {
         ignoreTaxonomies: undefined,
       };
 
-      if (sec.note) {
+      if (sec.note && typeof sec.note === "string") {
         const isinMatch = sec.note.match(/#PPC:\[ISIN2=([A-Z0-9]{12})\]/);
         if (isinMatch) security.isinOverride = isinMatch[1];
 
