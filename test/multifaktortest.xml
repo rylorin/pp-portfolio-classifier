@@ -497,6 +497,22 @@
       <isRetired>false</isRetired>
       <updatedAt>2026-02-25T06:30:31.421876Z</updatedAt>
     </security>
+    <security>
+      <uuid>6095701a-d999-4054-878d-aa816d150a8c</uuid>
+      <name>AMUNDI LC 2039 UCITS ETF ACC</name>
+      <currencyCode>EUR</currencyCode>
+      <isin>LU2872292243</isin>
+      <tickerSymbol>LC39.PA</tickerSymbol>
+      <feed>MANUAL</feed>
+      <prices/>
+      <latestFeed>MANUAL</latestFeed>
+      <attributes>
+        <map/>
+      </attributes>
+      <events/>
+      <isRetired>false</isRetired>
+      <updatedAt>2026-05-10T15:37:25.503900Z</updatedAt>
+    </security>
   </securities>
   <watchlists/>
   <accounts>
@@ -1972,16 +1988,6 @@
                 <assignments/>
                 <weight>0</weight>
                 <rank>1</rank>
-              </classification>
-              <classification>
-                <id>b0dd9de8-fd7b-4d95-86d5-bc7d118cb257</id>
-                <name>South Korea</name>
-                <color>#7985bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
               </classification>
               <classification>
                 <id>c73fbd92-eb23-4858-9887-b72b7321873c</id>

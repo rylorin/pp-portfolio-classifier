@@ -14,7 +14,7 @@ import * as path from "path";
 
 // Test configuration
 const TEST_INPUT_FILE = path.join(__dirname, "multifaktortest.xml");
-const TEST_OUTPUT_FILE = path.join(__dirname, "multifaktortest.categorized.xml");
+const TEST_OUTPUT_FILE = path.join(__dirname, "multifaktortest.classified.xml");
 
 // Helper function to run the classifier
 function runClassifier(inputFile: string, outputFile: string): void {

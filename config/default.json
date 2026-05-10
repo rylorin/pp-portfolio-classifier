@@ -1033,6 +1033,8 @@
       "keyField": "Type",
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
+      "notClassifiedField": false,
+      "multigroup": false,
       "mapping": "CountryMap",
       "stockConfig": {
         "sourcePath": "Country",
@@ -1046,6 +1048,8 @@
       "keyField": "Type",
       "valueField": "Value",
       "filter": { "SalePosition": "N" },
+      "notClassifiedField": false,
+      "multigroup": false,
       "mapping": "CountryRegionDetailedMap",
       "stockConfig": {
         "sourcePath": "Country",

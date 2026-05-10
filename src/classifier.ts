@@ -45,6 +45,12 @@ interface TaxonomyConfig {
    * Items are taken in the order returned by the API (already sorted by weight desc).
    */
   maxItems?: number;
+  /**
+   * Field name to use for NotClassified adjustment.
+   * If set, each Breakdown value will be multiplied by (1 - NotClassified/100)
+   * to get the correct overall weight. Common value: "NotClassified".
+   */
+  notClassifiedField?: string;
 
   // Stock config
   stockConfig?: StockConfig;
@@ -164,25 +170,44 @@ export class Classifier {
 
       // 2.1 Extract BreakdownValues (Flattening)
       // The data we want is usually nested in a 'BreakdownValues' array inside the filtered items
-      let itemsToProcess: any[] = [];
+      // Also extract NotClassified value if configured for this taxonomy
+      interface GroupWithNotClassified {
+        items: any[];
+        notClassified: number;
+      }
+      const groupsWithNotClassified: GroupWithNotClassified[] = [];
       for (const group of filteredData) {
-        if (group.BreakdownValues && Array.isArray(group.BreakdownValues)) {
-          itemsToProcess.push(...group.BreakdownValues); // eslint-disable-line @typescript-eslint/no-unsafe-argument
-        } else {
-          itemsToProcess.push(group);
+        let notClassified = 0;
+        if (taxConfig.notClassifiedField) {
+          const ncValue = group[taxConfig.notClassifiedField];
+          if (typeof ncValue === "number") {
+            notClassified = ncValue;
+          }
         }
+        let items: any[] = [];
+        if (group.BreakdownValues && Array.isArray(group.BreakdownValues)) {
+          items.push(...group.BreakdownValues); // eslint-disable-line @typescript-eslint/no-unsafe-argument
+        } else {
+          items.push(group);
+        }
+        groupsWithNotClassified.push({ items, notClassified });
       }
 
       // 2.2 Limit items if maxItems is configured (e.g. "Top100" via AllHoldings)
-      if (taxConfig.maxItems && taxConfig.maxItems > 0 && itemsToProcess.length > taxConfig.maxItems) {
-        console.log(`    [${taxonomyId}] Limiting to ${taxConfig.maxItems} items (got ${itemsToProcess.length}).`);
-        itemsToProcess = itemsToProcess.slice(0, taxConfig.maxItems);
+      // Apply limit to each group separately
+      for (const groupData of groupsWithNotClassified) {
+        if (taxConfig.maxItems && taxConfig.maxItems > 0 && groupData.items.length > taxConfig.maxItems) {
+          console.log(
+            `    [${taxonomyId}] Limiting group to ${taxConfig.maxItems} items (got ${groupData.items.length}).`,
+          );
+          groupData.items = groupData.items.slice(0, taxConfig.maxItems);
+        }
       }
 
       // 3. Map and Assign
       // console.log(`    [${taxonomyId}] Assigning ${itemsToProcess.length} items...`);
       let assignments: Assignment[] = [];
-      assignments = this.assignItems(taxConfig, itemsToProcess, assignments, taxonomyId);
+      assignments = this.assignItemsFromGroups(taxConfig, groupsWithNotClassified, assignments, taxonomyId);
 
       // Store results for nested processing
       securityResults.set(taxonomyId, { taxonomyId, assignments });
@@ -256,6 +281,69 @@ export class Classifier {
         }
       } else {
         // console.warn(`    [${taxonomyId}] No key ${key} or value ${value} for item`);
+      }
+    }
+    return assignments;
+  }
+
+  private assignItemsFromGroups(
+    taxConfig: TaxonomyConfig,
+    groups: { items: any[]; notClassified: number }[],
+    assignments: Assignment[],
+    taxonomyId: string,
+  ): Assignment[] {
+    const mapping = this.getMapping(taxConfig.mapping);
+    const hasNotClassifiedConfig = !!taxConfig.notClassifiedField;
+
+    for (const group of groups) {
+      const notClassified = group.notClassified;
+      const adjustmentFactor = notClassified > 0 ? (1 - notClassified / 100) : 1;
+
+      if (hasNotClassifiedConfig && notClassified > 0) {
+        console.log(
+          `    [${taxonomyId}] Applying NotClassified adjustment: ${notClassified}% -> factor ${adjustmentFactor.toFixed(4)}`,
+        );
+      }
+
+      for (const item of group.items) {
+        const key = item[taxConfig.keyField];
+        const rawValue = item[taxConfig.valueField];
+
+        if (key && rawValue) {
+          const rawWeight = rawValue * 100;
+          const weight = rawWeight * adjustmentFactor;
+          if (Number.isNaN(weight)) {
+            console.warn(`    [${taxonomyId}] Invalid weight for key: '${key}' (Value: ${rawValue})`);
+            continue;
+          }
+          if (!Object.keys(mapping).length) {
+            const existingAssignment = assignments.find((a) => this.pathEquals(a.path, [key as string]));
+            if (existingAssignment) {
+              existingAssignment.weight += weight;
+            } else {
+              assignments.push({ path: [key], weight });
+            }
+          } else if (key in mapping) {
+            const targetClass = mapping[key];
+            if (targetClass) {
+              const path = Array.isArray(targetClass) ? targetClass : [targetClass];
+              if (weight > 0) {
+                const existingAssignment = assignments.find((a) => this.pathEquals(a.path, path));
+                if (existingAssignment) {
+                  existingAssignment.weight += weight;
+                } else {
+                  assignments.push({ path, weight });
+                }
+              } else {
+                console.warn(
+                  `    [${taxonomyId}] Negative or null weight for key: '${key}' ignored (Value: ${weight / 100})`,
+                );
+              }
+            }
+          } else {
+            console.warn(`    [${taxonomyId}] Unmapped key: '${key}' (Value: ${rawValue})`);
+          }
+        }
       }
     }
     return assignments;

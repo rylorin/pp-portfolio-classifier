@@ -88,7 +88,11 @@ This is ideal for adapting category names to your language or customize taxonomi
     },
     "region": { "active": false },
     "country": { "active": false },
-    "country_by_region": { "active": true },
+    "country_by_region": {
+      "active": true,
+      "notClassifiedField": "NotClassified",
+      "multigroup": true
+    },
     "stock_style": { "active": false },
     "stock_sector": { "active": true },
     "bond_sector": { "active": false },
@@ -125,6 +129,7 @@ This is ideal for adapting category names to your language or customize taxonomi
 - `mapping`: The key of the mapping table to use for this taxonomy.
 - `stockConfig`: Specific configuration for stocks.
 - `maxItems`: Limit the number of MorningStar entries used to build the taxonomy. Useful for large taxonomies like `holding`.
+- `notClassifiedField`: The name of the field used to store unclassified breakdown weight total.
 
 ### How Mappings Work
 

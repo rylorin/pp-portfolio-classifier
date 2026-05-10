@@ -19,7 +19,7 @@ async function main(): Promise<void> {
 
   const outputFile =
     process.argv[3] ||
-    path.join(path.dirname(inputFile), path.basename(inputFile, path.extname(inputFile)) + ".categorized.xml");
+    path.join(path.dirname(inputFile), path.basename(inputFile, path.extname(inputFile)) + ".classified.xml");
 
   // 1. Init modules
   const xmlHandler = new XMLHandler();
