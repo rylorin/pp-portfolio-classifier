@@ -20,13 +20,13 @@ export function initConfig(): void {
   process.env["NODE_CONFIG_DIR"] = allPaths.join(path.delimiter);
 
   const _config = require("config"); // eslint-disable-line @typescript-eslint/no-require-imports
-  //   console.log(
-  //     "Config dir:",
-  //     process.env["NODE_ENV"],
-  //     process.env["NODE_CONFIG_DIR"],
-  //     config.util.getConfigSources().map((config: any) => config.name),
-  //     config.get("version"),
-  //   );
+  // console.log(
+  //   "Config dir:",
+  //   process.env["NODE_ENV"],
+  //   process.env["NODE_CONFIG_DIR"],
+  //   _config.util.getConfigSources().map((config: any) => config.name),
+  //   _config.get("version"),
+  // );
 }
 
 export default initConfig;

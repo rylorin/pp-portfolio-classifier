@@ -19,7 +19,9 @@ const options = {
       "assignments.assignment",
       "children.classification",
     ];
-    if (arrayTags.some((tag) => (jPathOrMatcher as string).endsWith(tag))) return true;
+    if (typeof jPathOrMatcher === "string") {
+      if (arrayTags.some((tag) => jPathOrMatcher.endsWith(tag))) return true;
+    }
     return false;
   },
 };

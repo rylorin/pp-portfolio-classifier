@@ -956,27 +956,32 @@
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[2]"/>
                 <weight>7657</weight>
-                <rank>2147483647</rank>
+                <rank>1</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[3]"/>
                 <weight>7505</weight>
-                <rank>2147483647</rank>
+                <rank>2</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[6]"/>
                 <weight>5421</weight>
-                <rank>2147483647</rank>
+                <rank>3</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[7]"/>
                 <weight>2800</weight>
-                <rank>2147483647</rank>
+                <rank>4</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security"/>
                 <weight>10000</weight>
-                <rank>2147483647</rank>
+                <rank>5</rank>
+              </assignment>
+              <assignment>
+                <investmentVehicle class="security" reference="../../../../../../../../securities/security[13]"/>
+                <weight>10000</weight>
+                <rank>6</rank>
               </assignment>
             </assignments>
             <weight>5000</weight>
@@ -1012,22 +1017,42 @@
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[2]"/>
                 <weight>1534</weight>
-                <rank>2147483647</rank>
+                <rank>4</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[3]"/>
                 <weight>1352</weight>
-                <rank>2147483647</rank>
+                <rank>5</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[6]"/>
                 <weight>2405</weight>
-                <rank>2147483647</rank>
+                <rank>6</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[7]"/>
                 <weight>5909</weight>
-                <rank>2147483647</rank>
+                <rank>7</rank>
+              </assignment>
+              <assignment>
+                <investmentVehicle class="account" reference="../../../../../../../../accounts/account"/>
+                <weight>10000</weight>
+                <rank>8</rank>
+              </assignment>
+              <assignment>
+                <investmentVehicle class="security" reference="../../../../../../../../securities/security[17]"/>
+                <weight>10000</weight>
+                <rank>9</rank>
+              </assignment>
+              <assignment>
+                <investmentVehicle class="security" reference="../../../../../../../../securities/security[18]"/>
+                <weight>10000</weight>
+                <rank>10</rank>
+              </assignment>
+              <assignment>
+                <investmentVehicle class="security" reference="../../../../../../../../securities/security[25]"/>
+                <weight>10000</weight>
+                <rank>11</rank>
               </assignment>
             </assignments>
             <weight>2500</weight>
@@ -1053,22 +1078,27 @@
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[2]"/>
                 <weight>772</weight>
-                <rank>2147483647</rank>
+                <rank>2</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[3]"/>
                 <weight>1030</weight>
-                <rank>2147483647</rank>
+                <rank>3</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[6]"/>
                 <weight>2147</weight>
-                <rank>2147483647</rank>
+                <rank>4</rank>
               </assignment>
               <assignment>
                 <investmentVehicle class="security" reference="../../../../../../../../securities/security[7]"/>
                 <weight>1226</weight>
-                <rank>2147483647</rank>
+                <rank>5</rank>
+              </assignment>
+              <assignment>
+                <investmentVehicle class="security" reference="../../../../../../../../securities/security[14]"/>
+                <weight>10000</weight>
+                <rank>6</rank>
               </assignment>
             </assignments>
             <weight>2500</weight>
@@ -1693,89 +1723,17 @@
             <name>Europe Emerging</name>
             <color>#a57e58</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>5be12544-9702-4fe7-a489-530a3aec5787</id>
-                <name>Poland</name>
-                <color>#bf9b79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>40969c81-39a0-4974-8894-7b360e92aa40</id>
-                <name>Greece</name>
-                <color>#bf9b79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-              <classification>
-                <id>b70fbb54-780e-43f3-ac78-2edfc9812329</id>
-                <name>Türkiye</name>
-                <color>#bf9b79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
-              </classification>
-              <classification>
-                <id>dac43fa4-18ac-43ea-9e8d-eee9bea6aae0</id>
-                <name>Hungary</name>
-                <color>#bf9b79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>3</rank>
-              </classification>
-              <classification>
-                <id>f749becc-61f9-4531-af1e-513ad1a2de67</id>
-                <name>Czech Republic</name>
-                <color>#bf9b79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>4</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>5</rank>
+            <rank>6</rank>
           </classification>
           <classification>
             <id>5ea12ccb-5674-4a41-9274-a320babef8e2</id>
             <name>Africa</name>
             <color>#99a558</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>c08c7010-ae93-4a08-b7c1-2408ccbe7bdc</id>
-                <name>South Africa</name>
-                <color>#b3bf79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>aa7af5f3-63de-49df-99eb-8b723825aa82</id>
-                <name>Cameroon</name>
-                <color>#b3bf79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>0</rank>
@@ -1785,68 +1743,7 @@
             <name>Latin America</name>
             <color>#66a558</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>b3408acc-e9e9-4596-ae26-32b1af306a5d</id>
-                <name>Brazil</name>
-                <color>#85bf79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>6e311422-e025-4337-a542-097b7d47f744</id>
-                <name>Mexico</name>
-                <color>#85bf79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-              <classification>
-                <id>18d75251-f1f9-4ba6-8825-13102406ff11</id>
-                <name>Chile</name>
-                <color>#85bf79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
-              </classification>
-              <classification>
-                <id>f9c4f6ec-5b0b-4e96-a7d9-8ae70867070d</id>
-                <name>Colombia</name>
-                <color>#85bf79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>3</rank>
-              </classification>
-              <classification>
-                <id>e77e975b-2fde-403a-a98a-f4b8d8996f65</id>
-                <name>Puerto Rico</name>
-                <color>#85bf79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>4</rank>
-              </classification>
-              <classification>
-                <id>eb9f9f7f-45c2-4d96-a0ac-4b401ed356a8</id>
-                <name>Guatemala</name>
-                <color>#85bf79</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>5</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>7</rank>
@@ -1856,68 +1753,7 @@
             <name>Middle East</name>
             <color>#58a57e</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>8c62d964-ed84-4240-bf9c-4bafb12ad8a8</id>
-                <name>Israel</name>
-                <color>#79bf9b</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>4b202274-b2c5-4693-ac98-f7b7d98e2366</id>
-                <name>Saudi Arabia</name>
-                <color>#79bf9b</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-              <classification>
-                <id>7f70da2d-3331-4db1-b2e6-135be2c96dda</id>
-                <name>United Arab Emirates</name>
-                <color>#79bf9b</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
-              </classification>
-              <classification>
-                <id>8ca72b7e-93b8-4d3a-9718-6901d931904a</id>
-                <name>Kuwait</name>
-                <color>#79bf9b</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>3</rank>
-              </classification>
-              <classification>
-                <id>66078a49-9ceb-4e98-b269-88f1a19b1419</id>
-                <name>Qatar</name>
-                <color>#79bf9b</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>4</rank>
-              </classification>
-              <classification>
-                <id>0ea79e46-7a59-49af-91cb-a0bf6a77d026</id>
-                <name>Egypt</name>
-                <color>#79bf9b</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>5</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>8</rank>
@@ -1927,38 +1763,7 @@
             <name>Australasia</name>
             <color>#5899a5</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>863f2a3f-c50f-4d72-88ac-01d6238ecf9e</id>
-                <name>Australia</name>
-                <color>#79b3bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>25fc395e-3362-4bc8-835c-cb37abc9538e</id>
-                <name>New Zealand</name>
-                <color>#79b3bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-              <classification>
-                <id>d2244ebf-3f0d-4a53-832a-109c7dfbdcbb</id>
-                <name>Marshall Islands</name>
-                <color>#79b3bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>3</rank>
@@ -1968,68 +1773,7 @@
             <name>Asia Emerging</name>
             <color>#5866a5</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>bb10a282-104e-4911-8b14-3c3eab19034b</id>
-                <name>India</name>
-                <color>#7985bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>268dfc62-e72e-4255-a07a-34d24ef887f9</id>
-                <name>China</name>
-                <color>#7985bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-              <classification>
-                <id>c73fbd92-eb23-4858-9887-b72b7321873c</id>
-                <name>Thailand</name>
-                <color>#7985bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>3</rank>
-              </classification>
-              <classification>
-                <id>f4344e3b-27f3-4dc2-93c4-2b918919989f</id>
-                <name>Malaysia</name>
-                <color>#7985bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>4</rank>
-              </classification>
-              <classification>
-                <id>e9e23cc0-1dba-42ed-bd6b-ffdae561ad06</id>
-                <name>Indonesia</name>
-                <color>#7985bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>5</rank>
-              </classification>
-              <classification>
-                <id>337f97fe-ac7d-46f3-b91d-964310c06f2b</id>
-                <name>Philippines</name>
-                <color>#7985bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>6</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>2</rank>
@@ -2039,58 +1783,7 @@
             <name>Asia Developed</name>
             <color>#7e58a5</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>e823b505-d433-4965-abdc-4e61c56b2068</id>
-                <name>Taiwan</name>
-                <color>#9b79bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>de25ed99-5188-40d5-9fbc-04c43f23b159</id>
-                <name>Japan</name>
-                <color>#9b79bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-              <classification>
-                <id>271eb48f-5b76-4190-bdb2-cb40af2f7a9c</id>
-                <name>Singapore</name>
-                <color>#9b79bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
-              </classification>
-              <classification>
-                <id>468d9af2-85d0-48cd-9606-fbe8326ca654</id>
-                <name>Hong Kong</name>
-                <color>#9b79bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>3</rank>
-              </classification>
-              <classification>
-                <id>d40546e8-58be-4671-943a-7192748e267c</id>
-                <name>Macao</name>
-                <color>#9b79bf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>4</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>1</rank>
@@ -2100,89 +1793,17 @@
             <name>Europe Developed Ex-EMU</name>
             <color>#a55899</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>ef0c7c23-dd1f-42e1-958a-004de6c857f6</id>
-                <name>United Kingdom</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>b66a57ac-d094-4634-be86-721589b4f31e</id>
-                <name>Switzerland</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-              <classification>
-                <id>4c703ff4-2c01-4864-bc62-6777eafab453</id>
-                <name>Danemark</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
-              </classification>
-              <classification>
-                <id>ae1aeabe-ba4c-4ba4-879e-3a929bb78052</id>
-                <name>Sweden</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>3</rank>
-              </classification>
-              <classification>
-                <id>db05a861-a79a-4026-a221-2b91fd98dd9e</id>
-                <name>Norway</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>4</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
-            <rank>4</rank>
+            <rank>5</rank>
           </classification>
           <classification>
             <id>6b0be9f4-4728-4410-a04a-76f0c4b69528</id>
             <name>North America</name>
             <color>#a55866</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>7c56a14e-e54f-46c5-9551-175b942c1a5c</id>
-                <name>United States</name>
-                <color>#bf7985</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>3c29b295-662a-4cb0-954d-cc2af392e226</id>
-                <name>Canada</name>
-                <color>#bf7985</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>9</rank>
@@ -2209,110 +1830,10 @@
                 <weight>0</weight>
                 <rank>0</rank>
               </classification>
-              <classification>
-                <id>d86a30fe-c652-4d25-89f6-a85d73d60b50</id>
-                <name>France</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-              <classification>
-                <id>6dd4bd9d-a5d4-4421-85d4-b7212f454545</id>
-                <name>Spain</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
-              </classification>
-              <classification>
-                <id>13aa8d8e-ae52-431f-baee-4d82f697875f</id>
-                <name>Netherlands</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>3</rank>
-              </classification>
-              <classification>
-                <id>65dcb849-7d73-4b8a-b295-29863b5aff55</id>
-                <name>Italy</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>4</rank>
-              </classification>
-              <classification>
-                <id>73977b3f-de90-4834-bac8-e5dfbf28ed77</id>
-                <name>Belgium</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>5</rank>
-              </classification>
-              <classification>
-                <id>2375d282-daa3-4d9c-91f9-700462e2424a</id>
-                <name>Finland</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>6</rank>
-              </classification>
-              <classification>
-                <id>ea3a91c2-6976-453f-8087-946b0be46eaa</id>
-                <name>Ireland</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>7</rank>
-              </classification>
-              <classification>
-                <id>147b03f4-1d80-4b40-b28b-7b0f61c86fd9</id>
-                <name>Austria</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>8</rank>
-              </classification>
-              <classification>
-                <id>797263bb-cd3e-4c70-93de-c027e0317c56</id>
-                <name>Portugal</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>9</rank>
-              </classification>
-              <classification>
-                <id>126f2388-2a2f-4f1c-aae1-2ed19a17b4d5</id>
-                <name>Luxembourg</name>
-                <color>#d89fcf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>10</rank>
-              </classification>
             </children>
             <assignments/>
             <weight>0</weight>
-            <rank>6</rank>
+            <rank>4</rank>
           </classification>
         </children>
         <assignments/>
@@ -2333,28 +1854,7 @@
             <name>North America</name>
             <color>#968e25</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>7885305a-f06d-4b4f-b3a4-6dbce5306016</id>
-                <name>United States</name>
-                <color>#afa83d</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-              <classification>
-                <id>f76dae06-8049-44a3-98a6-430247f39885</id>
-                <name>Canada</name>
-                <color>#afa83d</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>1</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>0</rank>
@@ -2365,16 +1865,6 @@
             <color>#529625</color>
             <parent reference="../../.."/>
             <children>
-              <classification>
-                <id>7d78305b-f422-4d43-ad06-6fc2505a699a</id>
-                <name>United Kingdom</name>
-                <color>#6baf3d</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
               <classification>
                 <id>63b79875-b19c-4d9c-b8b9-6727f0fe1f50</id>
                 <name>EMU</name>
@@ -2390,16 +1880,6 @@
                 </assignments>
                 <weight>0</weight>
                 <rank>1</rank>
-              </classification>
-              <classification>
-                <id>a667dd22-8d0f-4fe6-a837-3ac9d56e2171</id>
-                <name>Ex-EMU</name>
-                <color>#6baf3d</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>2</rank>
               </classification>
             </children>
             <assignments/>
@@ -2451,18 +1931,7 @@
             <name>Asia Developed</name>
             <color>#8e2596</color>
             <parent reference="../../.."/>
-            <children>
-              <classification>
-                <id>12181526-071b-4e66-b3f7-cf70f180ac33</id>
-                <name>Japan</name>
-                <color>#a83daf</color>
-                <parent reference="../../.."/>
-                <children/>
-                <assignments/>
-                <weight>0</weight>
-                <rank>0</rank>
-              </classification>
-            </children>
+            <children/>
             <assignments/>
             <weight>0</weight>
             <rank>6</rank>
@@ -2716,6 +2185,19 @@
             <rank>8</rank>
           </classification>
         </children>
+        <assignments/>
+        <weight>10000</weight>
+        <rank>0</rank>
+      </root>
+    </taxonomy>
+    <taxonomy>
+      <id>0bf5e0eb-9917-4676-9635-d499f7916087</id>
+      <name>Holding</name>
+      <root>
+        <id>9f65209a-b78d-4a4a-a52e-5956923439b5</id>
+        <name>Holding</name>
+        <color>#a988fb</color>
+        <children/>
         <assignments/>
         <weight>10000</weight>
         <rank>0</rank>

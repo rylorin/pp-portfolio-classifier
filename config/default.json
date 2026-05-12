@@ -1117,11 +1117,12 @@
       }
     },
     "holding": {
-      "active": false,
+      "active": true,
       "name": "Holding",
       "viewId": "Allholdings",
       "sourcePath": "Portfolios[0].PortfolioHoldings",
       "multigroup": true,
+      "maxItems": 100,
       "keyField": "SecurityName",
       "valueField": "Weighting",
       "stockConfig": {

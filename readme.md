@@ -114,21 +114,21 @@ This is ideal for adapting category names to your language or customize taxonomi
 **Available Taxonomies:**
 
 - `asset_type` **enabled by default**
-- `region` **enabled if the taxonomy already exists in your portfolio file**
-- `country` **enabled if the taxonomy already exists in your portfolio file**
+- `region` **enabled (auto) if the taxonomy already exists in your portfolio file**
+- `country` **enabled (auto) if the taxonomy already exists in your portfolio file**
 - `country_by_region` **enabled by default**
-- `stock_style` **enabled if the taxonomy already exists in your portfolio file**
+- `stock_style` **enabled (auto) if the taxonomy already exists in your portfolio file**
 - `stock_sector` **enabled by default**
-- `bond_sector` **enabled if the taxonomy already exists in your portfolio file**
-- `holding` **disabled by default** as the taxonomy may become huge and difficult to manage for PP.
+- `bond_sector` **enabled (auto) if the taxonomy already exists in your portfolio file**
+- `holding` **enabled by default** but limited to top 100 holdings as the full list may become huge and difficult to manage for PP.
 
 **Configuration fields:**
 
-- `active`: Enable/disable this taxonomy. Set to `true` to enable, `false` to disable, or `"auto"` to enable it only if the taxonomy already exists in your portfolio file.
+- `active`: Enable/disable this taxonomy. Set to `true` to enable, `false` to disable, or `"auto"` to enable it only if the taxonomy already exists in your portfolio file (it can be empty with only the root category).
 - `name`: The name of the taxonomy as it will appear in Portfolio Performance.
 - `mapping`: The key of the mapping table to use for this taxonomy.
 - `stockConfig`: Specific configuration for stocks.
-- `maxItems`: Limit the number of MorningStar entries used to build the taxonomy. Useful for large taxonomies like `holding`.
+- `maxItems`: Limit the number of MorningStar breakdown entries used to build the taxonomy. Useful for large taxonomies like `holding`.
 - `notClassifiedField`: The name of the field used to store unclassified breakdown weight total.
 
 ### How Mappings Work
@@ -277,4 +277,9 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 - Based on the original work by [Alfons1Qto12/pp-portfolio-classifier](https://github.com/Alfons1Qto12/pp-portfolio-classifier).
 - [Google Gemini](https://gemini.google.com/)
 - [Kilo Code](https://kilo.ai)
-- Benjamin BERTELLE for `maxItems` config option
+- Benjamin BERTELLE for the `maxItems` config option
+- [LuAp](https://github.com/LuAp-maker) for the `notClassifiedField`/`inclNotClassified` config option
+
+## 📞 Contact
+
+For questions or support, please open an issue on the GitHub repository.
