@@ -19,12 +19,16 @@ export class MorningstarAPI {
   private baseUrl: string;
   private salBaseUrl: string;
   private viewId: string;
+  private username: string = "";
+  private password: string = "";
 
   constructor() {
     this.domain = config.get("morningstar.domain");
     this.baseUrl = config.get("morningstar.baseUrl");
     this.salBaseUrl = config.get("morningstar.salBaseUrl");
     this.viewId = config.get("morningstar.viewId");
+    if (config.has("morningstar.username")) this.username = config.get("morningstar.username");
+    if (config.has("morningstar.password")) this.password = config.get("morningstar.password");
   }
 
   private async getBearerToken(): Promise<string> {
@@ -51,12 +55,45 @@ export class MorningstarAPI {
     }
   }
 
+  private async getBearerTokenWithCredentials(username: string, password: string): Promise<string> {
+    if (this.bearerToken) return this.bearerToken;
+
+    console.log("Fetching Morningstar Bearer Token with credentials...");
+    const authString = Buffer.from(`${username}:${password}`).toString("base64");
+    const url = "https://www.us-api.morningstar.com/token/oauth";
+    const headers = {
+      Authorization: `Basic ${authString}`,
+      accept: "application/json",
+    };
+
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const response = await axios.post(url, null, { headers }).then((res) => res.data);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      if (response && response.access_token) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
+        this.bearerToken = response.access_token;
+        return this.bearerToken;
+      } else {
+        throw new Error("Access token missing in response");
+      }
+    } catch (error) {
+      console.error("Failed to get Bearer Token with credentials", error);
+      throw error;
+    }
+  }
+
   /**
    * Récupère des données complémentaires via une vue spécifique (ex: 'snapshot').
    * Peut être utilisé avec un ISIN ou un SecId.
    */
   async getSecurityData(id: string, viewId?: string, idType: "ISIN" | "SecId" = "ISIN"): Promise<any> {
-    const token = await this.getBearerToken();
+    let token: string;
+    if (this.username.length > 0 && this.password.length > 0) {
+      token = await this.getBearerTokenWithCredentials(this.username, this.password);
+    } else {
+      token = await this.getBearerToken();
+    }
 
     const url = `${this.baseUrl}/securities/${id}`;
     const params = {

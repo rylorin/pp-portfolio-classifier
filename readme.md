@@ -57,7 +57,27 @@ npx pp-portfolio-classifier <path_to_your_portfolio.xml> [output_path.xml]
 
 The project uses `node-config` for configuration management.
 
-### Customization (Language and Taxonomies)
+### Credentials
+
+The script is pre-configured with default values for taxonomies and Morningstar API settings.
+
+However, you need to add your Morningstar credentials in a `config/local.json` file:
+
+````json
+{
+  "morningstar": {
+    "username": "your-moningstar-username",
+    "password": "your-moningstar-password"
+  }
+}
+
+If you don't have a Morningstar account, you can create one [here](https://www.morningstar.com/fr/fr/user/register); but a subscription is required to access the Morningstar API.
+
+> If you don't provide the credentials, the script will try to bypass Morningstar authentication which stopped working on 2026-05-30.
+
+### Advanced Customization (Optional)
+
+If you want to customize the script's behavior, you can create a `config/local.json` file.
 
 You can customize the script's behavior (change the taxonomy language, modify the Morningstar domain, etc.) by creating a `config/local.json` file. This file will override the default values ​​defined in `config/default.json`. The custom config file (`config/local.json`) can be located in the same directory as your portfolio file or in the current working directory.
 
@@ -109,7 +129,7 @@ This is ideal for adapting category names to your language or customize taxonomi
     }
   }
 }
-```
+````
 
 **Available Taxonomies:**
 
