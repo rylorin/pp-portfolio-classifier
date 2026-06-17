@@ -1,5 +1,6 @@
 import axios, { AxiosError } from "axios";
 import config from "config";
+import { XMLParser } from "fast-xml-parser";
 
 /*
   Useful Morningstar Postman workspace for exploring the API
@@ -19,16 +20,18 @@ export class MorningstarAPI {
   private baseUrl: string;
   private salBaseUrl: string;
   private viewId: string;
-  private username: string = "";
-  private password: string = "";
+  private username: string | undefined;
+  private password: string | undefined;
 
   constructor() {
     this.domain = config.get("morningstar.domain");
     this.baseUrl = config.get("morningstar.baseUrl");
     this.salBaseUrl = config.get("morningstar.salBaseUrl");
     this.viewId = config.get("morningstar.viewId");
-    if (config.has("morningstar.username")) this.username = config.get("morningstar.username");
-    if (config.has("morningstar.password")) this.password = config.get("morningstar.password");
+    if (config.has("morningstar.username") && config.has("morningstar.password")) {
+      this.username = config.get("morningstar.username");
+      this.password = config.get("morningstar.password");
+    }
   }
 
   private async getBearerToken(): Promise<string> {
@@ -77,8 +80,11 @@ export class MorningstarAPI {
       } else {
         throw new Error("Access token missing in response");
       }
-    } catch (error) {
-      console.error("Failed to get Bearer Token with credentials", error);
+    } catch (error: any) {
+      console.error(
+        "Failed to get Bearer Token with credentials",
+        error.isAxiosError ? error.response.data.error_message : error,
+      );
       throw error;
     }
   }
@@ -89,11 +95,12 @@ export class MorningstarAPI {
    */
   async getSecurityData(id: string, viewId?: string, idType: "ISIN" | "SecId" = "ISIN"): Promise<any> {
     let token: string;
-    if (this.username.length > 0 && this.password.length > 0) {
+    if (this.username && this.password) {
       token = await this.getBearerTokenWithCredentials(this.username, this.password);
     } else {
       token = await this.getBearerToken();
     }
+    // console.debug(this.username, this.password, token);
 
     const url = `${this.baseUrl}/securities/${id}`;
     const params = {
@@ -103,19 +110,33 @@ export class MorningstarAPI {
       responseViewFormat: "json",
       languageId: "en-UK",
     };
-    const headers = { Authorization: `Bearer ${token}`, accept: "*/*" };
+    const headers = { Authorization: `Bearer ${token}`, accept: "application/json" };
 
     try {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       const response = await axios.get(url, { params, headers }).then((response) => response.data);
+      // console.debug(response);
       if (response && response.length > 0) {
-        const securityInfo = response[0];
-        // if (isin == "NL0011585146") console.debug(isin, securityInfo);
-        return {
-          type: securityInfo.Type as "Fund" | "Stock",
-          data: securityInfo,
-          secid: securityInfo.Id || id, // Fallback to ISIN if SecId is missing (SAL API often accepts ISIN)
-        };
+        if (typeof response === "string") {
+          if (response.startsWith("<WebServiceException>")) {
+            const parser = new XMLParser();
+            const xmlData = parser.parse(response);
+            throw new Error(
+              `Morningstar API error #${xmlData.WebServiceException.StatusCode}: ${xmlData.WebServiceException.StatusMessage}`,
+            );
+          } else {
+            console.log("Morningstar API returned HTML instead of JSON. Trying fallback...");
+            return this.findSecidFromWebsite(id);
+          }
+        } else {
+          const securityInfo = response[0];
+          // if (isin == "NL0011585146") console.debug(isin, securityInfo);
+          return {
+            type: securityInfo.Type as "Fund" | "Stock",
+            data: securityInfo,
+            secid: securityInfo.Id || id, // Fallback to ISIN if SecId is missing (SAL API often accepts ISIN)
+          };
+        }
       }
       // If response is empty (200 OK but no data), try fallback
       console.log(`  > ecint API returned empty for ${id}, trying website search fallback...`);

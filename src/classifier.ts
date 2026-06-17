@@ -14,7 +14,7 @@ interface StockConfig {
   mapping?: Record<string, string | string[]> | string;
 }
 
-interface GroupWithNotClassified {
+interface _GroupWithNotClassified {
   items: any[];
   notClassified: number;
 }
@@ -114,6 +114,7 @@ export class Classifier {
       await this.classifyFund(security, securityInfo.data);
     } else {
       console.error(`  > Unknown security type: ${securityInfo.type}! Skipping...`);
+      // console.debug(securityInfo);
     }
   }
 

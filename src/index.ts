@@ -53,8 +53,10 @@ async function main(): Promise<void> {
 
     try {
       await classifier.classifySecurity(sec);
-    } catch (err) {
-      console.error(`  Error processing ${sec.isin}:`, err);
+    } catch (err: any) {
+      console.error(`  Error processing ${sec.isin}:`);
+      if (err.isAxiosError) console.error(`  Error #${err.status}: ${err.response?.data.error_message}`);
+      else console.error(err);
     }
 
     _processedCount++;
